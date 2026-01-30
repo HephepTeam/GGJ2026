@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cp0bf0rdxvw1s"]
+
+[ext_resource type="Script" uid="uid://dbyeb2a26hs3p" path="res://scenes/Player/player.gd" id="1_a3d8c"]
+[ext_resource type="Texture2D" uid="uid://d3v8eynat77lb" path="res://assets/icon.svg" id="1_uvnfx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a3d8c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_uvnfx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D" unique_id=1534390266]
+script = ExtResource("1_a3d8c")
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=411555806]
+
+[node name="Body" type="AnimatedSprite2D" parent="." unique_id=2057925387]
+position = Vector2(0, -64)
+sprite_frames = SubResource("SpriteFrames_a3d8c")
+
+[node name="Mask" type="AnimatedSprite2D" parent="." unique_id=727774273]
