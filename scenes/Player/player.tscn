@@ -32,7 +32,7 @@ animations = [{
 radius = 8.0
 height = 34.0
 
-[node name="Player" type="CharacterBody2D" unique_id=1534390266]
+[node name="Player" type="CharacterBody2D" unique_id=1534390266 groups=["player"]]
 texture_filter = 1
 script = ExtResource("1_a3d8c")
 projectile_scene = ExtResource("2_c4h5g")
