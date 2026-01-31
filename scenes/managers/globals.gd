@@ -5,6 +5,9 @@ signal mask_picked_up(d: MaskData)
 signal camera_move_finished
 signal crowbar_picked_up
 
+var kill_count := 0
+var start_ticks := 0
+
 var entities_container: Node2D
 var points_container: Node2D
 var EnemyAround = []
@@ -15,6 +18,17 @@ var explosion_multiplier := 1.0
 
 func _ready() -> void:
 	mask_picked_up.connect(on_mask_picked_up)
+	restart()
+
+
+func restart() -> void:
+	kill_count = 0
+	start_ticks = Time.get_ticks_usec()
+
+
+func get_elapsed_time() -> float:
+	return (Time.get_ticks_usec() - start_ticks) / 1_000_000.0
+
 
 func get_enemy_around() -> Array[Enemy]:
 	var enemies: Array[Enemy] = []

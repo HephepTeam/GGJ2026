@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bq0rqps4hawe4" path="res://assets/player/run0.png" id="6_n7rn1"]
 [ext_resource type="Texture2D" uid="uid://rwl1oqpwo326" path="res://assets/player/run1.png" id="7_7tfl1"]
 [ext_resource type="PackedScene" uid="uid://bc5uvvrbrsij1" path="res://scenes/healthbar.tscn" id="9_wwtew"]
+[ext_resource type="Texture2D" uid="uid://ck8nqcf75vs03" path="res://assets/point-light.png" id="10_uxo23"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a3d8c"]
 animations = [{
@@ -40,6 +41,54 @@ height = 34.0
 radius = 16.0
 height = 64.0
 
+[sub_resource type="Animation" id="Animation_uxo23"]
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:scale")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(1, 1), Vector2(0.975, 0.975), Vector2(0.95, 0.95), Vector2(0.975, 0.975), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_n7rn1"]
+resource_name = "glow"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:scale")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(1, 1), Vector2(0.95, 0.95), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7tfl1"]
+_data = {
+&"RESET": SubResource("Animation_uxo23"),
+&"glow": SubResource("Animation_n7rn1")
+}
+
+[sub_resource type="Gradient" id="Gradient_uxo23"]
+offsets = PackedFloat32Array(0, 0.7058824)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_n7rn1"]
+gradient = SubResource("Gradient_uxo23")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Player" type="CharacterBody2D" unique_id=1534390266 groups=["player"]]
 y_sort_enabled = true
 texture_filter = 1
@@ -50,11 +99,15 @@ projectile_scene = ExtResource("2_c4h5g")
 damage_bomb_scene = ExtResource("3_hvfru")
 projectile_data = ExtResource("3_uiqp4")
 
-[node name="Shadow" type="Sprite2D" parent="." unique_id=411555806]
+[node name="Visuals" type="Node2D" parent="." unique_id=1115088493]
+unique_name_in_owner = true
+
+[node name="Shadow" type="Sprite2D" parent="Visuals" unique_id=411555806]
 modulate = Color(0.5489626, 0.5489626, 0.54896253, 1)
 texture = ExtResource("5_n7rn1")
 
-[node name="Body" type="AnimatedSprite2D" parent="." unique_id=2057925387]
+[node name="Body" type="AnimatedSprite2D" parent="Visuals" unique_id=2057925387]
+unique_name_in_owner = true
 self_modulate = Color(1.1638972, 1.1638972, 1.1638972, 1)
 z_index = 1
 position = Vector2(1, -16)
@@ -63,10 +116,12 @@ animation = &"run"
 frame_progress = 0.1658449
 offset = Vector2(0, -25)
 
-[node name="Mask" type="Sprite2D" parent="Body" unique_id=1625360917]
+[node name="Mask" type="Sprite2D" parent="Visuals/Body" unique_id=1625360917]
+unique_name_in_owner = true
 position = Vector2(1, -30)
 
-[node name="ShootPoint" type="Marker2D" parent="Body/Mask" unique_id=55178963]
+[node name="ShootPoint" type="Marker2D" parent="Visuals/Body/Mask" unique_id=55178963]
+unique_name_in_owner = true
 position = Vector2(22, -14)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1152985012]
@@ -91,6 +146,28 @@ one_shot = true
 [node name="healthbar" parent="." unique_id=1008328001 instance=ExtResource("9_wwtew")]
 offset_top = -86.0
 
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=582464532]
+energy = 16.0
+shadow_enabled = true
+texture = ExtResource("10_uxo23")
+texture_scale = 5.0
+
+[node name="LightAnimationPlayer" type="AnimationPlayer" parent="PointLight2D" unique_id=1517138438]
+unique_name_in_owner = true
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_7tfl1")
+autoplay = &"RESET"
+
+[node name="LightSpeedChangeTimer" type="Timer" parent="PointLight2D" unique_id=40726798]
+wait_time = 2.0
+autostart = true
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=807474283]
+energy = 10.0
+texture = SubResource("GradientTexture2D_n7rn1")
+texture_scale = 20.0
+
 [connection signal="area_entered" from="Repulse" to="." method="_on_repulse_area_entered"]
 [connection signal="timeout" from="CooldownShoot" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="CooldownHit" to="." method="_on_cooldown_hit_timeout"]
+[connection signal="timeout" from="PointLight2D/LightSpeedChangeTimer" to="." method="_on_light_speed_change_timer_timeout"]

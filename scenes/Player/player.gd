@@ -16,8 +16,8 @@ var points_scene: PackedScene = preload("res://scenes/points.tscn")
 
 @onready var cooldown_hit: Timer = $CooldownHit
 @onready var cooldown_shoot: Timer = $CooldownShoot
-@onready var body: AnimatedSprite2D = $Body
-@onready var shoot_point: Marker2D = $Body/Mask/ShootPoint
+@onready var body: AnimatedSprite2D = %Body
+@onready var shoot_point: Marker2D = %ShootPoint
 
 @export var projectile_data : ProjectileData
 
@@ -35,15 +35,15 @@ func _physics_process(delta):
 	if direction.length():
 		velocity = velocity.lerp(direction * speed, delta * 12.0)
 
-		$Body.play("run")
+		%Body.play("run")
 		if abs(velocity.x) > 0.01:
 			body_direction = sign(velocity.x)
 			body.scale.x = body_direction
-			skew = lerp(skew, deg_to_rad(body_direction*12.0), delta*80)
+			%Visuals.skew = lerp(%Visuals.skew, deg_to_rad(body_direction*12.0), delta*80)
 
 	else:
-		$Body.play("idle")
-		skew = lerp(skew, 0.0, delta*80)
+		%Body.play("idle")
+		%Visuals.skew = lerp(%Visuals.skew, 0.0, delta*80)
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.y = move_toward(velocity.y, 0, speed)
 
@@ -62,7 +62,7 @@ func update_bonuses():
 	projectile_data.splash_radius = Globals.explosion_multiplier
 
 func update_mask(new_mask: Texture):
-	$Body/Mask.texture = new_mask
+	%Mask.texture = new_mask
 
 
 func _check_for_nearest_enemy() -> Enemy:
@@ -107,9 +107,9 @@ func get_damage(val: int, dir: Vector2):
 
 
 func anim_hit():
-	$Body.modulate.v = 1500.0
+	%Body.modulate.v = 1500.0
 	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property($Body, "modulate:v", 1.0, 0.3)
+	tween.tween_property(%Body, "modulate:v", 1.0, 0.3)
 
 
 func _on_timer_timeout() -> void:
@@ -132,3 +132,7 @@ func _on_cooldown_hit_timeout() -> void:
 func _on_repulse_area_entered(area: Area2D) -> void:
 	get_damage(area.get_parent().attack, (area.get_parent().global_position-global_position).normalized())
 	pass
+
+
+func _on_light_speed_change_timer_timeout() -> void:
+	%LightAnimationPlayer.speed_scale = randf_range(0.3, 1.0)
