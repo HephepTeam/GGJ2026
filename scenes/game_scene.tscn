@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://imwi3ugshkya" path="res://scenes/Enemy/enemy.tscn" id="3_y3j0m"]
 [ext_resource type="Script" uid="uid://cqdugo8vm245l" path="res://scenes/camera_2d.gd" id="4_bw6k5"]
 [ext_resource type="PackedScene" uid="uid://ddegyt03bek3q" path="res://scenes/collectible/mask.tscn" id="5_y3j0m"]
+[ext_resource type="PackedScene" uid="uid://8b7lnpmvdgip" path="res://scenes/menus/paused_menu.tscn" id="6_rurhu"]
 
 [node name="GameScene" type="Node2D" unique_id=729300741]
 
@@ -61,3 +62,7 @@ position = Vector2(280, 576)
 
 [node name="Enemy10" parent="Entities" unique_id=1087220638 instance=ExtResource("3_y3j0m")]
 position = Vector2(280, 576)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=619920634]
+
+[node name="PausedMenu" parent="CanvasLayer" unique_id=437947370 instance=ExtResource("6_rurhu")]

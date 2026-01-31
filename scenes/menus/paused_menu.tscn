@@ -9,9 +9,12 @@ anchors_preset = 0
 script = ExtResource("1_p5bqu")
 
 [node name="PanelPausedMenu" type="Panel" parent="." unique_id=1791336069]
+visible = false
 layout_mode = 0
-offset_right = 158.0
-offset_bottom = 169.0
+offset_left = 434.0
+offset_top = 489.0
+offset_right = 592.0
+offset_bottom = 658.0
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelPausedMenu" unique_id=884466713]
 layout_mode = 0
@@ -42,5 +45,6 @@ text = "Back To Menu"
 layout_mode = 2
 text = "Leave Game"
 
+[connection signal="pressed" from="PanelPausedMenu/MarginContainer/VBoxContainer/ResumeBTN" to="." method="_on_resume_btn_pressed"]
 [connection signal="pressed" from="PanelPausedMenu/MarginContainer/VBoxContainer/BackToMenuBTN" to="." method="_on_back_to_menu_btn_pressed"]
 [connection signal="pressed" from="PanelPausedMenu/MarginContainer/VBoxContainer/LeaveGameBTN" to="." method="_on_leave_game_btn_pressed"]

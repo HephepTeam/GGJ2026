@@ -16,6 +16,7 @@ func _on_leave_game_btn_pressed() -> void:
 
 
 func _on_back_to_menu_btn_pressed() -> void:
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/menus/main_menu.tscn")
 
 
@@ -26,5 +27,15 @@ func _input(event):
 
 func toggle_pause():
 	get_tree().paused = !get_tree().paused
-	print(get_tree().paused)
-	$PanelPausedMenu.visible = true
+	hide()
+	
+func _on_resume_btn_pressed() -> void:
+	get_tree().paused = false
+	hide()
+
+
+func hide() -> void:
+	if get_tree().paused :
+		$PanelPausedMenu.visible = true
+	else:
+		$PanelPausedMenu.visible = false
