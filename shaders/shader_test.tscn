@@ -9,10 +9,15 @@
 shader = ExtResource("3_s0l26")
 shader_parameter/strength = 0.750000035625
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xm5k1"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s0l26"]
 shader = ExtResource("1_6c22e")
-shader_parameter/strength = 0.50000002375
-shader_parameter/explosion = 0.50000002375
+shader_parameter/speed = 0.0
+shader_parameter/strength = 0.0
+shader_parameter/explosion = 0.0
+shader_parameter/color_offset_multiplier = 0.004
+shader_parameter/black_offset_multiplier = 0.1
+shader_parameter/color_offset = 0.005
+shader_parameter/blur_amount = 0.0
 
 [node name="ShaderTest" type="CanvasLayer" unique_id=1104798645]
 
@@ -22,8 +27,8 @@ shader_parameter/explosion = 0.50000002375
 material = SubResource("ShaderMaterial_uadlo")
 position = Vector2(426, 238)
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1396076547]
-material = SubResource("ShaderMaterial_xm5k1")
+[node name="Filters" type="ColorRect" parent="." unique_id=317092186]
+material = SubResource("ShaderMaterial_s0l26")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
