@@ -1,26 +1,61 @@
 [gd_scene format=3 uid="uid://cp0bf0rdxvw1s"]
 
 [ext_resource type="Script" uid="uid://dbyeb2a26hs3p" path="res://scenes/Player/player.gd" id="1_a3d8c"]
-[ext_resource type="Texture2D" uid="uid://d3v8eynat77lb" path="res://assets/icon.svg" id="1_uvnfx"]
+[ext_resource type="PackedScene" uid="uid://dq6dvf0llr13b" path="res://scenes/Player/projectile.tscn" id="2_c4h5g"]
+[ext_resource type="Texture2D" uid="uid://b67t2080ebv8i" path="res://assets/minion_body.png" id="2_gqjuk"]
+[ext_resource type="Texture2D" uid="uid://bag011h7epnyq" path="res://assets/mask0.png" id="3_c4h5g"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a3d8c"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_uvnfx")
+"texture": ExtResource("2_gqjuk")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_uiqp4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_c4h5g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1kbk7"]
+radius = 5.0
+height = 32.0
+
 [node name="Player" type="CharacterBody2D" unique_id=1534390266]
+texture_filter = 1
 script = ExtResource("1_a3d8c")
+projectile_scene = ExtResource("2_c4h5g")
 
 [node name="Shadow" type="Sprite2D" parent="." unique_id=411555806]
 
 [node name="Body" type="AnimatedSprite2D" parent="." unique_id=2057925387]
-position = Vector2(0, -64)
+position = Vector2(12, 0)
 sprite_frames = SubResource("SpriteFrames_a3d8c")
+offset = Vector2(0, -25)
 
-[node name="Mask" type="AnimatedSprite2D" parent="." unique_id=727774273]
+[node name="Mask" type="AnimatedSprite2D" parent="Body" unique_id=727774273]
+position = Vector2(-2, -56)
+sprite_frames = SubResource("SpriteFrames_uiqp4")
+
+[node name="ShootPoint" type="Marker2D" parent="Body/Mask" unique_id=55178963]
+position = Vector2(8, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1152985012]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_1kbk7")
+
+[node name="Timer" type="Timer" parent="." unique_id=632822541]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
