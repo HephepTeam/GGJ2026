@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dg63fg6sx8t1u"]
 
-[ext_resource type="Shader" uid="uid://svvmaw52uucw" path="res://shaders/filters.gdshader" id="1_m7pwc"]
+[ext_resource type="Shader" path="res://shaders/filters.gdshader" id="1_m7pwc"]
 [ext_resource type="Script" uid="uid://d0laovth1vh56" path="res://scenes/filters.gd" id="2_f7vkb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kk2rg"]

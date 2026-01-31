@@ -92,7 +92,7 @@ func get_damage(val: int, dir: Vector2):
 		anim_hit()
 		val = clamp(val , 0, MAX_HEALTH)
 		cooldown_hit.start(cooldown_hit_duration)
-		if val == 0:
+		if val <= 0:
 			dead.emit()
 			
 			

@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Enemy
 
+signal dead
+
 const SPEED := 200.0
 const DROP_PROBABILITY := 0.1
 
@@ -79,7 +81,7 @@ func die() -> void:
 			dropped_mask
 		)
 		dropped_mask.set_deferred('global_position', global_position)
-
+	dead.emit()
 	queue_free()
 
 func get_damage(val: int):
@@ -91,9 +93,6 @@ func get_damage(val: int):
 		tween.tween_property(%Body, 'scale:y', 0.0, 0.3)
 		tween.tween_callback(die)
 
-
-func knockback(val: float):
-	pass
 
 
 func change_modulate() -> void:
