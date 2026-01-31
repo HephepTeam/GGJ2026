@@ -97,7 +97,7 @@ void fragment() {
 	vec2 screen_uv = SCREEN_UV;
 	COLOR = vhsFilter(UV, screen_uv);
 	COLOR = speedLines(COLOR, FRAGCOORD.xy, 1.0 / SCREEN_PIXEL_SIZE);
+	COLOR.rgb = mix(COLOR.rgb, vec3(1.0, 0.98, 0.84) * rand(screen_uv, TIME), explosion * 0.7);
 	float ratio = abs(sin(TIME * 2.0)) * strength;
 	COLOR = mix(COLOR, vec4(length(COLOR.rgb) / 3.0, 0.0, 0.0, 1.0), ratio);
-	COLOR.rgb = mix(COLOR.rgb, vec3(1.0, 0.98, 0.84) * rand(screen_uv, TIME), explosion * 0.7);
 }
