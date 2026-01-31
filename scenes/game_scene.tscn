@@ -73,11 +73,6 @@ position = Vector2(280, 576)
 [node name="Enemy10" parent="Entities" unique_id=1087220638 instance=ExtResource("3_y3j0m")]
 position = Vector2(280, 576)
 
-<<<<<<< HEAD
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=619920634]
-
-[node name="PausedMenu" parent="CanvasLayer" unique_id=437947370 instance=ExtResource("6_rurhu")]
-=======
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2104543542]
 
 [node name="Filters" type="ColorRect" parent="CanvasLayer" unique_id=900232718]
@@ -87,4 +82,3 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
->>>>>>> fd2760ec9f3d241f9c53cda82b9d246465d671da
