@@ -98,7 +98,7 @@ func die() -> void:
 func get_damage(val: int):
 	var points: Points = points_scene.instantiate()
 	points.text = '%d' % val
-	points.modulate = Color(0.0, 1.0, 0.0, 1.0)
+	points.modulate = Color.from_hsv(0.15, 0.2, 1.0, 1.0)
 	Globals.points_container.add_child.call_deferred(points)
 	points.set_deferred('global_position', global_position - Vector2(0.0, 64.0))
 
