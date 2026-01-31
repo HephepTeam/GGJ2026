@@ -121,8 +121,10 @@ func _on_return_config_button_pressed() -> void:
 
 
 func _input(event):
-	if event.is_action_pressed("ui_accept"): # "ui_cancel" est la touche Echap par défaut
+	if event.is_action_pressed("ui_accept") and $TitleLBL.visible: # "ui_cancel" est la touche Echap par défaut
+		get_tree().get_root().set_input_as_handled()
 		$VBoxContainer.visible = true
 		$PressALBL.visible = false
 		$TitleLBL.visible = false
+		%StartGameButton.grab_focus()
 			

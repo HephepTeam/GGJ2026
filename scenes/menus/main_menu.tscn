@@ -138,6 +138,7 @@ offset_right = 317.0
 offset_bottom = 967.0
 
 [node name="StartGameButton" type="Button" parent="VBoxContainer" unique_id=2009834341]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 text = "Let's Gong  !"

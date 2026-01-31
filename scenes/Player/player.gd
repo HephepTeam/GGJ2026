@@ -112,6 +112,7 @@ func get_damage(val: int, dir: Vector2):
 		cooldown_hit.start(cooldown_hit_duration)
 		if health <= 0:
 			body.play("idle")
+			$%Mask.visible = false
 			is_dead = true
 			var inst = broken_mask_scene.instantiate()
 			add_child(inst)
