@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bfmbbmiden7da" path="res://menu.gd" id="1_lti8b"]
 [ext_resource type="Script" uid="uid://b4hvmk8t0qkgu" path="res://addons/proton_control_animation/src/proton_control_animation.gd" id="2_mae5d"]
 [ext_resource type="Script" uid="uid://bsufjcw4lsn2a" path="res://addons/proton_control_animation/src/animations/slide.gd" id="4_4hy44"]
+[ext_resource type="Texture2D" uid="uid://bag011h7epnyq" path="res://assets/mask0.png" id="4_ytr4m"]
 
 [sub_resource type="Resource" id="Resource_l48gv"]
 script = ExtResource("4_4hy44")
@@ -186,6 +187,10 @@ layout_mode = 2
 [node name="Mask1Button" type="Button" parent="Control/VBoxContainer/SelectMaskButton/Panel/VBoxContainer/HBoxContainer" unique_id=485706488]
 layout_mode = 2
 text = "Mask 1"
+icon = ExtResource("4_ytr4m")
+alignment = 0
+icon_alignment = 1
+vertical_icon_alignment = 0
 
 [node name="LabelMask1" type="Label" parent="Control/VBoxContainer/SelectMaskButton/Panel/VBoxContainer/HBoxContainer" unique_id=1120027042]
 layout_mode = 2
@@ -198,6 +203,7 @@ Bonus :
 [node name="Mask2Button" type="Button" parent="Control/VBoxContainer/SelectMaskButton/Panel/VBoxContainer/HBoxContainer" unique_id=44729658]
 layout_mode = 2
 text = "Mask2"
+icon = ExtResource("4_ytr4m")
 
 [node name="LabelMask2" type="Label" parent="Control/VBoxContainer/SelectMaskButton/Panel/VBoxContainer/HBoxContainer" unique_id=1626518267]
 visible = false
@@ -211,6 +217,8 @@ Bonus :
 [node name="Mask3Button" type="Button" parent="Control/VBoxContainer/SelectMaskButton/Panel/VBoxContainer/HBoxContainer" unique_id=1869506908]
 layout_mode = 2
 text = "Mask3"
+icon = ExtResource("4_ytr4m")
+icon_alignment = 1
 
 [node name="LabelMask3" type="Label" parent="Control/VBoxContainer/SelectMaskButton/Panel/VBoxContainer/HBoxContainer" unique_id=554592841]
 visible = false
@@ -235,6 +243,7 @@ stop_trigger_source = NodePath("../../../..")
 metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
 
 [node name="Scoring" type="Button" parent="Control/VBoxContainer" unique_id=112687071]
+visible = false
 layout_mode = 2
 text = "Scoring"
 
@@ -255,6 +264,40 @@ start_trigger_source = NodePath("..")
 start_on_hover_stop = true
 stop_trigger_source = NodePath("..")
 metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
+
+[node name="Panel" type="Panel" parent="Control/VBoxContainer/Scoring" unique_id=1238822747]
+layout_mode = 0
+offset_left = 161.0
+offset_top = -69.0
+offset_right = 400.0
+offset_bottom = 171.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer/Scoring/Panel" unique_id=1636689961]
+layout_mode = 0
+offset_right = 238.0
+offset_bottom = 240.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/VBoxContainer/Scoring/Panel/MarginContainer" unique_id=49525140]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/Scoring/Panel/MarginContainer/VBoxContainer" unique_id=1273366791]
+layout_mode = 2
+text = "Best Score"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/VBoxContainer/Scoring/Panel/MarginContainer/VBoxContainer" unique_id=1841541404]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/VBoxContainer/Scoring/Panel/MarginContainer/VBoxContainer/ScrollContainer" unique_id=348233147]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Control/VBoxContainer/Scoring/Panel/MarginContainer/VBoxContainer" unique_id=1409892892]
+layout_mode = 2
+text = "Return"
 
 [node name="ConfigButton" type="Button" parent="Control/VBoxContainer" unique_id=1193173948]
 layout_mode = 2
@@ -277,6 +320,39 @@ start_trigger_source = NodePath("..")
 start_on_hover_stop = true
 stop_trigger_source = NodePath("..")
 metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
+
+[node name="Panel" type="Panel" parent="Control/VBoxContainer/ConfigButton" unique_id=1891780491]
+layout_mode = 0
+offset_left = 164.0
+offset_top = -29.0
+offset_right = 356.0
+offset_bottom = 96.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer/ConfigButton/Panel" unique_id=398486456]
+layout_mode = 0
+offset_right = 191.0
+offset_bottom = 116.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/VBoxContainer/ConfigButton/Panel/MarginContainer" unique_id=231449162]
+layout_mode = 2
+
+[node name="VolPrincLBL" type="Label" parent="Control/VBoxContainer/ConfigButton/Panel/MarginContainer/VBoxContainer" unique_id=1846412302]
+layout_mode = 2
+text = "Volume Principal"
+
+[node name="VolPrincHSlider" type="HSlider" parent="Control/VBoxContainer/ConfigButton/Panel/MarginContainer/VBoxContainer" unique_id=1822808186]
+layout_mode = 2
+
+[node name="VolBruitLBL" type="Label" parent="Control/VBoxContainer/ConfigButton/Panel/MarginContainer/VBoxContainer" unique_id=1638376300]
+layout_mode = 2
+text = "Volume Bruitages"
+
+[node name="VolBruitHSlider" type="HScrollBar" parent="Control/VBoxContainer/ConfigButton/Panel/MarginContainer/VBoxContainer" unique_id=266831558]
+layout_mode = 2
 
 [node name="CreditsButton" type="Button" parent="Control/VBoxContainer" unique_id=1077002628]
 layout_mode = 2
@@ -344,6 +420,7 @@ start_on_hover_stop = true
 stop_trigger_source = NodePath("..")
 metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
 
+[connection signal="pressed" from="Control/VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
 [connection signal="mouse_entered" from="Control/VBoxContainer/SelectMaskButton" to="." method="_on_select_mask_button_mouse_entered"]
 [connection signal="mouse_exited" from="Control/VBoxContainer/SelectMaskButton" to="." method="_on_select_mask_button_mouse_exited"]
 [connection signal="pressed" from="Control/VBoxContainer/SelectMaskButton" to="." method="_on_select_mask_button_pressed"]
