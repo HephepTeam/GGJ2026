@@ -2,6 +2,7 @@ extends Node
 
 signal room_entered(room)
 signal mask_picked_up(d: MaskData)
+signal camera_move_finished
 
 var entities_container: Node2D
 var EnemyAround = []
