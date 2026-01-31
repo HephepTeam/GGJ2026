@@ -17,6 +17,7 @@ offset_bottom = 42.0
 grow_horizontal = 2
 text = "0"
 label_settings = SubResource("LabelSettings_gt3cs")
+horizontal_alignment = 1
 script = ExtResource("1_hxfg6")
 
 [node name="Timer" type="Timer" parent="." unique_id=73099997]

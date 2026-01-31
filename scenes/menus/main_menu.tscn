@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bgkgsg0coasj2" path="res://assets/Masks/Mask1.png" id="5_8r73w"]
 [ext_resource type="Texture2D" uid="uid://c4rmse8v4hxa4" path="res://assets/Masks/Mask2.png" id="6_1hnlc"]
 [ext_resource type="Texture2D" uid="uid://b0hel7c57xagb" path="res://assets/photo.png" id="8_1hnlc"]
+[ext_resource type="PackedScene" uid="uid://dg63fg6sx8t1u" path="res://scenes/filters.tscn" id="9_50h1w"]
 
 [sub_resource type="Resource" id="Resource_l48gv"]
 script = ExtResource("4_4hy44")
@@ -111,10 +112,6 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -5.0
-offset_top = 6.0
-offset_right = -5.0
-offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -122,10 +119,12 @@ theme = ExtResource("1_8r73w")
 script = ExtResource("1_lti8b")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=316968457]
-layout_mode = 0
-offset_top = -7.0
-offset_right = 1033.0
-offset_bottom = 1020.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("8_1hnlc")
 expand_mode = 2
 
@@ -485,6 +484,11 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 36.0
 text = "VEILED GrEED"
+
+[node name="Filters" parent="." unique_id=268984273 instance=ExtResource("9_50h1w")]
+layout_mode = 1
+pivot_offset = Vector2(-137, 501)
+mouse_filter = 2
 
 [connection signal="pressed" from="VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/SelectMaskButton" to="." method="_on_select_mask_button_mouse_entered"]
