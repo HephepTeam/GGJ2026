@@ -2,18 +2,35 @@
 
 [ext_resource type="Script" uid="uid://dbyeb2a26hs3p" path="res://scenes/Player/player.gd" id="1_a3d8c"]
 [ext_resource type="PackedScene" uid="uid://dq6dvf0llr13b" path="res://scenes/Player/projectile.tscn" id="2_c4h5g"]
-[ext_resource type="Texture2D" uid="uid://b67t2080ebv8i" path="res://assets/minion_body.png" id="2_gqjuk"]
-[ext_resource type="Texture2D" uid="uid://bag011h7epnyq" path="res://assets/mask0.png" id="3_c4h5g"]
+[ext_resource type="PackedScene" uid="uid://csthrv6wg75gn" path="res://scenes/damage_bomb.tscn" id="3_hvfru"]
 [ext_resource type="Resource" uid="uid://bygs7dybkafv7" path="res://ressources/defaut_projectile.tres" id="3_uiqp4"]
+[ext_resource type="Texture2D" uid="uid://deqfjb1rqis7t" path="res://assets/shadow.png" id="5_n7rn1"]
+[ext_resource type="Texture2D" uid="uid://buvaowlekgewx" path="res://assets/player/idle.png" id="5_uxo23"]
+[ext_resource type="Texture2D" uid="uid://bq0rqps4hawe4" path="res://assets/player/run0.png" id="6_n7rn1"]
+[ext_resource type="Texture2D" uid="uid://rwl1oqpwo326" path="res://assets/player/run1.png" id="7_7tfl1"]
+[ext_resource type="Texture2D" uid="uid://b2eyuksi0mnka" path="res://assets/player/masks/force.png" id="8_jxtnq"]
+[ext_resource type="Texture2D" uid="uid://5oqj3esbku4y" path="res://assets/player/masks/fov.png" id="9_t6q27"]
+[ext_resource type="Texture2D" uid="uid://71wiimovlygc" path="res://assets/player/masks/speed.png" id="10_wyey8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a3d8c"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_gqjuk")
+"texture": ExtResource("5_uxo23")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_n7rn1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7tfl1")
+}],
+"loop": true,
+"name": &"run",
 "speed": 5.0
 }]
 
@@ -21,10 +38,16 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_c4h5g")
+"texture": ExtResource("8_jxtnq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_t6q27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_wyey8")
 }],
 "loop": true,
-"name": &"default",
+"name": &"masks",
 "speed": 5.0
 }]
 
@@ -32,25 +55,36 @@ animations = [{
 radius = 8.0
 height = 34.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uiqp4"]
+radius = 16.0
+height = 64.0
+
 [node name="Player" type="CharacterBody2D" unique_id=1534390266 groups=["player"]]
 texture_filter = 1
+collision_layer = 32
+collision_mask = 9
 script = ExtResource("1_a3d8c")
 projectile_scene = ExtResource("2_c4h5g")
+damage_bomb_scene = ExtResource("3_hvfru")
 projectile_data = ExtResource("3_uiqp4")
+shoot_rate = 0.5
 
 [node name="Shadow" type="Sprite2D" parent="." unique_id=411555806]
-use_parent_material = true
+texture = ExtResource("5_n7rn1")
 
 [node name="Body" type="AnimatedSprite2D" parent="." unique_id=2057925387]
-use_parent_material = true
-position = Vector2(12, 0)
+self_modulate = Color(1.1638972, 1.1638972, 1.1638972, 1)
+position = Vector2(5, -15)
 sprite_frames = SubResource("SpriteFrames_a3d8c")
+animation = &"run"
+frame_progress = 0.1658449
 offset = Vector2(0, -25)
 
 [node name="Mask" type="AnimatedSprite2D" parent="Body" unique_id=727774273]
-use_parent_material = true
-position = Vector2(-2, -56)
+position = Vector2(1, -30)
 sprite_frames = SubResource("SpriteFrames_uiqp4")
+animation = &"masks"
+frame = 2
 
 [node name="ShootPoint" type="Marker2D" parent="Body/Mask" unique_id=55178963]
 position = Vector2(8, 0)
@@ -59,8 +93,21 @@ position = Vector2(8, 0)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_1kbk7")
 
-[node name="Timer" type="Timer" parent="." unique_id=632822541]
+[node name="Repulse" type="Area2D" parent="." unique_id=639959875]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Repulse" unique_id=705588389]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_uiqp4")
+
+[node name="CooldownShoot" type="Timer" parent="." unique_id=632822541]
 one_shot = true
 autostart = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="CooldownHit" type="Timer" parent="." unique_id=1272805829]
+one_shot = true
+
+[connection signal="area_entered" from="Repulse" to="." method="_on_repulse_area_entered"]
+[connection signal="timeout" from="CooldownShoot" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="CooldownHit" to="." method="_on_cooldown_hit_timeout"]

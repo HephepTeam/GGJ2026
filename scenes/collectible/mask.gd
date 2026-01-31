@@ -20,15 +20,14 @@ func _ready():
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is Player:
-		picked_up.emit(MaskData)
-		if tween: tween.kill()
-		tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-		tween.set_parallel(true)
-		tween.tween_property($MaskSprite, "position:y", -60.0, 0.2).as_relative()
-		tween.tween_property($MaskSprite, "scale:x", 0.0, 0.2)
-		tween.set_parallel(false)
-		tween.tween_callback(queue_free)
+	picked_up.emit(MaskData)
+	if tween: tween.kill()
+	tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.set_parallel(true)
+	tween.tween_property($MaskSprite, "position:y", -60.0, 0.2).as_relative()
+	tween.tween_property($MaskSprite, "scale:x", 0.0, 0.2)
+	tween.set_parallel(false)
+	tween.tween_callback(queue_free)
 	
 	
 	

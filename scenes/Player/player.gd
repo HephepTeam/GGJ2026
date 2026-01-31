@@ -6,10 +6,14 @@ signal dead
 const MAX_HEALTH = 500.0
 
 @export var projectile_scene: PackedScene
+@export var damage_bomb_scene : PackedScene
 
-@export var speed = 400.0
-@export var health = 100.0
+@export var speed := 400.0
+@export var health := 100.0
+@export var cooldown_hit_duration := 1.0
 
+@onready var cooldown_hit: Timer = $CooldownHit
+@onready var cooldown_shoot: Timer = $CooldownShoot
 @onready var body: AnimatedSprite2D = $Body
 @onready var shoot_point: Marker2D = $Body/Mask/ShootPoint
 
@@ -17,9 +21,13 @@ const MAX_HEALTH = 500.0
 @export var shoot_rate := 1.0
 
 var body_direction = 1.0
+var _cooldown_hit = false
+
+var knockback_dir : Vector2
+var knockback_force := 50.0
 
 func _ready():
-	$Timer.start(shoot_rate)
+	cooldown_shoot.start(shoot_rate)
 
 func _physics_process(delta):
 	var direction = Input.get_vector(
@@ -27,12 +35,15 @@ func _physics_process(delta):
 
 	if direction.length():
 		velocity = direction * speed
+		$Body.play("run")
 		if abs(velocity.x) > 0.01: 
 			
 			body_direction = sign(velocity.x)
-			skew = lerp(skew, deg_to_rad(body_direction*12.0), delta*80)
 			body.scale.x = body_direction
+			skew = lerp(skew, deg_to_rad(body_direction*12.0), delta*80)
+			
 	else:
+		$Body.play("idle")
 		skew = lerp(skew, 0.0, delta*80)
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.y = move_toward(velocity.y, 0, speed)
@@ -62,13 +73,25 @@ func shoot(target: Vector2):
 	inst.data = projectile_data
 	get_parent().add_child(inst)
 	inst.global_position = shoot_point.global_position
+	inst.touched.connect(_on_projectile_touched)
 
 	
-func get_damage(val: int):
-	health -= val
-	val = clamp(val , 0, MAX_HEALTH)
-	if val == 0:
-		dead.emit()
+func get_damage(val: int, dir: Vector2):
+	if !_cooldown_hit:
+		_cooldown_hit = true
+		knockback_dir = dir * knockback_force
+		health -= val
+		anim_hit()
+		val = clamp(val , 0, MAX_HEALTH)
+		cooldown_hit.start(cooldown_hit_duration)
+		if val == 0:
+			dead.emit()
+			
+			
+func anim_hit():
+	$Body.modulate.v = 1500.0
+	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property($Body, "modulate:v", 1.0, 0.3)
 
 
 func _on_timer_timeout() -> void:
@@ -76,4 +99,22 @@ func _on_timer_timeout() -> void:
 	if target:
 		shoot(target.global_position)
 	
-	$Timer.start(shoot_rate)
+	cooldown_shoot.start(shoot_rate)
+	
+	
+func _on_projectile_touched(pos: Vector2):
+	var inst = damage_bomb_scene.instantiate()
+	#inst.data = projectile_data
+	add_sibling.call_deferred(inst)
+	inst.set_deferred("global_position", pos)
+
+	
+
+
+func _on_cooldown_hit_timeout() -> void:
+	_cooldown_hit = false
+
+
+func _on_repulse_area_entered(area: Area2D) -> void:
+	#get_damage(area.get_parent().attack)
+	pass

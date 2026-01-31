@@ -1,7 +1,40 @@
 [gd_scene format=3 uid="uid://imwi3ugshkya"]
 
 [ext_resource type="Script" uid="uid://bwx3mlnub2biq" path="res://scenes/Enemy/enemy.gd" id="1_84vye"]
+[ext_resource type="Texture2D" uid="uid://b67t2080ebv8i" path="res://assets/minion_body.png" id="2_eacat"]
+[ext_resource type="Texture2D" uid="uid://deqfjb1rqis7t" path="res://assets/shadow.png" id="2_ixhtt"]
 [ext_resource type="Texture2D" uid="uid://d3v8eynat77lb" path="res://assets/icon.svg" id="2_vamnb"]
+[ext_resource type="Texture2D" uid="uid://bag011h7epnyq" path="res://assets/Masks/mask0.png" id="3_ixhtt"]
+[ext_resource type="Texture2D" uid="uid://bgkgsg0coasj2" path="res://assets/Masks/Mask1.png" id="4_wfr8x"]
+[ext_resource type="Texture2D" uid="uid://c4rmse8v4hxa4" path="res://assets/Masks/Mask2.png" id="5_ebm38"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q0kbr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_eacat")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fx0l5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ixhtt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wfr8x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ebm38")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_84vye"]
 radius = 16.0
@@ -11,19 +44,36 @@ height = 64.0
 radius = 16.0
 height = 64.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eacat"]
+radius = 23.0
+height = 72.0
+
 [node name="Enemy" type="CharacterBody2D" unique_id=1661876933 groups=["enemy"]]
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_84vye")
 
+[node name="Shadow" type="Sprite2D" parent="." unique_id=2114353493]
+texture = ExtResource("2_ixhtt")
+
+[node name="Body" type="AnimatedSprite2D" parent="." unique_id=1419797350]
+position = Vector2(0, -25)
+sprite_frames = SubResource("SpriteFrames_q0kbr")
+
+[node name="Mask" type="AnimatedSprite2D" parent="Body" unique_id=947257862]
+position = Vector2(-3, -30)
+sprite_frames = SubResource("SpriteFrames_fx0l5")
+frame = 2
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1928941359]
+visible = false
 scale = Vector2(0.5, 1)
 texture = ExtResource("2_vamnb")
 offset = Vector2(0, -64)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1831575622]
 collision_layer = 2
-collision_mask = 2
+collision_mask = 66
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=19966739]
 rotation = 1.5707964
@@ -32,6 +82,15 @@ shape = SubResource("CapsuleShape2D_84vye")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=352403461]
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_vamnb")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1528606836]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=73037118]
+position = Vector2(0, -36)
+shape = SubResource("CapsuleShape2D_eacat")
+debug_color = Color(0.91857046, 0.17176548, 0.56811786, 0.41960785)
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
