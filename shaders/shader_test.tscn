@@ -11,7 +11,8 @@ shader_parameter/strength = 0.750000035625
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xm5k1"]
 shader = ExtResource("1_6c22e")
-shader_parameter/strength = 0.750000035625
+shader_parameter/strength = 0.50000002375
+shader_parameter/explosion = 0.50000002375
 
 [node name="ShaderTest" type="CanvasLayer" unique_id=1104798645]
 
