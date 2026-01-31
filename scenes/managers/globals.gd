@@ -36,4 +36,5 @@ func on_mask_picked_up(data: MaskData):
 	var p = get_players()[0]
 	p.update_cadence(current_cadence)
 	p.update_power(current_power)
+	p.update_range(data.splash_bonus)
 	p.update_mask(data.player_mask_texture)

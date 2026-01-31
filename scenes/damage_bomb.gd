@@ -4,19 +4,19 @@ var data: ProjectileData
 
 var grow_speed = 500.0
 
-var _max_radius : float = 50.0
+var _max_radius := Vector2.ONE * 75.0
 var _damage : float = 10.0
 
 func _ready():
 	if data:
-		_max_radius = data.splash_radius
+		_max_radius = Vector2.ONE * data.splash_radius
 		_damage = data.power
 
 
 func _physics_process(delta: float) -> void:
-	$CollisionShape2D.shape.radius += delta * grow_speed
+	scale += Vector2.ONE * delta * grow_speed
 	
-	if $CollisionShape2D.shape.radius >= _max_radius:
+	if scale >= _max_radius:
 		queue_free()
 
 
