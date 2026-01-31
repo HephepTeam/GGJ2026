@@ -2,12 +2,20 @@
 
 [ext_resource type="PackedScene" uid="uid://7h053ghxefjb" path="res://scenes/map.tscn" id="1_ycayy"]
 [ext_resource type="PackedScene" uid="uid://cp0bf0rdxvw1s" path="res://scenes/Player/player.tscn" id="2_bw6k5"]
-[ext_resource type="Resource" uid="uid://cow18rshugplg" path="res://ressources/mask0.tres" id="3_b5spy"]
 [ext_resource type="PackedScene" uid="uid://imwi3ugshkya" path="res://scenes/Enemy/enemy.tscn" id="3_y3j0m"]
 [ext_resource type="Script" uid="uid://cqdugo8vm245l" path="res://scenes/camera_2d.gd" id="4_bw6k5"]
-[ext_resource type="Resource" uid="uid://op4hhcbscbsh" path="res://ressources/mask1.tres" id="4_utbpp"]
-[ext_resource type="Resource" uid="uid://cqldh5igkrkqk" path="res://ressources/mask2.tres" id="5_mw25s"]
 [ext_resource type="PackedScene" uid="uid://ddegyt03bek3q" path="res://scenes/collectible/mask.tscn" id="5_y3j0m"]
+[ext_resource type="Shader" uid="uid://svvmaw52uucw" path="res://shaders/strength.gdshader" id="6_rurhu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kk2rg"]
+shader = ExtResource("6_rurhu")
+shader_parameter/speed = 0.0
+shader_parameter/strength = 0.0
+shader_parameter/explosion = 0.0
+shader_parameter/color_offset_multiplier = 0.004
+shader_parameter/black_offset_multiplier = 0.1
+shader_parameter/color_offset = 0.005
+shader_parameter/blur_amount = 0.0
 
 [node name="GameScene" type="Node2D" unique_id=729300741]
 
@@ -20,15 +28,12 @@ y_sort_enabled = true
 
 [node name="Mask" parent="Entities" unique_id=294908437 instance=ExtResource("5_y3j0m")]
 position = Vector2(273, 172)
-data = ExtResource("3_b5spy")
 
 [node name="Mask2" parent="Entities" unique_id=2125087479 instance=ExtResource("5_y3j0m")]
 position = Vector2(778, 267)
-data = ExtResource("4_utbpp")
 
 [node name="Mask3" parent="Entities" unique_id=657335983 instance=ExtResource("5_y3j0m")]
 position = Vector2(461, 223)
-data = ExtResource("5_mw25s")
 
 [node name="TileMap" parent="Entities" unique_id=103331890 instance=ExtResource("1_ycayy")]
 
@@ -38,14 +43,42 @@ position = Vector2(1024, 0)
 [node name="Player" parent="Entities" unique_id=1534390266 instance=ExtResource("2_bw6k5")]
 position = Vector2(432, 488)
 
-[node name="Enemy" parent="Entities" unique_id=1661876933 instance=ExtResource("3_y3j0m")]
-position = Vector2(214, 853)
-mask = ExtResource("3_b5spy")
+[node name="Enemy" parent="Entities" unique_id=1704070987 instance=ExtResource("3_y3j0m")]
+position = Vector2(728, 792)
 
-[node name="Enemy2" parent="Entities" unique_id=1806140047 instance=ExtResource("3_y3j0m")]
-position = Vector2(756, 776)
-mask = ExtResource("4_utbpp")
+[node name="Enemy2" parent="Entities" unique_id=1547969889 instance=ExtResource("3_y3j0m")]
+position = Vector2(280, 576)
 
-[node name="Enemy3" parent="Entities" unique_id=1906255203 instance=ExtResource("3_y3j0m")]
-position = Vector2(544, 840)
-mask = ExtResource("5_mw25s")
+[node name="Enemy3" parent="Entities" unique_id=1885920185 instance=ExtResource("3_y3j0m")]
+position = Vector2(280, 576)
+
+[node name="Enemy4" parent="Entities" unique_id=906206208 instance=ExtResource("3_y3j0m")]
+position = Vector2(280, 576)
+
+[node name="Enemy5" parent="Entities" unique_id=26329145 instance=ExtResource("3_y3j0m")]
+position = Vector2(280, 576)
+
+[node name="Enemy6" parent="Entities" unique_id=1853667093 instance=ExtResource("3_y3j0m")]
+position = Vector2(280, 576)
+
+[node name="Enemy7" parent="Entities" unique_id=834397067 instance=ExtResource("3_y3j0m")]
+position = Vector2(280, 576)
+
+[node name="Enemy8" parent="Entities" unique_id=1052349908 instance=ExtResource("3_y3j0m")]
+position = Vector2(280, 576)
+
+[node name="Enemy9" parent="Entities" unique_id=459431058 instance=ExtResource("3_y3j0m")]
+position = Vector2(280, 576)
+
+[node name="Enemy10" parent="Entities" unique_id=1087220638 instance=ExtResource("3_y3j0m")]
+position = Vector2(280, 576)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2104543542]
+
+[node name="Filters" type="ColorRect" parent="CanvasLayer" unique_id=900232718]
+material = SubResource("ShaderMaterial_kk2rg")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
