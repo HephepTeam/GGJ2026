@@ -56,7 +56,7 @@ texture = ExtResource("5_n7rn1")
 [node name="Body" type="AnimatedSprite2D" parent="." unique_id=2057925387]
 self_modulate = Color(1.1638972, 1.1638972, 1.1638972, 1)
 z_index = 1
-position = Vector2(5, -15)
+position = Vector2(5, -18)
 sprite_frames = SubResource("SpriteFrames_a3d8c")
 animation = &"run"
 frame_progress = 0.1658449
