@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://buvaowlekgewx" path="res://assets/player/idle.png" id="5_uxo23"]
 [ext_resource type="Texture2D" uid="uid://bq0rqps4hawe4" path="res://assets/player/run0.png" id="6_n7rn1"]
 [ext_resource type="Texture2D" uid="uid://rwl1oqpwo326" path="res://assets/player/run1.png" id="7_7tfl1"]
+[ext_resource type="PackedScene" uid="uid://bc5uvvrbrsij1" path="res://scenes/healthbar.tscn" id="9_wwtew"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a3d8c"]
 animations = [{
@@ -47,7 +48,6 @@ script = ExtResource("1_a3d8c")
 projectile_scene = ExtResource("2_c4h5g")
 damage_bomb_scene = ExtResource("3_hvfru")
 projectile_data = ExtResource("3_uiqp4")
-shoot_rate = 0.5
 
 [node name="Shadow" type="Sprite2D" parent="." unique_id=411555806]
 texture = ExtResource("5_n7rn1")
@@ -79,11 +79,14 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_uiqp4")
 
 [node name="CooldownShoot" type="Timer" parent="." unique_id=632822541]
-one_shot = true
+wait_time = 0.5
 autostart = true
 
 [node name="CooldownHit" type="Timer" parent="." unique_id=1272805829]
 one_shot = true
+
+[node name="healthbar" parent="." unique_id=1008328001 instance=ExtResource("9_wwtew")]
+offset_top = -86.0
 
 [connection signal="area_entered" from="Repulse" to="." method="_on_repulse_area_entered"]
 [connection signal="timeout" from="CooldownShoot" to="." method="_on_timer_timeout"]

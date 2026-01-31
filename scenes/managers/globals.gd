@@ -4,9 +4,9 @@ signal room_entered(room)
 
 var EnemyAround = []
 
-var current_cadence: float
-var current_power: float
-var current_range: float
+var current_cadence := 2.0
+var current_power := 1.0
+var current_range := 1.0
 
 func get_enemy_around() -> Array[Enemy]:
 	var enemies: Array[Enemy] = []
@@ -37,4 +37,3 @@ func on_mask_picked_up(data: MaskData):
 	p.update_cadence(current_cadence)
 	p.update_power(current_power)
 	p.update_mask(data.player_mask_texture)
-	

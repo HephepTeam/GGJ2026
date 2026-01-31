@@ -29,6 +29,3 @@ func _on_body_entered(body: Node2D) -> void:
 	tween.tween_property($MaskSprite, "scale:x", 0.0, 0.3)
 	tween.set_parallel(false)
 	tween.tween_callback(queue_free)
-	
-	
-	

@@ -3,7 +3,7 @@ class_name Player
 
 signal dead
 
-const MAX_HEALTH = 500.0
+const MAX_HEALTH = 100.0
 
 @export var projectile_scene: PackedScene
 @export var damage_bomb_scene : PackedScene
@@ -18,7 +18,6 @@ const MAX_HEALTH = 500.0
 @onready var shoot_point: Marker2D = $Body/Mask/ShootPoint
 
 @export var projectile_data : ProjectileData
-@export var shoot_rate := 1.0
 
 var body_direction = 1.0
 var _cooldown_hit = false
@@ -28,10 +27,6 @@ var knockback_force := 200.0
 
 func set_data(data: MaskData):
 	update_cadence(data.cadence_bonus)
-	
-
-func _ready():
-	cooldown_shoot.start(shoot_rate)
 
 func _physics_process(delta):
 	var direction = Input.get_vector(
@@ -56,8 +51,13 @@ func _physics_process(delta):
 	knockback_dir = knockback_dir.lerp(Vector2.ZERO, delta * 5.0)
 	move_and_slide()
 
+func _process(delta: float) -> void:
+	if health < MAX_HEALTH:
+		$healthbar.show()
+		$healthbar.value = health
+
 func update_cadence(new_cadence: float):
-	shoot_rate = 60.0 / new_cadence
+	$CooldownShoot.wait_time = 1.0 / new_cadence
 
 func update_power(new_power: float):
 	projectile_data.power = new_power
@@ -113,8 +113,6 @@ func _on_timer_timeout() -> void:
 	var target = _check_for_nearest_enemy()
 	if target:
 		shoot(target.global_position)
-	
-	cooldown_shoot.start(shoot_rate)
 	
 	
 func _on_projectile_touched(pos: Vector2):
