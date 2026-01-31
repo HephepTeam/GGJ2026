@@ -5,6 +5,17 @@
 [ext_resource type="PackedScene" uid="uid://imwi3ugshkya" path="res://scenes/Enemy/enemy.tscn" id="3_y3j0m"]
 [ext_resource type="Script" uid="uid://cqdugo8vm245l" path="res://scenes/camera_2d.gd" id="4_bw6k5"]
 [ext_resource type="PackedScene" uid="uid://ddegyt03bek3q" path="res://scenes/collectible/mask.tscn" id="5_y3j0m"]
+[ext_resource type="Shader" uid="uid://svvmaw52uucw" path="res://shaders/strength.gdshader" id="6_rurhu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kk2rg"]
+shader = ExtResource("6_rurhu")
+shader_parameter/speed = 0.0
+shader_parameter/strength = 0.0
+shader_parameter/explosion = 0.0
+shader_parameter/color_offset_multiplier = 0.004
+shader_parameter/black_offset_multiplier = 0.1
+shader_parameter/color_offset = 0.005
+shader_parameter/blur_amount = 0.0
 
 [node name="GameScene" type="Node2D" unique_id=729300741]
 
@@ -61,3 +72,13 @@ position = Vector2(280, 576)
 
 [node name="Enemy10" parent="Entities" unique_id=1087220638 instance=ExtResource("3_y3j0m")]
 position = Vector2(280, 576)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2104543542]
+
+[node name="Filters" type="ColorRect" parent="CanvasLayer" unique_id=900232718]
+material = SubResource("ShaderMaterial_kk2rg")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
