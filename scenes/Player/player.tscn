@@ -146,6 +146,7 @@ one_shot = true
 offset_top = -86.0
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=582464532]
+position = Vector2(0, -32)
 energy = 16.0
 shadow_enabled = true
 texture = ExtResource("10_uxo23")
@@ -161,7 +162,7 @@ autoplay = &"RESET"
 wait_time = 2.0
 autostart = true
 
-[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=807474283]
+[node name="PointLight2D2" type="PointLight2D" parent="PointLight2D" unique_id=807474283]
 energy = 10.0
 texture = SubResource("GradientTexture2D_n7rn1")
 texture_scale = 20.0
