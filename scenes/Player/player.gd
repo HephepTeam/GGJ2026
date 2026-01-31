@@ -81,7 +81,7 @@ func shoot(target: Vector2):
 	var dir = (target - global_position).normalized()
 	inst.direction = dir
 	inst.data = projectile_data
-	get_parent().add_child(inst)
+	Globals.entities_container.add_child(inst)
 	inst.global_position = shoot_point.global_position
 	inst.touched.connect(_on_projectile_touched)
 

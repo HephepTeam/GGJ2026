@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bag011h7epnyq" path="res://assets/Masks/mask0.png" id="1_lkq0l"]
 [ext_resource type="Script" uid="uid://wvfxuwnb07fm" path="res://scenes/collectible/mask.gd" id="1_r261n"]
+[ext_resource type="Texture2D" uid="uid://deqfjb1rqis7t" path="res://assets/shadow.png" id="2_k2je6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r261n"]
 radius = 24.0
@@ -12,10 +13,12 @@ collision_layer = 4
 script = ExtResource("1_r261n")
 
 [node name="shadow" type="Sprite2D" parent="." unique_id=573349222]
-position = Vector2(0, 1)
+modulate = Color(0.54901963, 0.54901963, 0.54901963, 1)
+position = Vector2(3, 1)
+texture = ExtResource("2_k2je6")
 
 [node name="MaskSprite" type="Sprite2D" parent="." unique_id=1127084640]
-position = Vector2(0, -14)
+position = Vector2(0, -26)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("1_lkq0l")
 

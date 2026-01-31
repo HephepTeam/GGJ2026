@@ -3,6 +3,7 @@ extends Camera2D
 var tween : Tween
 
 func _ready():
+	Globals.camera = self
 	Globals.room_entered.connect(update_camera)
 
 

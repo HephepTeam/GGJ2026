@@ -103,13 +103,14 @@ projectile_data = ExtResource("3_uiqp4")
 unique_name_in_owner = true
 
 [node name="Shadow" type="Sprite2D" parent="Visuals" unique_id=411555806]
+modulate = Color(0.5489626, 0.5489626, 0.54896253, 1)
 texture = ExtResource("5_n7rn1")
 
 [node name="Body" type="AnimatedSprite2D" parent="Visuals" unique_id=2057925387]
 unique_name_in_owner = true
 self_modulate = Color(1.1638972, 1.1638972, 1.1638972, 1)
 z_index = 1
-position = Vector2(5, -15)
+position = Vector2(1, -16)
 sprite_frames = SubResource("SpriteFrames_a3d8c")
 animation = &"run"
 frame_progress = 0.1658449
@@ -121,7 +122,7 @@ position = Vector2(1, -30)
 
 [node name="ShootPoint" type="Marker2D" parent="Visuals/Body/Mask" unique_id=55178963]
 unique_name_in_owner = true
-position = Vector2(8, 0)
+position = Vector2(22, -14)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1152985012]
 rotation = 1.5707964

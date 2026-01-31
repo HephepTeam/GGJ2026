@@ -3,6 +3,7 @@ extends Node
 signal room_entered(room)
 signal mask_picked_up(d: MaskData)
 signal camera_move_finished
+signal crowbar_picked_up
 
 var kill_count := 0
 var start_ticks := 0
@@ -10,6 +11,7 @@ var isDead = false
 
 var entities_container: Node2D
 var points_container: Node2D
+var camera: Camera2D
 var EnemyAround = []
 
 var speed_multiplier := 1.0

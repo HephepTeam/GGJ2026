@@ -1,7 +1,7 @@
 extends TileMapLayer
 
 @export var enemy_scene: PackedScene
-@export var enemy_mask_resource: MaskData
+@export var enemy_mask_resource: Array[MaskData]
 @export var max_enemies := 15
 
 var count_enemies := 0
@@ -15,24 +15,29 @@ var door_flags = 0
 
 var killed_enemies:= 0
 
+
 func _ready():
 	if door_flags & 1 == 1:
+		$Doors/doorN.visible = true
 		set_cell(Vector2i(7,0), 3, Vector2.ZERO)
 		set_cell(Vector2i(8,0), 3, Vector2.ZERO)
 	if door_flags & 2 == 2:
+		$Doors/doorS.visible = true
 		set_cell(Vector2i(7,15), 3, Vector2.ZERO)
 		set_cell(Vector2i(8,15), 3, Vector2.ZERO)
 	if door_flags & 4 == 4:
+		$Doors/doorE.visible = true
 		set_cell(Vector2i(15,7), 3, Vector2.ZERO)
 		set_cell(Vector2i(15,8), 3, Vector2.ZERO)
 	if door_flags & 8 == 8:
+		$Doors/doorW.visible = true
 		set_cell(Vector2i(0,7), 3, Vector2.ZERO)
 		set_cell(Vector2i(0,8), 3, Vector2.ZERO)
 			
 	open_doors()
 
 func _on_enter_zone_body_entered(body: Node2D) -> void:
-	if body is Player:
+	if body is Player and killed_enemies < max_enemies:
 		Globals.room_entered.emit(self)
 		await Globals.camera_move_finished
 		spawn_timer.start()
@@ -73,7 +78,7 @@ func _on_spawn_timer_timeout() -> void:
 	var enemy: Enemy = enemy_scene.instantiate()
 	enemy.dead.connect(_on_enemy_killed)
 	Globals.entities_container.add_child.call_deferred(enemy)
-	enemy.mask = enemy_mask_resource
+	enemy.mask = enemy_mask_resource.pick_random()
 	%PathFollow2D.progress_ratio = randf()
 	enemy.set_deferred('global_position', %PathFollow2D.global_position)
 	count_enemies += 1
