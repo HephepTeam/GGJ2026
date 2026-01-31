@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dq6dvf0llr13b" path="res://scenes/Player/projectile.tscn" id="2_c4h5g"]
 [ext_resource type="Texture2D" uid="uid://b67t2080ebv8i" path="res://assets/minion_body.png" id="2_gqjuk"]
 [ext_resource type="Texture2D" uid="uid://bag011h7epnyq" path="res://assets/mask0.png" id="3_c4h5g"]
+[ext_resource type="Resource" uid="uid://bygs7dybkafv7" path="res://ressources/defaut_projectile.tres" id="3_uiqp4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a3d8c"]
 animations = [{
@@ -29,12 +30,13 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1kbk7"]
 radius = 5.0
-height = 32.0
+height = 46.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1534390266]
 texture_filter = 1
 script = ExtResource("1_a3d8c")
 projectile_scene = ExtResource("2_c4h5g")
+projectile_data = ExtResource("3_uiqp4")
 
 [node name="Shadow" type="Sprite2D" parent="." unique_id=411555806]
 
