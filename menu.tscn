@@ -243,7 +243,6 @@ stop_trigger_source = NodePath("../../../..")
 metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
 
 [node name="Scoring" type="Button" parent="Control/VBoxContainer" unique_id=112687071]
-visible = false
 layout_mode = 2
 text = "Scoring"
 
@@ -265,14 +264,15 @@ start_on_hover_stop = true
 stop_trigger_source = NodePath("..")
 metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
 
-[node name="Panel" type="Panel" parent="Control/VBoxContainer/Scoring" unique_id=1238822747]
+[node name="PanelScoring" type="Panel" parent="Control/VBoxContainer/Scoring" unique_id=1238822747]
+visible = false
 layout_mode = 0
 offset_left = 161.0
 offset_top = -69.0
 offset_right = 400.0
 offset_bottom = 171.0
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer/Scoring/Panel" unique_id=1636689961]
+[node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer/Scoring/PanelScoring" unique_id=1636689961]
 layout_mode = 0
 offset_right = 238.0
 offset_bottom = 240.0
@@ -281,21 +281,21 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/VBoxContainer/Scoring/Panel/MarginContainer" unique_id=49525140]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/VBoxContainer/Scoring/PanelScoring/MarginContainer" unique_id=49525140]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/VBoxContainer/Scoring/Panel/MarginContainer/VBoxContainer" unique_id=1273366791]
+[node name="Label" type="Label" parent="Control/VBoxContainer/Scoring/PanelScoring/MarginContainer/VBoxContainer" unique_id=1273366791]
 layout_mode = 2
 text = "Best Score"
 horizontal_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Control/VBoxContainer/Scoring/Panel/MarginContainer/VBoxContainer" unique_id=1841541404]
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/VBoxContainer/Scoring/PanelScoring/MarginContainer/VBoxContainer" unique_id=1841541404]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/VBoxContainer/Scoring/Panel/MarginContainer/VBoxContainer/ScrollContainer" unique_id=348233147]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/VBoxContainer/Scoring/PanelScoring/MarginContainer/VBoxContainer/ScrollContainer" unique_id=348233147]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Control/VBoxContainer/Scoring/Panel/MarginContainer/VBoxContainer" unique_id=1409892892]
+[node name="ReturnScoringButton" type="Button" parent="Control/VBoxContainer/Scoring/PanelScoring/MarginContainer/VBoxContainer" unique_id=1409892892]
 layout_mode = 2
 text = "Return"
 
@@ -321,38 +321,43 @@ start_on_hover_stop = true
 stop_trigger_source = NodePath("..")
 metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
 
-[node name="Panel" type="Panel" parent="Control/VBoxContainer/ConfigButton" unique_id=1891780491]
+[node name="PanelConfig" type="Panel" parent="Control/VBoxContainer/ConfigButton" unique_id=1891780491]
+visible = false
 layout_mode = 0
 offset_left = 164.0
 offset_top = -29.0
 offset_right = 356.0
-offset_bottom = 96.0
+offset_bottom = 124.0
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer/ConfigButton/Panel" unique_id=398486456]
+[node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer/ConfigButton/PanelConfig" unique_id=398486456]
 layout_mode = 0
 offset_right = 191.0
-offset_bottom = 116.0
+offset_bottom = 152.0
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/VBoxContainer/ConfigButton/Panel/MarginContainer" unique_id=231449162]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/VBoxContainer/ConfigButton/PanelConfig/MarginContainer" unique_id=231449162]
 layout_mode = 2
 
-[node name="VolPrincLBL" type="Label" parent="Control/VBoxContainer/ConfigButton/Panel/MarginContainer/VBoxContainer" unique_id=1846412302]
+[node name="VolPrincLBL" type="Label" parent="Control/VBoxContainer/ConfigButton/PanelConfig/MarginContainer/VBoxContainer" unique_id=1846412302]
 layout_mode = 2
 text = "Volume Principal"
 
-[node name="VolPrincHSlider" type="HSlider" parent="Control/VBoxContainer/ConfigButton/Panel/MarginContainer/VBoxContainer" unique_id=1822808186]
+[node name="VolPrincHSlider" type="HSlider" parent="Control/VBoxContainer/ConfigButton/PanelConfig/MarginContainer/VBoxContainer" unique_id=1822808186]
 layout_mode = 2
 
-[node name="VolBruitLBL" type="Label" parent="Control/VBoxContainer/ConfigButton/Panel/MarginContainer/VBoxContainer" unique_id=1638376300]
+[node name="VolBruitLBL" type="Label" parent="Control/VBoxContainer/ConfigButton/PanelConfig/MarginContainer/VBoxContainer" unique_id=1638376300]
 layout_mode = 2
 text = "Volume Bruitages"
 
-[node name="VolBruitHSlider" type="HScrollBar" parent="Control/VBoxContainer/ConfigButton/Panel/MarginContainer/VBoxContainer" unique_id=266831558]
+[node name="VolBruitHSlider" type="HScrollBar" parent="Control/VBoxContainer/ConfigButton/PanelConfig/MarginContainer/VBoxContainer" unique_id=266831558]
 layout_mode = 2
+
+[node name="ReturnConfigButton" type="Button" parent="Control/VBoxContainer/ConfigButton/PanelConfig/MarginContainer/VBoxContainer" unique_id=2010087556]
+layout_mode = 2
+text = "Return"
 
 [node name="CreditsButton" type="Button" parent="Control/VBoxContainer" unique_id=1077002628]
 layout_mode = 2
@@ -428,4 +433,8 @@ metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
 [connection signal="mouse_entered" from="Control/VBoxContainer/SelectMaskButton/Panel/VBoxContainer/HBoxContainer/Mask2Button" to="." method="_on_mask_2_button_mouse_entered"]
 [connection signal="mouse_entered" from="Control/VBoxContainer/SelectMaskButton/Panel/VBoxContainer/HBoxContainer/Mask3Button" to="." method="_on_mask_3_button_mouse_entered"]
 [connection signal="pressed" from="Control/VBoxContainer/SelectMaskButton/Panel/VBoxContainer/ReturnButton" to="." method="_on_return_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Scoring" to="." method="_on_scoring_pressed"]
+[connection signal="mouse_entered" from="Control/VBoxContainer/Scoring/PanelScoring" to="." method="_on_panel_scoring_mouse_entered"]
+[connection signal="pressed" from="Control/VBoxContainer/Scoring/PanelScoring/MarginContainer/VBoxContainer/ReturnScoringButton" to="." method="_on_return_scoring_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/ConfigButton" to="." method="_on_config_button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

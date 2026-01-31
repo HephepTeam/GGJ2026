@@ -20,12 +20,15 @@ func _process(delta: float) -> void:
 
 func _on_select_mask_button_pressed() -> void:
 	$Control/VBoxContainer/SelectMaskButton/Panel.visible = true
-
+	if $Control/VBoxContainer/Scoring/PanelScoring.visible == true:
+		$Control/VBoxContainer/Scoring/PanelScoring.visible = false;
+	if $Control/VBoxContainer/ConfigButton/PanelConfig.visible == true:
+		$Control/VBoxContainer/ConfigButton/PanelConfig.visible = false;
 
 
 func _on_select_mask_button_mouse_entered() -> void:
 	if $Control/VBoxContainer/SelectMaskButton/Panel.visible == false : 
-		if $Control/VBoxContainer/SelectMaskButton.position.x !=20.0 :
+		if $Control/VBoxContainer/SelectMaskButton.position.x <=20.0 :
 			maskButton_hover.emit()
 	
 
@@ -78,9 +81,31 @@ func _on_quit_button_pressed() -> void:
 
 func _on_select_mask_button_mouse_exited() -> void:
 		if $Control/VBoxContainer/SelectMaskButton/Panel.visible == false : 
-			if $Control/VBoxContainer/SelectMaskButton.position.x == 20.0 :
+			if $Control/VBoxContainer/SelectMaskButton.position.x >= 20.0 :
 				$Control/VBoxContainer/SelectMaskButton/Panel/VBoxContainer/ReturnButton/SlideL.start()
 
 
 func _on_start_game_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/game_scene.tscn")
+
+
+
+	
+
+
+func _on_return_scoring_button_pressed() -> void:
+	$Control/VBoxContainer/Scoring/PanelScoring.visible = false;
+
+
+func _on_scoring_pressed() -> void:
+	$Control/VBoxContainer/Scoring/PanelScoring.visible = true;
+	if $Control/VBoxContainer/ConfigButton/PanelConfig.visible == true:
+		$Control/VBoxContainer/ConfigButton/PanelConfig.visible = false;
+	if $Control/VBoxContainer/SelectMaskButton/Panel.visible == true:
+		$Control/VBoxContainer/SelectMaskButton/Panel.visible = false;
+func _on_config_button_pressed() -> void:
+	$Control/VBoxContainer/ConfigButton/PanelConfig.visible = true;
+	if $Control/VBoxContainer/Scoring/PanelScoring.visible == true:
+		$Control/VBoxContainer/Scoring/PanelScoring.visible = false;
+	if $Control/VBoxContainer/SelectMaskButton/Panel.visible == true:
+		$Control/VBoxContainer/SelectMaskButton/Panel.visible = false;
