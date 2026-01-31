@@ -1,6 +1,7 @@
 extends Node
 
 signal room_entered(room)
+signal camera_move_finished
 
 var EnemyAround = []
 

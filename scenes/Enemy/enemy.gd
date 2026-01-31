@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Enemy
 
+signal died
+
 const SPEED := 200.0
 
 @export var mask: MaskData
@@ -65,8 +67,6 @@ func get_damage(val: int):
 	health -= val
 	val = clamp(val , 0, health)
 	if val == 0:
+		died.emit()
 		queue_free()
-		
-func knockback(val: float):
-	pass
 	
