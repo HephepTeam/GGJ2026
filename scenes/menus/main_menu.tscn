@@ -1,10 +1,9 @@
 [gd_scene format=3 uid="uid://xh5p7buxoj6u"]
 
-[ext_resource type="Script" uid="uid://bfmbbmiden7da" path="res://menu.gd" id="1_lti8b"]
+[ext_resource type="Script" uid="uid://bfmbbmiden7da" path="res://scenes/menus/main_menu.gd" id="1_lti8b"]
 [ext_resource type="Script" uid="uid://b4hvmk8t0qkgu" path="res://addons/proton_control_animation/src/proton_control_animation.gd" id="2_mae5d"]
 [ext_resource type="Script" uid="uid://bsufjcw4lsn2a" path="res://addons/proton_control_animation/src/animations/slide.gd" id="4_4hy44"]
 [ext_resource type="Texture2D" uid="uid://bag011h7epnyq" path="res://assets/mask0.png" id="4_ytr4m"]
-[ext_resource type="AudioStream" uid="uid://cwq2v2xg8cxdl" path="res://assets/menu_song_test.mp3" id="5_ytr4m"]
 
 [sub_resource type="Resource" id="Resource_l48gv"]
 script = ExtResource("4_4hy44")
@@ -434,11 +433,6 @@ start_trigger_source = NodePath("..")
 start_on_hover_stop = true
 stop_trigger_source = NodePath("..")
 metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=76813174]
-stream = ExtResource("5_ytr4m")
-autoplay = true
-bus = &"MusicMenu"
 
 [connection signal="pressed" from="Control/VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
 [connection signal="mouse_entered" from="Control/VBoxContainer/SelectMaskButton" to="." method="_on_select_mask_button_mouse_entered"]

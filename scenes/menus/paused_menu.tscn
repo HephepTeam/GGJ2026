@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://8b7lnpmvdgip"]
+
+[ext_resource type="Script" uid="uid://ds7fgs4aquch1" path="res://scenes/menus/paused_menu.gd" id="1_p5bqu"]
+
+[node name="PausedMenu" type="Control" unique_id=437947370]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_p5bqu")
+
+[node name="PanelPausedMenu" type="Panel" parent="." unique_id=1791336069]
+layout_mode = 0
+offset_right = 158.0
+offset_bottom = 169.0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelPausedMenu" unique_id=884466713]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelPausedMenu/MarginContainer" unique_id=1800859648]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelPausedMenu/MarginContainer/VBoxContainer" unique_id=1697687492]
+layout_mode = 2
+text = "Paused Menu"
+horizontal_alignment = 1
+
+[node name="ResumeBTN" type="Button" parent="PanelPausedMenu/MarginContainer/VBoxContainer" unique_id=134657001]
+layout_mode = 2
+text = "Resume"
+
+[node name="BackToMenuBTN" type="Button" parent="PanelPausedMenu/MarginContainer/VBoxContainer" unique_id=706876440]
+layout_mode = 2
+text = "Back To Menu"
+
+[node name="LeaveGameBTN" type="Button" parent="PanelPausedMenu/MarginContainer/VBoxContainer" unique_id=15310657]
+layout_mode = 2
+text = "Leave Game"
+
+[connection signal="pressed" from="PanelPausedMenu/MarginContainer/VBoxContainer/BackToMenuBTN" to="." method="_on_back_to_menu_btn_pressed"]
+[connection signal="pressed" from="PanelPausedMenu/MarginContainer/VBoxContainer/LeaveGameBTN" to="." method="_on_leave_game_btn_pressed"]

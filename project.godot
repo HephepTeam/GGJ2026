@@ -15,6 +15,10 @@ run/main_scene="uid://bs1ygmcp7mpe3"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://assets/icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://bb85kmw5dp22p"
+
 [autoload]
 
 Globals="*uid://dols6ucr8nf3y"
@@ -25,6 +29,10 @@ window/size/viewport_width=1024
 window/size/viewport_height=1024
 window/size/mode=3
 window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/proton_control_animation/plugin.cfg")
 
 [file_customization]
 
