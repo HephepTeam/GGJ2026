@@ -2,5 +2,5 @@ extends Resource
 class_name ProjectileData
 
 
-@export var power: float
-@export var splash_radius: float
+@export var power := 1.0
+@export var splash_radius := 1.0

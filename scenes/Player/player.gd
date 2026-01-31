@@ -3,7 +3,9 @@ class_name Player
 
 signal dead
 
-const MAX_HEALTH = 500.0
+const MAX_HEALTH = 100.0
+
+var points_scene: PackedScene = preload("res://scenes/points.tscn")
 
 @export var projectile_scene: PackedScene
 @export var damage_bomb_scene : PackedScene
@@ -18,7 +20,6 @@ const MAX_HEALTH = 500.0
 @onready var shoot_point: Marker2D = $Body/Mask/ShootPoint
 
 @export var projectile_data : ProjectileData
-@export var shoot_rate := 1.0
 
 var body_direction = 1.0
 var _cooldown_hit = false
@@ -26,12 +27,6 @@ var _cooldown_hit = false
 var knockback_dir : Vector2
 var knockback_force := 200.0
 
-func set_data(data: MaskData):
-	update_cadence(data.cadence_bonus)
-	
-
-func _ready():
-	cooldown_shoot.start(shoot_rate)
 
 func _physics_process(delta):
 	var direction = Input.get_vector(
@@ -41,11 +36,11 @@ func _physics_process(delta):
 		velocity = velocity.lerp(direction * speed, delta * 12.0)
 
 		$Body.play("run")
-		if abs(velocity.x) > 0.01: 
+		if abs(velocity.x) > 0.01:
 			body_direction = sign(velocity.x)
 			body.scale.x = body_direction
 			skew = lerp(skew, deg_to_rad(body_direction*12.0), delta*80)
-			
+
 	else:
 		$Body.play("idle")
 		skew = lerp(skew, 0.0, delta*80)
@@ -56,31 +51,31 @@ func _physics_process(delta):
 	knockback_dir = knockback_dir.lerp(Vector2.ZERO, delta * 5.0)
 	move_and_slide()
 
-func update_cadence(new_cadence: float):
-	shoot_rate = 60.0 / new_cadence
+func _process(delta: float) -> void:
+	if health < MAX_HEALTH:
+		$healthbar.show()
+		$healthbar.value = health
 
-func update_power(new_power: float):
-	projectile_data.power = new_power
-	
-func update_range(new_range: float):
-	projectile_data.splash_radius = new_range
-	
+func update_bonuses():
+	$CooldownShoot.wait_time = 1.0 / Globals.speed_multiplier
+	projectile_data.power = Globals.strength_multiplier
+	projectile_data.splash_radius = Globals.explosion_multiplier
+
 func update_mask(new_mask: Texture):
 	$Body/Mask.texture = new_mask
-	
-	
+
 
 func _check_for_nearest_enemy() -> Enemy:
 	var enemies = Globals.get_enemy_around()
 	var min_distance := INF
 	var nearest = null
 	for enemy in enemies:
-		var distance = (enemy.global_position - global_position).length()
+		var distance = enemy.global_position.distance_squared_to(global_position)
 		if min_distance > distance:
 			min_distance = distance
 			nearest = enemy
 	return nearest
-	
+
 func shoot(target: Vector2):
 	var inst = projectile_scene.instantiate()
 	var dir = (target - global_position).normalized()
@@ -90,19 +85,27 @@ func shoot(target: Vector2):
 	inst.global_position = shoot_point.global_position
 	inst.touched.connect(_on_projectile_touched)
 
-	
+
+func add_damage_points(damage: float) -> void:
+	var points: Points = points_scene.instantiate()
+	points.text = '%d' % damage
+	points.modulate = Color(1.0, 0.0, 0.0, 1.0)
+	Globals.points_container.add_child.call_deferred(points)
+	points.set_deferred('global_position', global_position - Vector2(0.0, 64.0))
+
+
 func get_damage(val: int, dir: Vector2):
 	if !_cooldown_hit:
 		_cooldown_hit = true
 		knockback_dir = dir * knockback_force
-		health -= val
+		health = clamp(health - val, 0.0, MAX_HEALTH)
 		anim_hit()
-		val = clamp(val , 0, MAX_HEALTH)
+		add_damage_points(val)
 		cooldown_hit.start(cooldown_hit_duration)
-		if val == 0:
+		if health <= 0:
 			dead.emit()
-			
-			
+
+
 func anim_hit():
 	$Body.modulate.v = 1500.0
 	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
@@ -113,17 +116,13 @@ func _on_timer_timeout() -> void:
 	var target = _check_for_nearest_enemy()
 	if target:
 		shoot(target.global_position)
-	
-	cooldown_shoot.start(shoot_rate)
-	
-	
+
+
 func _on_projectile_touched(pos: Vector2):
 	var inst = damage_bomb_scene.instantiate()
-	#inst.data = projectile_data
+	inst.data = projectile_data
 	add_sibling.call_deferred(inst)
 	inst.set_deferred("global_position", pos)
-
-	
 
 
 func _on_cooldown_hit_timeout() -> void:

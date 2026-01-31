@@ -8,7 +8,7 @@ uniform float explosion: hint_range(0.0, 1.0) = 0.0;
 group_uniforms scanline_wiggle;
 uniform float color_offset_multiplier: hint_range(0.0, 0.1) =  0.004;
 uniform float black_offset_multiplier: hint_range(0.0, 0.1) = 0.1;
-uniform float color_offset: hint_range(-0.1, 0.1) = 0.005;
+uniform float color_offset: hint_range(-0.1, 0.1) = 0.002;
 
 group_uniforms blur;
 uniform float blur_amount: hint_range(0.0, 3.0, 0.1) = 1.0;
@@ -97,7 +97,7 @@ void fragment() {
 	vec2 screen_uv = SCREEN_UV;
 	COLOR = vhsFilter(UV, screen_uv);
 	COLOR = speedLines(COLOR, FRAGCOORD.xy, 1.0 / SCREEN_PIXEL_SIZE);
+	COLOR.rgb = mix(COLOR.rgb, vec3(1.0, 0.98, 0.84) * rand(screen_uv, TIME), explosion * 0.7);
 	float ratio = abs(sin(TIME * 2.0)) * strength;
 	COLOR = mix(COLOR, vec4(length(COLOR.rgb) / 3.0, 0.0, 0.0, 1.0), ratio);
-	COLOR.rgb = mix(COLOR.rgb, vec3(1.0, 0.98, 0.84) * rand(screen_uv, TIME), explosion * 0.7);
 }

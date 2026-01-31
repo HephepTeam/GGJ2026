@@ -1,12 +1,33 @@
 extends Node
 
 signal room_entered(room)
+signal mask_picked_up(d: MaskData)
+signal camera_move_finished
 
+var kill_count := 0
+var start_ticks := 0
+
+var entities_container: Node2D
+var points_container: Node2D
 var EnemyAround = []
 
-var current_cadence: float
-var current_power: float
-var current_range: float
+var speed_multiplier := 1.0
+var strength_multiplier := 1.0
+var explosion_multiplier := 1.0
+
+func _ready() -> void:
+	mask_picked_up.connect(on_mask_picked_up)
+	restart()
+
+
+func restart() -> void:
+	kill_count = 0
+	start_ticks = Time.get_ticks_usec()
+
+
+func get_elapsed_time() -> float:
+	return (Time.get_ticks_usec() - start_ticks) / 1_000_000.0
+
 
 func get_enemy_around() -> Array[Enemy]:
 	var enemies: Array[Enemy] = []
@@ -31,10 +52,9 @@ func get_closest_player(from_position: Vector2) -> Player:
 	return closest
 	
 func on_mask_picked_up(data: MaskData):
-	current_cadence += data.cadence_bonus
-	current_power += data.power_bonus
+	speed_multiplier += data.speed_bonus
+	strength_multiplier += data.strength_bonus
+	explosion_multiplier += data.explosion_bonus
 	var p = get_players()[0]
-	p.update_cadence(current_cadence)
-	p.update_power(current_power)
+	p.update_bonuses()
 	p.update_mask(data.player_mask_texture)
-	

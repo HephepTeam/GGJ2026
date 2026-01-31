@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dsf0qlkmmrwr6"]
+
+[ext_resource type="Script" uid="uid://bpdijlnfdjhtc" path="res://scenes/time.gd" id="1_hxfg6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gt3cs"]
+font_size = 30
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Time" type="Label" unique_id=535690649]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -34.5
+offset_right = 34.5
+offset_bottom = 42.0
+grow_horizontal = 2
+text = "0"
+label_settings = SubResource("LabelSettings_gt3cs")
+script = ExtResource("1_hxfg6")
+
+[node name="Timer" type="Timer" parent="." unique_id=73099997]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
