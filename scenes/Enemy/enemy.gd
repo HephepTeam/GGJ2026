@@ -8,7 +8,7 @@ const DROP_PROBABILITY := 0.1
 
 @export var mask: MaskData
 
-@onready var body: AnimatedSprite2D = $Body
+@onready var body: AnimatedSprite2D = %Body
 
 var mask_scene: PackedScene = preload("res://scenes/collectible/mask.tscn")
 var points_scene: PackedScene = preload("res://scenes/points.tscn")
@@ -25,7 +25,7 @@ var _prev_pos: Vector2
 func _ready():
 	Globals.mask_picked_up.connect(on_mask_picked_up)
 	if mask:
-		$Body/Mask.texture = mask.mask_texture
+		%Mask.texture = mask.mask_texture
 	change_modulate()
 
 func is_dead() -> bool:
@@ -94,10 +94,10 @@ func get_damage(val: int):
 
 	health = clamp(health - val, 0, health)
 	var tween := create_tween()
-	tween.tween_property(%Body, 'modulate:v', 15.0, 0.1)
-	tween.tween_property(%Body, 'modulate:v', 1.0, 0.1)
+	tween.tween_property(body, 'modulate:v', 15.0, 0.1)
+	tween.tween_property(body, 'modulate:v', 1.0, 0.1)
 	if health <= 0:
-		tween.tween_property(%Body, 'scale:y', 0.0, 0.3)
+		tween.tween_property(body, 'scale:y', 0.0, 0.3)
 		tween.tween_callback(die)
 
 
