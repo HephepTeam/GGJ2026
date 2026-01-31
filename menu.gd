@@ -109,3 +109,10 @@ func _on_config_button_pressed() -> void:
 		$Control/VBoxContainer/Scoring/PanelScoring.visible = false;
 	if $Control/VBoxContainer/SelectMaskButton/Panel.visible == true:
 		$Control/VBoxContainer/SelectMaskButton/Panel.visible = false;
+
+
+func _on_vol_princ_h_slider_value_changed(value: float) -> void:
+	var db_value = linear_to_db(value)
+	print(db_value)
+	AudioServer.set_bus_volume_db(1, db_value)
+	

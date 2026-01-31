@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://b4hvmk8t0qkgu" path="res://addons/proton_control_animation/src/proton_control_animation.gd" id="2_mae5d"]
 [ext_resource type="Script" uid="uid://bsufjcw4lsn2a" path="res://addons/proton_control_animation/src/animations/slide.gd" id="4_4hy44"]
 [ext_resource type="Texture2D" uid="uid://bag011h7epnyq" path="res://assets/mask0.png" id="4_ytr4m"]
+[ext_resource type="AudioStream" uid="uid://cwq2v2xg8cxdl" path="res://assets/menu_song_test.mp3" id="5_ytr4m"]
 
 [sub_resource type="Resource" id="Resource_l48gv"]
 script = ExtResource("4_4hy44")
@@ -322,12 +323,11 @@ stop_trigger_source = NodePath("..")
 metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
 
 [node name="PanelConfig" type="Panel" parent="Control/VBoxContainer/ConfigButton" unique_id=1891780491]
-visible = false
 layout_mode = 0
 offset_left = 164.0
 offset_top = -29.0
 offset_right = 356.0
-offset_bottom = 124.0
+offset_bottom = 136.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer/ConfigButton/PanelConfig" unique_id=398486456]
 layout_mode = 0
@@ -347,6 +347,9 @@ text = "Volume Principal"
 
 [node name="VolPrincHSlider" type="HSlider" parent="Control/VBoxContainer/ConfigButton/PanelConfig/MarginContainer/VBoxContainer" unique_id=1822808186]
 layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
 
 [node name="VolBruitLBL" type="Label" parent="Control/VBoxContainer/ConfigButton/PanelConfig/MarginContainer/VBoxContainer" unique_id=1638376300]
 layout_mode = 2
@@ -355,7 +358,14 @@ text = "Volume Bruitages"
 [node name="VolBruitHSlider" type="HScrollBar" parent="Control/VBoxContainer/ConfigButton/PanelConfig/MarginContainer/VBoxContainer" unique_id=266831558]
 layout_mode = 2
 
-[node name="ReturnConfigButton" type="Button" parent="Control/VBoxContainer/ConfigButton/PanelConfig/MarginContainer/VBoxContainer" unique_id=2010087556]
+[node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer/ConfigButton/PanelConfig/MarginContainer/VBoxContainer" unique_id=314923047]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="ReturnConfigButton" type="Button" parent="Control/VBoxContainer/ConfigButton/PanelConfig/MarginContainer/VBoxContainer/MarginContainer" unique_id=2010087556]
 layout_mode = 2
 text = "Return"
 
@@ -425,6 +435,11 @@ start_on_hover_stop = true
 stop_trigger_source = NodePath("..")
 metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=76813174]
+stream = ExtResource("5_ytr4m")
+autoplay = true
+bus = &"MusicMenu"
+
 [connection signal="pressed" from="Control/VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
 [connection signal="mouse_entered" from="Control/VBoxContainer/SelectMaskButton" to="." method="_on_select_mask_button_mouse_entered"]
 [connection signal="mouse_exited" from="Control/VBoxContainer/SelectMaskButton" to="." method="_on_select_mask_button_mouse_exited"]
@@ -437,4 +452,5 @@ metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
 [connection signal="mouse_entered" from="Control/VBoxContainer/Scoring/PanelScoring" to="." method="_on_panel_scoring_mouse_entered"]
 [connection signal="pressed" from="Control/VBoxContainer/Scoring/PanelScoring/MarginContainer/VBoxContainer/ReturnScoringButton" to="." method="_on_return_scoring_button_pressed"]
 [connection signal="pressed" from="Control/VBoxContainer/ConfigButton" to="." method="_on_config_button_pressed"]
+[connection signal="value_changed" from="Control/VBoxContainer/ConfigButton/PanelConfig/MarginContainer/VBoxContainer/VolPrincHSlider" to="." method="_on_vol_princ_h_slider_value_changed"]
 [connection signal="pressed" from="Control/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
