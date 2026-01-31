@@ -6,7 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://cf3w4rhojr72t" path="res://assets/ground.png" id="4_2lpho"]
 [ext_resource type="Script" uid="uid://cfduyg3rk3v7y" path="res://scenes/room.gd" id="5_2klcf"]
 [ext_resource type="PackedScene" uid="uid://imwi3ugshkya" path="res://scenes/Enemy/enemy.tscn" id="6_nakos"]
+[ext_resource type="Script" uid="uid://b4j6vx2yiydvx" path="res://ressources/MaskData.gd" id="7_blm8a"]
 [ext_resource type="Resource" uid="uid://cow18rshugplg" path="res://ressources/mask0.tres" id="7_jh32y"]
+[ext_resource type="Resource" uid="uid://dk5ep68cm2eah" path="res://ressources/mask1.tres" id="9_mlgqr"]
+[ext_resource type="Resource" uid="uid://cel4wpflqmuuf" path="res://ressources/mask2.tres" id="10_wslke"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nakos"]
 texture = ExtResource("1_0cso3")
@@ -127,7 +130,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAPAAAAAAAAAAAAAFAOAAAAAQAAAAA
 tile_set = SubResource("TileSet_gldc4")
 script = ExtResource("5_2klcf")
 enemy_scene = ExtResource("6_nakos")
-enemy_mask_resource = ExtResource("7_jh32y")
+enemy_mask_resource = Array[ExtResource("7_blm8a")]([ExtResource("7_jh32y"), ExtResource("9_mlgqr"), ExtResource("10_wslke")])
 
 [node name="EnterZone" type="Area2D" parent="." unique_id=829790746]
 collision_layer = 0
@@ -166,7 +169,6 @@ shape = SubResource("RectangleShape2D_blm8a")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="DoorsCollision" unique_id=1334455116]
 position = Vector2(16, 512)
 shape = SubResource("RectangleShape2D_mlgqr")
-disabled = true
 
 [node name="Doors" type="Node2D" parent="." unique_id=2098281456]
 

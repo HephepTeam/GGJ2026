@@ -13,6 +13,7 @@ collision_layer = 4
 script = ExtResource("1_q8gvr")
 
 [node name="shadow" type="Sprite2D" parent="." unique_id=573349222]
+modulate = Color(0.54901963, 0.54901963, 0.54901963, 1)
 position = Vector2(0, 1)
 texture = ExtResource("2_kuxxp")
 

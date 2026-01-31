@@ -19,6 +19,49 @@ script = ExtResource("1_tcjrq")
 anchor_mode = 0
 script = ExtResource("4_bw6k5")
 
+[node name="TileMap" parent="." unique_id=103331890 instance=ExtResource("1_ycayy")]
+max_enemies = 3
+door_flags = 4
+
+[node name="TileMap2" parent="." unique_id=179751782 instance=ExtResource("1_ycayy")]
+position = Vector2(1024, 0)
+max_enemies = 8
+door_flags = 9
+
+[node name="TileMap3" parent="." unique_id=871066224 instance=ExtResource("1_ycayy")]
+position = Vector2(2048, 0)
+max_enemies = 8
+door_flags = 1
+
+[node name="TileMap4" parent="." unique_id=261601510 instance=ExtResource("1_ycayy")]
+position = Vector2(1024, -1024)
+door_flags = 14
+
+[node name="TileMap6" parent="." unique_id=1603576315 instance=ExtResource("1_ycayy")]
+position = Vector2(2048, -1024)
+door_flags = 10
+
+[node name="TileMap5" parent="." unique_id=196586902 instance=ExtResource("1_ycayy")]
+position = Vector2(0, -1024)
+door_flags = 5
+
+[node name="TileMap7" parent="." unique_id=433286325 instance=ExtResource("1_ycayy")]
+position = Vector2(0, -2048)
+door_flags = 6
+
+[node name="TileMap8" parent="." unique_id=1227077269 instance=ExtResource("1_ycayy")]
+position = Vector2(1024, -2048)
+door_flags = 13
+
+[node name="TileMap10" parent="." unique_id=1306396387 instance=ExtResource("1_ycayy")]
+position = Vector2(1024, -3072)
+max_enemies = 0
+door_flags = 2
+
+[node name="TileMap9" parent="." unique_id=2067688600 instance=ExtResource("1_ycayy")]
+position = Vector2(2048, -2048)
+door_flags = 10
+
 [node name="Entities" type="Node2D" parent="." unique_id=267500765]
 unique_name_in_owner = true
 y_sort_enabled = true
@@ -35,30 +78,14 @@ data = ExtResource("4_mw25s")
 position = Vector2(461, -488)
 data = ExtResource("5_tcjrq")
 
-[node name="TileMap" parent="Entities" unique_id=103331890 instance=ExtResource("1_ycayy")]
-max_enemies = 3
-door_flags = 4
-
-[node name="TileMap2" parent="Entities" unique_id=179751782 instance=ExtResource("1_ycayy")]
-position = Vector2(1024, 0)
-enemy_mask_resource = ExtResource("4_mw25s")
-max_enemies = 8
-door_flags = 9
-
-[node name="TileMap4" parent="Entities" unique_id=261601510 instance=ExtResource("1_ycayy")]
-position = Vector2(1024, -1024)
-enemy_mask_resource = ExtResource("5_tcjrq")
-door_flags = 10
-
-[node name="TileMap5" parent="Entities" unique_id=196586902 instance=ExtResource("1_ycayy")]
-position = Vector2(0, -1024)
-door_flags = 4
-
 [node name="Player" parent="Entities" unique_id=1534390266 instance=ExtResource("2_bw6k5")]
-position = Vector2(432, 488)
+position = Vector2(1537, 846)
 
 [node name="Crowbar" parent="Entities" unique_id=482738927 instance=ExtResource("8_mw25s")]
 position = Vector2(238, 343)
+
+[node name="PointsContainer" type="Node2D" parent="." unique_id=1340237641]
+unique_name_in_owner = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1897922151]
 

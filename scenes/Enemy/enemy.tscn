@@ -101,6 +101,7 @@ mask = ExtResource("2_grfqg")
 [node name="Visuals" type="Node2D" parent="." unique_id=1956700674]
 
 [node name="Shadow" type="Sprite2D" parent="Visuals" unique_id=2114353493]
+modulate = Color(0.54901963, 0.54901963, 0.54901963, 1)
 texture = ExtResource("2_ixhtt")
 
 [node name="Body" type="AnimatedSprite2D" parent="Visuals" unique_id=1419797350]
