@@ -8,5 +8,5 @@
 script = ExtResource("1_ppqu2")
 mask_texture = ExtResource("1_mp6y1")
 player_mask_texture = ExtResource("2_mp6y1")
-power_bonus = 2.0
+strength_bonus = 0.2
 metadata/_custom_type_script = "uid://b4j6vx2yiydvx"

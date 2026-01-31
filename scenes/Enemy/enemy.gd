@@ -1,14 +1,14 @@
 extends CharacterBody2D
 class_name Enemy
 
-signal died
-
 const SPEED := 200.0
+const DROP_PROBABILITY := 0.1
 
 @export var mask: MaskData
 
 @onready var body: AnimatedSprite2D = $Body
 
+var mask_scene: PackedScene = preload("res://scenes/collectible/mask.tscn")
 var colliding_areas: Array[Area2D] = []
 var collision_vector := Vector2.ZERO
 
@@ -20,10 +20,18 @@ var _body_direction := 1.0
 var _prev_pos: Vector2
 
 func _ready():
+	Globals.mask_picked_up.connect(on_mask_picked_up)
 	if mask:
 		$Body/Mask.texture = mask.mask_texture
+	change_modulate()
+
+func is_dead() -> bool:
+	return health <= 0
 
 func _physics_process(delta: float) -> void:
+	if is_dead():
+		return
+
 	var closest_player: Player = Globals.get_closest_player(global_position)
 	if closest_player == null:
 		return
@@ -39,18 +47,18 @@ func _physics_process(delta: float) -> void:
 		new_collision_vector += knockback_dir
 	collision_vector = lerp(collision_vector, new_collision_vector, 5.0 * delta)
 	direction += collision_vector
-	
+
 	global_position += SPEED * delta * direction.normalized()
 	#_prev_pos = global_position
-	
+
 	move_and_slide()
-	
+
 
 	_body_direction = sign(direction.x)
 	body.scale.x = _body_direction
-	
+
 	_prev_pos = global_position
-	
+
 func _process(delta: float) -> void:
 	if health < base_health:
 		$healthbar.show()
@@ -62,11 +70,37 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	colliding_areas.erase(area)
-	
+
+func die() -> void:
+	if randf() < DROP_PROBABILITY:
+		var dropped_mask: Mask = mask_scene.instantiate()
+		dropped_mask.data = mask
+		Globals.entities_container.add_child.call_deferred(
+			dropped_mask
+		)
+		dropped_mask.set_deferred('global_position', global_position)
+
+	queue_free()
+
 func get_damage(val: int):
-	health -= val
-	val = clamp(val , 0, health)
-	if val == 0:
-		died.emit()
-		queue_free()
-	
+	health = clamp(health - val, 0, health)
+	var tween := create_tween()
+	tween.tween_property(%Body, 'modulate:v', 15.0, 0.1)
+	tween.tween_property(%Body, 'modulate:v', 1.0, 0.1)
+	if health <= 0:
+		tween.tween_property(%Body, 'scale:y', 0.0, 0.3)
+		tween.tween_callback(die)
+
+
+func knockback(val: float):
+	pass
+
+
+func change_modulate() -> void:
+	var non_red_attenuation := clampf(1.0 - (Globals.strength_multiplier - 1.0), 0.0, 1.0)
+	modulate.g = non_red_attenuation
+	modulate.b = non_red_attenuation
+	modulate.a = non_red_attenuation
+
+func on_mask_picked_up(_mask_data: MaskData) -> void:
+	change_modulate()

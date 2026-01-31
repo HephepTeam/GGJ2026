@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dg63fg6sx8t1u"]
+
+[ext_resource type="Shader" uid="uid://svvmaw52uucw" path="res://shaders/strength.gdshader" id="1_m7pwc"]
+[ext_resource type="Script" uid="uid://d0laovth1vh56" path="res://scenes/filters.gd" id="2_f7vkb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kk2rg"]
+shader = ExtResource("1_m7pwc")
+shader_parameter/speed = 0.0
+shader_parameter/strength = 0.0
+shader_parameter/explosion = 0.0
+shader_parameter/color_offset_multiplier = 0.004
+shader_parameter/black_offset_multiplier = 0.1
+shader_parameter/color_offset = 0.005
+shader_parameter/blur_amount = 0.0
+
+[node name="Filters" type="ColorRect" unique_id=268984273]
+material = SubResource("ShaderMaterial_kk2rg")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_f7vkb")
