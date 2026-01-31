@@ -20,11 +20,13 @@ func _process(delta: float) -> void:
 
 func _on_select_mask_button_pressed() -> void:
 	$Control/VBoxContainer/SelectMaskButton/Panel.visible = true
-	$Control/VBoxContainer/SelectMaskButton/SlideR.start()
+
+
 
 func _on_select_mask_button_mouse_entered() -> void:
 	if $Control/VBoxContainer/SelectMaskButton/Panel.visible == false : 
-		maskButton_hover.emit()
+		if $Control/VBoxContainer/SelectMaskButton.position.x !=20.0 :
+			maskButton_hover.emit()
 	
 
 
@@ -72,3 +74,9 @@ func _on_mask_1_button_mouse_entered() -> void:
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_select_mask_button_mouse_exited() -> void:
+		if $Control/VBoxContainer/SelectMaskButton/Panel.visible == false : 
+			if $Control/VBoxContainer/SelectMaskButton.position.x == 20.0 :
+				$Control/VBoxContainer/SelectMaskButton/Panel/VBoxContainer/ReturnButton/SlideL.start()
