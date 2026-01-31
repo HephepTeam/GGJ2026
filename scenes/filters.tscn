@@ -5,6 +5,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kk2rg"]
 shader = ExtResource("1_m7pwc")
+shader_parameter/player_position = Vector2(0, 0)
 shader_parameter/speed = 0.0
 shader_parameter/strength = 0.0
 shader_parameter/explosion = 0.0

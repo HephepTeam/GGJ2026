@@ -1,6 +1,7 @@
 shader_type canvas_item;
 
 uniform sampler2D screen_texture: hint_screen_texture, filter_nearest_mipmap;
+uniform vec2 player_position = vec2(0.0, 0.0);
 uniform float speed: hint_range(0.0, 1.0) = 0.0;
 uniform float strength: hint_range(0.0, 1.0) = 0.0;
 uniform float explosion: hint_range(0.0, 1.0) = 0.0;
@@ -12,6 +13,8 @@ uniform float color_offset: hint_range(-0.1, 0.1) = 0.002;
 
 group_uniforms blur;
 uniform float blur_amount: hint_range(0.0, 3.0, 0.1) = 1.0;
+
+varying vec2 player_position_screen_space;
 
 float rand(vec2 uv, float offset){
     return fract(sin(dot(uv * offset, vec2(12.9898, 78.233))) * 43758.5453);
@@ -93,10 +96,17 @@ vec4 speedLines(vec4 input_color, vec2 fragcoord, vec2 resolution) {
 	return clamp(input_color + vec4(vec3(sign(final)) * mix(0.1, 0.5, speed), 1.0), 0.0, 1.0);
 }
 
+void vertex() {
+	player_position_screen_space = (CANVAS_MATRIX * vec4(player_position, 0.0, 1.0)).xy;
+}
+
 void fragment() {
 	vec2 screen_uv = SCREEN_UV;
+	vec2 from_center = screen_uv - vec2(0.5);
+	screen_uv = vec2(0.5) + from_center * (1.0 + 0.1 * speed * abs(sin(TIME * speed * 5.0)));
 	COLOR = vhsFilter(UV, screen_uv);
-	COLOR = speedLines(COLOR, FRAGCOORD.xy, 1.0 / SCREEN_PIXEL_SIZE);
+	vec2 fragcoord =  FRAGCOORD.xy - (player_position_screen_space - 0.5 / SCREEN_PIXEL_SIZE);
+	COLOR = speedLines(COLOR, fragcoord, 1.0 / SCREEN_PIXEL_SIZE);
 	COLOR.rgb = mix(COLOR.rgb, vec3(1.0, 0.98, 0.84) * rand(screen_uv, TIME), explosion * 0.7);
 	float ratio = abs(sin(TIME * 2.0)) * strength;
 	COLOR = mix(COLOR, vec4(length(COLOR.rgb) / 3.0, 0.0, 0.0, 1.0), ratio);
