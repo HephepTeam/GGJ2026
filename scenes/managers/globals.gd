@@ -6,6 +6,7 @@ signal camera_move_finished
 
 var kill_count := 0
 var start_ticks := 0
+var isDead = false
 
 var entities_container: Node2D
 var points_container: Node2D

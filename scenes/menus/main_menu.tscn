@@ -8,7 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://bgkgsg0coasj2" path="res://assets/Masks/Mask1.png" id="5_8r73w"]
 [ext_resource type="Texture2D" uid="uid://c4rmse8v4hxa4" path="res://assets/Masks/Mask2.png" id="6_1hnlc"]
 [ext_resource type="Texture2D" uid="uid://b0hel7c57xagb" path="res://assets/photo.png" id="8_1hnlc"]
-[ext_resource type="PackedScene" uid="uid://dg63fg6sx8t1u" path="res://scenes/filters.tscn" id="9_50h1w"]
+[ext_resource type="PackedScene" path="res://scenes/filters.tscn" id="9_50h1w"]
+[ext_resource type="FontFile" uid="uid://rfwm06ihdyu2" path="res://assets/Font/Crossland.otf" id="9_euy4r"]
 
 [sub_resource type="Resource" id="Resource_l48gv"]
 script = ExtResource("4_4hy44")
@@ -466,24 +467,30 @@ offset_left = 42.0
 offset_top = 601.0
 offset_right = 559.0
 offset_bottom = 708.0
-theme_override_font_sizes/font_size = 87
+theme_override_fonts/font = ExtResource("9_euy4r")
+theme_override_font_sizes/font_size = 167
 text = "veiled greed"
 
-[node name="Label" type="Label" parent="." unique_id=1860639267]
+[node name="PressABTN" type="Label" parent="." unique_id=1860639267]
 layout_mode = 0
-offset_left = 357.0
-offset_top = 746.0
-offset_right = 550.0
-offset_bottom = 813.0
-theme_override_font_sizes/font_size = 54
+offset_left = 364.0
+offset_top = 790.0
+offset_right = 557.0
+offset_bottom = 876.0
+theme_override_fonts/font = ExtResource("9_euy4r")
+theme_override_font_sizes/font_size = 85
 text = "Press A"
 
-[node name="Label2" type="Label" parent="." unique_id=550825490]
+[node name="Title2LBL" type="Label" parent="." unique_id=550825490]
 visible = false
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 36.0
-text = "VEILED GrEED"
+offset_left = 111.0
+offset_top = 160.0
+offset_right = 437.0
+offset_bottom = 285.0
+theme_override_fonts/font = ExtResource("9_euy4r")
+theme_override_font_sizes/font_size = 125
+text = "VEILED GREED"
 
 [node name="Filters" parent="." unique_id=268984273 instance=ExtResource("9_50h1w")]
 layout_mode = 1

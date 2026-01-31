@@ -2,24 +2,41 @@
 
 [ext_resource type="Script" uid="uid://ds7fgs4aquch1" path="res://scenes/menus/paused_menu.gd" id="1_p5bqu"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p5bqu"]
+bg_color = Color(0, 0, 0, 0.49803922)
+
 [node name="PausedMenu" type="Control" unique_id=437947370]
 process_mode = 3
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_p5bqu")
 
 [node name="PanelPausedMenu" type="Panel" parent="." unique_id=1791336069]
-visible = false
-layout_mode = 0
-offset_left = 296.0
-offset_top = 421.0
-offset_right = 763.0
-offset_bottom = 661.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_p5bqu")
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelPausedMenu" unique_id=884466713]
-layout_mode = 0
-offset_right = 456.0
-offset_bottom = 293.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -228.0
+offset_top = -146.5
+offset_right = 228.0
+offset_bottom = 146.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
