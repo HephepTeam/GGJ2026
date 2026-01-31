@@ -6,6 +6,8 @@ signal dead
 const SPEED := 200.0
 const DROP_PROBABILITY := 0.1
 
+var is_spawning = true
+
 @export var mask: MaskData
 
 @onready var body: AnimatedSprite2D = %Body
@@ -27,6 +29,13 @@ func _ready():
 	if mask:
 		%Mask.texture = mask.mask_texture
 	change_modulate()
+	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+	tween.tween_property(body, 'scale:y', 1.0, 0.3)
+	await tween.finished
+	is_spawning = false
+	
+	
+	
 
 func is_dead() -> bool:
 	return health <= 0
@@ -51,8 +60,8 @@ func _physics_process(delta: float) -> void:
 	collision_vector = lerp(collision_vector, new_collision_vector, 5.0 * delta)
 	direction += collision_vector
 
-	global_position += SPEED * delta * direction.normalized()
-	#_prev_pos = global_position
+	if !is_spawning:
+		global_position += SPEED * delta * direction.normalized()
 
 	move_and_slide()
 

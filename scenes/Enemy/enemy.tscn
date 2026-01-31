@@ -107,6 +107,7 @@ texture = ExtResource("2_ixhtt")
 [node name="Body" type="AnimatedSprite2D" parent="Visuals" unique_id=1419797350]
 unique_name_in_owner = true
 z_index = 1
+scale = Vector2(1e-05, 1e-05)
 sprite_frames = SubResource("SpriteFrames_q0kbr")
 offset = Vector2(0, -25)
 

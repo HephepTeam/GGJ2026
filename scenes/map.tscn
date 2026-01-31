@@ -10,6 +10,8 @@
 [ext_resource type="Resource" uid="uid://cow18rshugplg" path="res://ressources/mask0.tres" id="7_jh32y"]
 [ext_resource type="Resource" uid="uid://dk5ep68cm2eah" path="res://ressources/mask1.tres" id="9_mlgqr"]
 [ext_resource type="Resource" uid="uid://cel4wpflqmuuf" path="res://ressources/mask2.tres" id="10_wslke"]
+[ext_resource type="Texture2D" uid="uid://vmlc8ytiy6q0" path="res://assets/door0.png" id="11_wslke"]
+[ext_resource type="Texture2D" uid="uid://bwhcc7sg0wyp6" path="res://assets/door1.png" id="12_gw3fx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nakos"]
 texture = ExtResource("1_0cso3")
@@ -101,15 +103,11 @@ size = Vector2(128, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mlgqr"]
 size = Vector2(32, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nakos"]
-atlas = ExtResource("1_4xfga")
-region = Rect2(704, 0, 64, 27)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_jh32y"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nakos")
+"texture": ExtResource("11_wslke")
 }],
 "loop": true,
 "name": &"closed",
@@ -117,7 +115,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": null
+"texture": ExtResource("12_gw3fx")
 }],
 "loop": true,
 "name": &"open",
@@ -173,30 +171,35 @@ shape = SubResource("RectangleShape2D_mlgqr")
 [node name="Doors" type="Node2D" parent="." unique_id=2098281456]
 
 [node name="doorW" type="AnimatedSprite2D" parent="Doors" unique_id=1219728616]
-position = Vector2(16, 512)
-rotation = 1.5707964
+visible = false
+position = Vector2(32, 512)
+rotation = -1.5707964
 scale = Vector2(1.9998624, 1)
 sprite_frames = SubResource("SpriteFrames_jh32y")
-animation = &"open"
+animation = &"closed"
 
 [node name="doorE" type="AnimatedSprite2D" parent="Doors" unique_id=1652147627]
-position = Vector2(1008, 512)
+visible = false
+position = Vector2(992, 512)
 rotation = 1.5707964
 scale = Vector2(1.9998624, 1)
 sprite_frames = SubResource("SpriteFrames_jh32y")
-animation = &"open"
+animation = &"closed"
 
 [node name="doorN" type="AnimatedSprite2D" parent="Doors" unique_id=1916578819]
-position = Vector2(512, 24)
+visible = false
+position = Vector2(512, 32)
 scale = Vector2(1.9998624, 1)
 sprite_frames = SubResource("SpriteFrames_jh32y")
-animation = &"open"
+animation = &"closed"
 
 [node name="doorS" type="AnimatedSprite2D" parent="Doors" unique_id=493274410]
-position = Vector2(512, 1008)
+visible = false
+position = Vector2(512, 992)
+rotation = -3.1415927
 scale = Vector2(1.9998624, 1)
 sprite_frames = SubResource("SpriteFrames_jh32y")
-animation = &"open"
+animation = &"closed"
 
 [connection signal="body_entered" from="EnterZone" to="." method="_on_enter_zone_body_entered"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
