@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ddegyt03bek3q"]
 
-[ext_resource type="Texture2D" uid="uid://bag011h7epnyq" path="res://assets/mask0.png" id="1_lkq0l"]
+[ext_resource type="Texture2D" uid="uid://bag011h7epnyq" path="res://assets/Masks/mask0.png" id="1_lkq0l"]
 [ext_resource type="Script" uid="uid://wvfxuwnb07fm" path="res://scenes/collectible/mask.gd" id="1_r261n"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r261n"]
@@ -8,6 +8,7 @@ radius = 24.0
 
 [node name="Mask" type="Area2D" unique_id=294908437]
 position = Vector2(0, -1)
+collision_layer = 4
 script = ExtResource("1_r261n")
 
 [node name="shadow" type="Sprite2D" parent="." unique_id=573349222]

@@ -26,6 +26,10 @@ window/size/viewport_height=1024
 window/size/mode=3
 window/stretch/mode="canvas_items"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/proton_control_animation/plugin.cfg")
+
 [file_customization]
 
 folder_colors={
@@ -45,6 +49,9 @@ player=""
 2d_physics/layer_2="Enemy"
 2d_physics/layer_3="Objects"
 2d_physics/layer_4="Map"
+2d_physics/layer_5="Hurtbox"
+2d_physics/layer_6="Change_room"
+2d_physics/layer_7="Explosion"
 
 [physics]
 
@@ -52,6 +59,7 @@ player=""
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
