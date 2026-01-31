@@ -6,6 +6,7 @@ signal camera_move_finished
 signal crowbar_picked_up
 
 var entities_container: Node2D
+var points_container: Node2D
 var EnemyAround = []
 
 var speed_multiplier := 1.0

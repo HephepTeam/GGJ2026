@@ -16,8 +16,6 @@ var door_flags = 0
 var killed_enemies:= 0
 
 func _ready():
-	print(door_flags)
-
 	if door_flags & 1 == 1:
 		set_cell(Vector2i(7,0), 3, Vector2.ZERO)
 		set_cell(Vector2i(8,0), 3, Vector2.ZERO)

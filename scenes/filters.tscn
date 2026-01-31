@@ -10,7 +10,7 @@ shader_parameter/strength = 0.0
 shader_parameter/explosion = 0.0
 shader_parameter/color_offset_multiplier = 0.004
 shader_parameter/black_offset_multiplier = 0.1
-shader_parameter/color_offset = 0.005
+shader_parameter/color_offset = 0.002
 shader_parameter/blur_amount = 0.0
 
 [node name="Filters" type="ColorRect" unique_id=268984273]
