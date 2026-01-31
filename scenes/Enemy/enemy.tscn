@@ -1,15 +1,10 @@
 [gd_scene format=3 uid="uid://imwi3ugshkya"]
 
 [ext_resource type="Script" uid="uid://bwx3mlnub2biq" path="res://scenes/Enemy/enemy.gd" id="1_84vye"]
-[ext_resource type="Shader" uid="uid://cw7svlafkdx0r" path="res://shaders/strength_enemy.gdshader" id="1_ixhtt"]
 [ext_resource type="Texture2D" uid="uid://b67t2080ebv8i" path="res://assets/minion_body.png" id="2_eacat"]
 [ext_resource type="Resource" uid="uid://cow18rshugplg" path="res://ressources/mask0.tres" id="2_grfqg"]
 [ext_resource type="Texture2D" uid="uid://deqfjb1rqis7t" path="res://assets/shadow.png" id="2_ixhtt"]
 [ext_resource type="PackedScene" uid="uid://bc5uvvrbrsij1" path="res://scenes/healthbar.tscn" id="6_eacat"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wfr8x"]
-shader = ExtResource("1_ixhtt")
-shader_parameter/strength = 0.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q0kbr"]
 animations = [{
@@ -35,7 +30,6 @@ radius = 23.0
 height = 72.0
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1661876933 groups=["enemy"]]
-material = SubResource("ShaderMaterial_wfr8x")
 collision_layer = 2
 collision_mask = 8
 script = ExtResource("1_84vye")
