@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bgkgsg0coasj2" path="res://assets/Masks/Mask1.png" id="5_8r73w"]
 [ext_resource type="Texture2D" uid="uid://c4rmse8v4hxa4" path="res://assets/Masks/Mask2.png" id="6_1hnlc"]
 [ext_resource type="Texture2D" uid="uid://b0hel7c57xagb" path="res://assets/photo.png" id="8_1hnlc"]
-[ext_resource type="PackedScene" path="res://scenes/filters.tscn" id="9_50h1w"]
+[ext_resource type="PackedScene" uid="uid://dg63fg6sx8t1u" path="res://scenes/filters.tscn" id="9_50h1w"]
 [ext_resource type="FontFile" uid="uid://rfwm06ihdyu2" path="res://assets/Font/Crossland.otf" id="9_euy4r"]
 
 [sub_resource type="Resource" id="Resource_l48gv"]
@@ -471,7 +471,7 @@ theme_override_fonts/font = ExtResource("9_euy4r")
 theme_override_font_sizes/font_size = 167
 text = "veiled greed"
 
-[node name="PressABTN" type="Label" parent="." unique_id=1860639267]
+[node name="PressALBL" type="Label" parent="." unique_id=1860639267]
 layout_mode = 0
 offset_left = 364.0
 offset_top = 790.0

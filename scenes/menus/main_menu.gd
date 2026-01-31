@@ -123,6 +123,6 @@ func _on_return_config_button_pressed() -> void:
 func _input(event):
 	if event.is_action_pressed("ui_accept"): # "ui_cancel" est la touche Echap par défaut
 		$VBoxContainer.visible = true
-		$Label.visible = false
+		$PressALBL.visible = false
 		$TitleLBL.visible = false
 			
