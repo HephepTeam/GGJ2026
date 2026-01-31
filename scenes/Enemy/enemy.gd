@@ -84,6 +84,7 @@ func die() -> void:
 		dropped_mask.set_deferred('global_position', global_position)
 	dead.emit()
 	queue_free()
+	Globals.kill_count += 1
 
 func get_damage(val: int):
 	var points: Points = points_scene.instantiate()

@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dsf0qlkmmrwr6" path="res://scenes/time.tscn" id="11_tcjrq"]
 
 [node name="GameScene" type="Node2D" unique_id=729300741]
+modulate = Color(0.04, 0.04, 0.04, 1)
 script = ExtResource("1_tcjrq")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1947949776]
