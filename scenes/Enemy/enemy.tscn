@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://imwi3ugshkya"]
+
+[ext_resource type="Script" uid="uid://bwx3mlnub2biq" path="res://scenes/Enemy/enemy.gd" id="1_84vye"]
+[ext_resource type="Texture2D" uid="uid://d3v8eynat77lb" path="res://assets/icon.svg" id="2_vamnb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_84vye"]
+radius = 16.0
+height = 64.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vamnb"]
+radius = 16.0
+height = 64.0
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1661876933 groups=["enemy"]]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_84vye")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1928941359]
+scale = Vector2(0.5, 1)
+texture = ExtResource("2_vamnb")
+offset = Vector2(0, -64)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1831575622]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=19966739]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_84vye")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=352403461]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_vamnb")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
