@@ -1,0 +1,431 @@
+[gd_scene format=3 uid="uid://xh5p7buxoj6u"]
+
+[ext_resource type="Script" uid="uid://bfmbbmiden7da" path="res://menu.gd" id="1_lti8b"]
+[ext_resource type="Script" uid="uid://b4hvmk8t0qkgu" path="res://addons/proton_control_animation/src/proton_control_animation.gd" id="2_mae5d"]
+[ext_resource type="Script" uid="uid://bsufjcw4lsn2a" path="res://addons/proton_control_animation/src/animations/slide.gd" id="4_4hy44"]
+[ext_resource type="Texture2D" uid="uid://bag011h7epnyq" path="res://assets/mask0.png" id="4_ytr4m"]
+
+[sub_resource type="Resource" id="Resource_l48gv"]
+script = ExtResource("4_4hy44")
+to = 3
+to_global_position = Vector2(20, 0)
+to_local_offset = Vector2(20, 0)
+default_duration = 0.3
+metadata/_custom_type_script = "uid://bsufjcw4lsn2a"
+
+[sub_resource type="Resource" id="Resource_4hy44"]
+script = ExtResource("4_4hy44")
+to = 1
+default_duration = 0.3
+metadata/_custom_type_script = "uid://bsufjcw4lsn2a"
+
+[sub_resource type="Resource" id="Resource_4ndjb"]
+script = ExtResource("4_4hy44")
+from = 1
+to = 3
+to_local_offset = Vector2(20, 0)
+default_duration = 0.3
+metadata/_custom_type_script = "uid://bsufjcw4lsn2a"
+
+[sub_resource type="Theme" id="Theme_4hy44"]
+
+[sub_resource type="Resource" id="Resource_3ls4m"]
+script = ExtResource("4_4hy44")
+to = 1
+default_duration = 0.3
+metadata/_custom_type_script = "uid://bsufjcw4lsn2a"
+
+[sub_resource type="Resource" id="Resource_ecwwl"]
+script = ExtResource("4_4hy44")
+to = 3
+to_global_position = Vector2(20, 0)
+to_local_offset = Vector2(20, 0)
+default_duration = 0.3
+metadata/_custom_type_script = "uid://bsufjcw4lsn2a"
+
+[sub_resource type="Resource" id="Resource_kk3ma"]
+script = ExtResource("4_4hy44")
+to = 1
+default_duration = 0.3
+metadata/_custom_type_script = "uid://bsufjcw4lsn2a"
+
+[sub_resource type="Resource" id="Resource_nrnbx"]
+script = ExtResource("4_4hy44")
+to = 3
+to_global_position = Vector2(20, 0)
+to_local_offset = Vector2(20, 0)
+default_duration = 0.3
+metadata/_custom_type_script = "uid://bsufjcw4lsn2a"
+
+[sub_resource type="Resource" id="Resource_iqepy"]
+script = ExtResource("4_4hy44")
+to = 1
+default_duration = 0.3
+metadata/_custom_type_script = "uid://bsufjcw4lsn2a"
+
+[sub_resource type="Resource" id="Resource_h1wq0"]
+script = ExtResource("4_4hy44")
+to = 3
+to_local_offset = Vector2(20, 0)
+default_duration = 0.3
+metadata/_custom_type_script = "uid://bsufjcw4lsn2a"
+
+[sub_resource type="Resource" id="Resource_dwrpx"]
+script = ExtResource("4_4hy44")
+to = 1
+default_duration = 0.3
+metadata/_custom_type_script = "uid://bsufjcw4lsn2a"
+
+[sub_resource type="Resource" id="Resource_g7jxm"]
+script = ExtResource("4_4hy44")
+to = 3
+to_local_offset = Vector2(20, 0)
+default_duration = 0.3
+metadata/_custom_type_script = "uid://bsufjcw4lsn2a"
+
+[sub_resource type="Resource" id="Resource_jspdm"]
+script = ExtResource("4_4hy44")
+to = 1
+default_duration = 0.3
+metadata/_custom_type_script = "uid://bsufjcw4lsn2a"
+
+[sub_resource type="Resource" id="Resource_oxnod"]
+script = ExtResource("4_4hy44")
+to = 3
+to_local_offset = Vector2(20, 0)
+default_duration = 0.3
+metadata/_custom_type_script = "uid://bsufjcw4lsn2a"
+
+[sub_resource type="Resource" id="Resource_gd0jp"]
+script = ExtResource("4_4hy44")
+to = 1
+default_duration = 0.3
+metadata/_custom_type_script = "uid://bsufjcw4lsn2a"
+
+[node name="menu" type="Control" unique_id=1442889365]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 445.0
+offset_top = 375.0
+offset_right = 445.0
+offset_bottom = 375.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_lti8b")
+
+[node name="Control" type="Control" parent="." unique_id=2062808159]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=983524404]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="StartGameButton" type="Button" parent="Control/VBoxContainer" unique_id=2009834341]
+layout_mode = 2
+text = "Let's Gong  !"
+
+[node name="SlideR" type="Node" parent="Control/VBoxContainer/StartGameButton" unique_id=17939483 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
+script = ExtResource("2_mae5d")
+target = NodePath("..")
+animation = SubResource("Resource_l48gv")
+start_trigger_source = NodePath("..")
+start_on_hover_start = true
+stop_trigger_source = NodePath("..")
+metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
+
+[node name="SlideL" type="Node" parent="Control/VBoxContainer/StartGameButton" unique_id=1925723995 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
+script = ExtResource("2_mae5d")
+target = NodePath("..")
+animation = SubResource("Resource_4hy44")
+start_trigger_source = NodePath("..")
+start_on_hover_stop = true
+stop_trigger_source = NodePath("..")
+metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
+
+[node name="SelectMaskButton" type="Button" parent="Control/VBoxContainer" unique_id=894337239]
+layout_mode = 2
+text = "Select Mask"
+
+[node name="SlideR" type="Node" parent="Control/VBoxContainer/SelectMaskButton" unique_id=878288813 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
+script = ExtResource("2_mae5d")
+target = NodePath("..")
+animation = SubResource("Resource_4ndjb")
+start_trigger_source = NodePath("../../../..")
+start_custom_signal = "maskButton_hover"
+stop_trigger_source = NodePath("..")
+metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
+
+[node name="Panel" type="Panel" parent="Control/VBoxContainer/SelectMaskButton" unique_id=701178314]
+visible = false
+layout_mode = 0
+offset_left = 144.0
+offset_top = -1.0
+offset_right = 446.0
+offset_bottom = 200.0
+theme = SubResource("Theme_4hy44")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/VBoxContainer/SelectMaskButton/Panel" unique_id=1179499492]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 6.0
+offset_right = 298.0
+offset_bottom = 195.0
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/SelectMaskButton/Panel/VBoxContainer" unique_id=2054717753]
+layout_mode = 2
+text = "Choose Your Mask"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer/SelectMaskButton/Panel/VBoxContainer" unique_id=1855684532]
+layout_mode = 2
+
+[node name="Mask1Button" type="Button" parent="Control/VBoxContainer/SelectMaskButton/Panel/VBoxContainer/HBoxContainer" unique_id=485706488]
+layout_mode = 2
+text = "Mask 1"
+icon = ExtResource("4_ytr4m")
+alignment = 0
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="LabelMask1" type="Label" parent="Control/VBoxContainer/SelectMaskButton/Panel/VBoxContainer/HBoxContainer" unique_id=1120027042]
+layout_mode = 2
+text = "Malus : 
+	- Freeze
+Bonus : 
+	- More speed
+	- Shoot"
+
+[node name="Mask2Button" type="Button" parent="Control/VBoxContainer/SelectMaskButton/Panel/VBoxContainer/HBoxContainer" unique_id=44729658]
+layout_mode = 2
+text = "Mask2"
+icon = ExtResource("4_ytr4m")
+
+[node name="LabelMask2" type="Label" parent="Control/VBoxContainer/SelectMaskButton/Panel/VBoxContainer/HBoxContainer" unique_id=1626518267]
+visible = false
+layout_mode = 2
+text = "Malus : 
+	- Freeze
+Bonus : 
+	- More speed
+	- Shoot"
+
+[node name="Mask3Button" type="Button" parent="Control/VBoxContainer/SelectMaskButton/Panel/VBoxContainer/HBoxContainer" unique_id=1869506908]
+layout_mode = 2
+text = "Mask3"
+icon = ExtResource("4_ytr4m")
+icon_alignment = 1
+
+[node name="LabelMask3" type="Label" parent="Control/VBoxContainer/SelectMaskButton/Panel/VBoxContainer/HBoxContainer" unique_id=554592841]
+visible = false
+layout_mode = 2
+text = "Malus : 
+	- Freeze
+Bonus : 
+	- More speed
+	- Shoot"
+
+[node name="ReturnButton" type="Button" parent="Control/VBoxContainer/SelectMaskButton/Panel/VBoxContainer" unique_id=513650208]
+layout_mode = 2
+text = "Return"
+
+[node name="SlideL" type="Node" parent="Control/VBoxContainer/SelectMaskButton/Panel/VBoxContainer/ReturnButton" unique_id=1698749842 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
+script = ExtResource("2_mae5d")
+target = NodePath("../../../..")
+animation = SubResource("Resource_3ls4m")
+start_trigger_source = NodePath("..")
+start_on_pressed = true
+stop_trigger_source = NodePath("../../../..")
+metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
+
+[node name="Scoring" type="Button" parent="Control/VBoxContainer" unique_id=112687071]
+visible = false
+layout_mode = 2
+text = "Scoring"
+
+[node name="SlideR" type="Node" parent="Control/VBoxContainer/Scoring" unique_id=2134425237 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
+script = ExtResource("2_mae5d")
+target = NodePath("..")
+animation = SubResource("Resource_ecwwl")
+start_trigger_source = NodePath("..")
+start_on_hover_start = true
+stop_trigger_source = NodePath("..")
+metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
+
+[node name="SlideL" type="Node" parent="Control/VBoxContainer/Scoring" unique_id=321788546 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
+script = ExtResource("2_mae5d")
+target = NodePath("..")
+animation = SubResource("Resource_kk3ma")
+start_trigger_source = NodePath("..")
+start_on_hover_stop = true
+stop_trigger_source = NodePath("..")
+metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
+
+[node name="Panel" type="Panel" parent="Control/VBoxContainer/Scoring" unique_id=1238822747]
+layout_mode = 0
+offset_left = 161.0
+offset_top = -69.0
+offset_right = 400.0
+offset_bottom = 171.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer/Scoring/Panel" unique_id=1636689961]
+layout_mode = 0
+offset_right = 238.0
+offset_bottom = 240.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/VBoxContainer/Scoring/Panel/MarginContainer" unique_id=49525140]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/Scoring/Panel/MarginContainer/VBoxContainer" unique_id=1273366791]
+layout_mode = 2
+text = "Best Score"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/VBoxContainer/Scoring/Panel/MarginContainer/VBoxContainer" unique_id=1841541404]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/VBoxContainer/Scoring/Panel/MarginContainer/VBoxContainer/ScrollContainer" unique_id=348233147]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Control/VBoxContainer/Scoring/Panel/MarginContainer/VBoxContainer" unique_id=1409892892]
+layout_mode = 2
+text = "Return"
+
+[node name="ConfigButton" type="Button" parent="Control/VBoxContainer" unique_id=1193173948]
+layout_mode = 2
+text = "Config"
+
+[node name="SlideR" type="Node" parent="Control/VBoxContainer/ConfigButton" unique_id=69385909 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
+script = ExtResource("2_mae5d")
+target = NodePath("..")
+animation = SubResource("Resource_nrnbx")
+start_trigger_source = NodePath("..")
+start_on_hover_start = true
+stop_trigger_source = NodePath("..")
+metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
+
+[node name="SlideL" type="Node" parent="Control/VBoxContainer/ConfigButton" unique_id=1534581870 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
+script = ExtResource("2_mae5d")
+target = NodePath("..")
+animation = SubResource("Resource_iqepy")
+start_trigger_source = NodePath("..")
+start_on_hover_stop = true
+stop_trigger_source = NodePath("..")
+metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
+
+[node name="Panel" type="Panel" parent="Control/VBoxContainer/ConfigButton" unique_id=1891780491]
+layout_mode = 0
+offset_left = 164.0
+offset_top = -29.0
+offset_right = 356.0
+offset_bottom = 96.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer/ConfigButton/Panel" unique_id=398486456]
+layout_mode = 0
+offset_right = 191.0
+offset_bottom = 116.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/VBoxContainer/ConfigButton/Panel/MarginContainer" unique_id=231449162]
+layout_mode = 2
+
+[node name="VolPrincLBL" type="Label" parent="Control/VBoxContainer/ConfigButton/Panel/MarginContainer/VBoxContainer" unique_id=1846412302]
+layout_mode = 2
+text = "Volume Principal"
+
+[node name="VolPrincHSlider" type="HSlider" parent="Control/VBoxContainer/ConfigButton/Panel/MarginContainer/VBoxContainer" unique_id=1822808186]
+layout_mode = 2
+
+[node name="VolBruitLBL" type="Label" parent="Control/VBoxContainer/ConfigButton/Panel/MarginContainer/VBoxContainer" unique_id=1638376300]
+layout_mode = 2
+text = "Volume Bruitages"
+
+[node name="VolBruitHSlider" type="HScrollBar" parent="Control/VBoxContainer/ConfigButton/Panel/MarginContainer/VBoxContainer" unique_id=266831558]
+layout_mode = 2
+
+[node name="CreditsButton" type="Button" parent="Control/VBoxContainer" unique_id=1077002628]
+layout_mode = 2
+text = "Credits"
+
+[node name="SlideR" type="Node" parent="Control/VBoxContainer/CreditsButton" unique_id=1606947960 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
+script = ExtResource("2_mae5d")
+target = NodePath("..")
+animation = SubResource("Resource_h1wq0")
+start_trigger_source = NodePath("..")
+start_on_hover_start = true
+stop_trigger_source = NodePath("..")
+metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
+
+[node name="SlideL" type="Node" parent="Control/VBoxContainer/CreditsButton" unique_id=581001307 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
+script = ExtResource("2_mae5d")
+target = NodePath("..")
+animation = SubResource("Resource_dwrpx")
+start_trigger_source = NodePath("..")
+start_on_hover_stop = true
+stop_trigger_source = NodePath("..")
+metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
+
+[node name="DLC" type="Button" parent="Control/VBoxContainer" unique_id=348484555]
+layout_mode = 2
+text = "DLC"
+
+[node name="SlideR" type="Node" parent="Control/VBoxContainer/DLC" unique_id=160459624 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
+script = ExtResource("2_mae5d")
+target = NodePath("..")
+animation = SubResource("Resource_g7jxm")
+start_trigger_source = NodePath("..")
+start_on_hover_start = true
+stop_trigger_source = NodePath("..")
+metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
+
+[node name="SlideL" type="Node" parent="Control/VBoxContainer/DLC" unique_id=892600092 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
+script = ExtResource("2_mae5d")
+target = NodePath("..")
+animation = SubResource("Resource_jspdm")
+start_trigger_source = NodePath("..")
+start_on_hover_stop = true
+stop_trigger_source = NodePath("..")
+metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
+
+[node name="QuitButton" type="Button" parent="Control/VBoxContainer" unique_id=498669572]
+layout_mode = 2
+text = "Leave"
+
+[node name="SlideR" type="Node" parent="Control/VBoxContainer/QuitButton" unique_id=609324977 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
+script = ExtResource("2_mae5d")
+target = NodePath("..")
+animation = SubResource("Resource_oxnod")
+start_trigger_source = NodePath("..")
+start_on_hover_start = true
+stop_trigger_source = NodePath("..")
+metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
+
+[node name="SlideL" type="Node" parent="Control/VBoxContainer/QuitButton" unique_id=1266730501 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
+script = ExtResource("2_mae5d")
+target = NodePath("..")
+animation = SubResource("Resource_gd0jp")
+start_trigger_source = NodePath("..")
+start_on_hover_stop = true
+stop_trigger_source = NodePath("..")
+metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
+
+[connection signal="pressed" from="Control/VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="mouse_entered" from="Control/VBoxContainer/SelectMaskButton" to="." method="_on_select_mask_button_mouse_entered"]
+[connection signal="mouse_exited" from="Control/VBoxContainer/SelectMaskButton" to="." method="_on_select_mask_button_mouse_exited"]
+[connection signal="pressed" from="Control/VBoxContainer/SelectMaskButton" to="." method="_on_select_mask_button_pressed"]
+[connection signal="mouse_entered" from="Control/VBoxContainer/SelectMaskButton/Panel/VBoxContainer/HBoxContainer/Mask1Button" to="." method="_on_mask_1_button_mouse_entered"]
+[connection signal="mouse_entered" from="Control/VBoxContainer/SelectMaskButton/Panel/VBoxContainer/HBoxContainer/Mask2Button" to="." method="_on_mask_2_button_mouse_entered"]
+[connection signal="mouse_entered" from="Control/VBoxContainer/SelectMaskButton/Panel/VBoxContainer/HBoxContainer/Mask3Button" to="." method="_on_mask_3_button_mouse_entered"]
+[connection signal="pressed" from="Control/VBoxContainer/SelectMaskButton/Panel/VBoxContainer/ReturnButton" to="." method="_on_return_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
