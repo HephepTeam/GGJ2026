@@ -46,6 +46,10 @@ folder_colors={
 enemy="les ennemis"
 player=""
 
+[gui]
+
+theme/custom="uid://djr6bscgvy2ao"
+
 [layer_names]
 
 2d_physics/layer_1="Player"
