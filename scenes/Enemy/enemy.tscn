@@ -1,11 +1,15 @@
 [gd_scene format=3 uid="uid://imwi3ugshkya"]
 
 [ext_resource type="Script" uid="uid://bwx3mlnub2biq" path="res://scenes/Enemy/enemy.gd" id="1_84vye"]
+[ext_resource type="Shader" uid="uid://cw7svlafkdx0r" path="res://shaders/strength_enemy.gdshader" id="1_ixhtt"]
 [ext_resource type="Texture2D" uid="uid://b67t2080ebv8i" path="res://assets/minion_body.png" id="2_eacat"]
 [ext_resource type="Resource" uid="uid://cow18rshugplg" path="res://ressources/mask0.tres" id="2_grfqg"]
 [ext_resource type="Texture2D" uid="uid://deqfjb1rqis7t" path="res://assets/shadow.png" id="2_ixhtt"]
-[ext_resource type="Texture2D" uid="uid://d3v8eynat77lb" path="res://assets/icon.svg" id="2_vamnb"]
 [ext_resource type="PackedScene" uid="uid://bc5uvvrbrsij1" path="res://scenes/healthbar.tscn" id="6_eacat"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wfr8x"]
+shader = ExtResource("1_ixhtt")
+shader_parameter/strength = 0.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q0kbr"]
 animations = [{
@@ -31,6 +35,7 @@ radius = 23.0
 height = 72.0
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1661876933 groups=["enemy"]]
+material = SubResource("ShaderMaterial_wfr8x")
 collision_layer = 2
 collision_mask = 8
 script = ExtResource("1_84vye")
@@ -40,17 +45,13 @@ mask = ExtResource("2_grfqg")
 texture = ExtResource("2_ixhtt")
 
 [node name="Body" type="AnimatedSprite2D" parent="." unique_id=1419797350]
+unique_name_in_owner = true
+z_index = 1
 position = Vector2(0, -25)
 sprite_frames = SubResource("SpriteFrames_q0kbr")
 
 [node name="Mask" type="Sprite2D" parent="Body" unique_id=489954926]
 position = Vector2(-3, -30)
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1928941359]
-visible = false
-scale = Vector2(0.5, 1)
-texture = ExtResource("2_vamnb")
-offset = Vector2(0, -64)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1831575622]
 collision_layer = 2

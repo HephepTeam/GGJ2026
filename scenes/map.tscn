@@ -127,9 +127,6 @@ curve = SubResource("Curve2D_be0no")
 unique_name_in_owner = true
 position = Vector2(108, 101)
 
-[node name="Spawned" type="Node2D" parent="." unique_id=1575460240]
-unique_name_in_owner = true
-
 [node name="SpawnTimer" type="Timer" parent="." unique_id=1539147471]
 unique_name_in_owner = true
 autostart = true

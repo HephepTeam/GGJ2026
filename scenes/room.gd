@@ -16,8 +16,10 @@ func _on_spawn_timer_timeout() -> void:
 	if count_enemies > max_enemies:
 		%SpawnTimer.stop()
 		return
+	if Globals.entities_container == null:
+		return
 	var enemy: Enemy = enemy_scene.instantiate()
-	%Spawned.add_child.call_deferred(enemy)
+	Globals.entities_container.add_child.call_deferred(enemy)
 	enemy.mask = enemy_mask_resource
 	%PathFollow2D.progress_ratio = randf()
 	enemy.set_deferred('global_position', %PathFollow2D.global_position)

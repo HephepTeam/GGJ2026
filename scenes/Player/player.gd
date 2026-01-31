@@ -25,8 +25,6 @@ var _cooldown_hit = false
 var knockback_dir : Vector2
 var knockback_force := 200.0
 
-func set_data(data: MaskData):
-	update_cadence(data.cadence_bonus)
 
 func _physics_process(delta):
 	var direction = Input.get_vector(
@@ -56,31 +54,26 @@ func _process(delta: float) -> void:
 		$healthbar.show()
 		$healthbar.value = health
 
-func update_cadence(new_cadence: float):
-	$CooldownShoot.wait_time = 1.0 / new_cadence
+func update_bonuses():
+	$CooldownShoot.wait_time = 1.0 / Globals.speed_multiplier
+	projectile_data.power = Globals.strength_multiplier
+	projectile_data.splash_radius = Globals.explosion_multiplier
 
-func update_power(new_power: float):
-	projectile_data.power = new_power
-	
-func update_range(new_range: float):
-	projectile_data.splash_radius = new_range
-	
 func update_mask(new_mask: Texture):
 	$Body/Mask.texture = new_mask
-	
-	
+
 
 func _check_for_nearest_enemy() -> Enemy:
 	var enemies = Globals.get_enemy_around()
 	var min_distance := INF
 	var nearest = null
 	for enemy in enemies:
-		var distance = (enemy.global_position - global_position).length()
+		var distance = enemy.global_position.distance_squared_to(global_position)
 		if min_distance > distance:
 			min_distance = distance
 			nearest = enemy
 	return nearest
-	
+
 func shoot(target: Vector2):
 	var inst = projectile_scene.instantiate()
 	var dir = (target - global_position).normalized()
@@ -117,11 +110,9 @@ func _on_timer_timeout() -> void:
 	
 func _on_projectile_touched(pos: Vector2):
 	var inst = damage_bomb_scene.instantiate()
-	#inst.data = projectile_data
+	inst.data = projectile_data
 	add_sibling.call_deferred(inst)
 	inst.set_deferred("global_position", pos)
-
-	
 
 
 func _on_cooldown_hit_timeout() -> void:

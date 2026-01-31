@@ -1,33 +1,26 @@
 [gd_scene format=4 uid="uid://ygoh4ljijj6n"]
 
+[ext_resource type="Script" uid="uid://bii03mfn1fptr" path="res://scenes/game_scene.gd" id="1_tcjrq"]
 [ext_resource type="PackedScene" uid="uid://7h053ghxefjb" path="res://scenes/map.tscn" id="1_ycayy"]
 [ext_resource type="PackedScene" uid="uid://cp0bf0rdxvw1s" path="res://scenes/Player/player.tscn" id="2_bw6k5"]
 [ext_resource type="Resource" uid="uid://cow18rshugplg" path="res://ressources/mask0.tres" id="3_utbpp"]
 [ext_resource type="PackedScene" uid="uid://imwi3ugshkya" path="res://scenes/Enemy/enemy.tscn" id="3_y3j0m"]
 [ext_resource type="Script" uid="uid://cqdugo8vm245l" path="res://scenes/camera_2d.gd" id="4_bw6k5"]
-[ext_resource type="Resource" path="res://ressources/mask1.tres" id="4_mw25s"]
+[ext_resource type="Resource" uid="uid://dk5ep68cm2eah" path="res://ressources/mask1.tres" id="4_mw25s"]
 [ext_resource type="Resource" uid="uid://cel4wpflqmuuf" path="res://ressources/mask2.tres" id="5_tcjrq"]
 [ext_resource type="PackedScene" uid="uid://ddegyt03bek3q" path="res://scenes/collectible/mask.tscn" id="5_y3j0m"]
-[ext_resource type="Shader" uid="uid://svvmaw52uucw" path="res://shaders/strength.gdshader" id="6_rurhu"]
 [ext_resource type="PackedScene" uid="uid://8b7lnpmvdgip" path="res://scenes/menus/paused_menu.tscn" id="7_kk2rg"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kk2rg"]
-shader = ExtResource("6_rurhu")
-shader_parameter/speed = 0.0
-shader_parameter/strength = 0.0
-shader_parameter/explosion = 0.0
-shader_parameter/color_offset_multiplier = 0.004
-shader_parameter/black_offset_multiplier = 0.1
-shader_parameter/color_offset = 0.005
-shader_parameter/blur_amount = 0.0
+[ext_resource type="PackedScene" uid="uid://dg63fg6sx8t1u" path="res://scenes/filters.tscn" id="9_mw25s"]
 
 [node name="GameScene" type="Node2D" unique_id=729300741]
+script = ExtResource("1_tcjrq")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1947949776]
 anchor_mode = 0
 script = ExtResource("4_bw6k5")
 
 [node name="Entities" type="Node2D" parent="." unique_id=267500765]
+unique_name_in_owner = true
 y_sort_enabled = true
 
 [node name="Mask" parent="Entities" unique_id=294908437 instance=ExtResource("5_y3j0m")]
@@ -128,16 +121,8 @@ position = Vector2(1302, -231)
 [node name="Enemy22" parent="Entities" unique_id=1510295210 instance=ExtResource("3_y3j0m")]
 position = Vector2(1302, -231)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2104543542]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1897922151]
 
-[node name="Filters" type="ColorRect" parent="CanvasLayer" unique_id=900232718]
-material = SubResource("ShaderMaterial_kk2rg")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Filters" parent="CanvasLayer" unique_id=268984273 instance=ExtResource("9_mw25s")]
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1897922151]
-
-[node name="PausedMenu" parent="CanvasLayer2" unique_id=437947370 instance=ExtResource("7_kk2rg")]
+[node name="PausedMenu" parent="CanvasLayer" unique_id=437947370 instance=ExtResource("7_kk2rg")]

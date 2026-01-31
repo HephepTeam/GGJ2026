@@ -18,10 +18,17 @@ var _body_direction := 1.0
 var _prev_pos: Vector2
 
 func _ready():
+	Globals.mask_picked_up.connect(on_mask_picked_up)
 	if mask:
 		$Body/Mask.texture = mask.mask_texture
 
+func is_dead() -> bool:
+	return health <= 0
+
 func _physics_process(delta: float) -> void:
+	if is_dead():
+		return
+
 	var closest_player: Player = Globals.get_closest_player(global_position)
 	if closest_player == null:
 		return
@@ -62,11 +69,18 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 	colliding_areas.erase(area)
 	
 func get_damage(val: int):
-	health -= val
-	val = clamp(val , 0, health)
-	if val == 0:
-		queue_free()
-		
+	health = clamp(health - val, 0, health)
+	var tween := create_tween()
+	tween.tween_property(%Body, 'modulate:v', 15.0, 0.1)
+	tween.tween_property(%Body, 'modulate:v', 1.0, 0.1)
+	if health <= 0:
+		tween.tween_property(%Body, 'scale:y', 0.0, 0.3)
+		tween.tween_callback(queue_free)
+
+
 func knockback(val: float):
 	pass
 	
+
+func on_mask_picked_up(_mask_data: MaskData) -> void:
+	material.set_shader_parameter("strength", clamp(Globals.strength_multiplier - 1.0, 0.0, 1.0))
