@@ -10,6 +10,7 @@ var start_ticks := 0
 
 var entities_container: Node2D
 var points_container: Node2D
+var camera: Camera2D
 var EnemyAround = []
 
 var speed_multiplier := 1.0
