@@ -8,9 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://buvaowlekgewx" path="res://assets/player/idle.png" id="5_uxo23"]
 [ext_resource type="Texture2D" uid="uid://bq0rqps4hawe4" path="res://assets/player/run0.png" id="6_n7rn1"]
 [ext_resource type="Texture2D" uid="uid://rwl1oqpwo326" path="res://assets/player/run1.png" id="7_7tfl1"]
-[ext_resource type="Texture2D" uid="uid://b2eyuksi0mnka" path="res://assets/player/masks/force.png" id="8_jxtnq"]
-[ext_resource type="Texture2D" uid="uid://5oqj3esbku4y" path="res://assets/player/masks/fov.png" id="9_t6q27"]
-[ext_resource type="Texture2D" uid="uid://71wiimovlygc" path="res://assets/player/masks/speed.png" id="10_wyey8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a3d8c"]
 animations = [{
@@ -34,23 +31,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_uiqp4"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("8_jxtnq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_t6q27")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_wyey8")
-}],
-"loop": true,
-"name": &"masks",
-"speed": 5.0
-}]
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1kbk7"]
 radius = 8.0
 height = 34.0
@@ -61,7 +41,7 @@ height = 64.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1534390266 groups=["player"]]
 texture_filter = 1
-collision_layer = 32
+collision_layer = 33
 collision_mask = 9
 script = ExtResource("1_a3d8c")
 projectile_scene = ExtResource("2_c4h5g")
@@ -80,11 +60,8 @@ animation = &"run"
 frame_progress = 0.1658449
 offset = Vector2(0, -25)
 
-[node name="Mask" type="AnimatedSprite2D" parent="Body" unique_id=727774273]
+[node name="Mask" type="Sprite2D" parent="Body" unique_id=1625360917]
 position = Vector2(1, -30)
-sprite_frames = SubResource("SpriteFrames_uiqp4")
-animation = &"masks"
-frame = 2
 
 [node name="ShootPoint" type="Marker2D" parent="Body/Mask" unique_id=55178963]
 position = Vector2(8, 0)

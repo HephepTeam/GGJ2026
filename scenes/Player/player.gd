@@ -8,7 +8,7 @@ const MAX_HEALTH = 500.0
 @export var projectile_scene: PackedScene
 @export var damage_bomb_scene : PackedScene
 
-@export var speed := 400.0
+@export var speed := 500.0
 @export var health := 100.0
 @export var cooldown_hit_duration := 1.0
 
@@ -24,7 +24,11 @@ var body_direction = 1.0
 var _cooldown_hit = false
 
 var knockback_dir : Vector2
-var knockback_force := 50.0
+var knockback_force := 200.0
+
+func set_data(data: MaskData):
+	update_cadence(data.cadence_bonus)
+	
 
 func _ready():
 	cooldown_shoot.start(shoot_rate)
@@ -34,10 +38,10 @@ func _physics_process(delta):
 		'ui_left', 'ui_right', 'ui_up', 'ui_down')
 
 	if direction.length():
-		velocity = direction * speed
+		velocity = velocity.lerp(direction * speed, delta * 12.0)
+
 		$Body.play("run")
 		if abs(velocity.x) > 0.01: 
-			
 			body_direction = sign(velocity.x)
 			body.scale.x = body_direction
 			skew = lerp(skew, deg_to_rad(body_direction*12.0), delta*80)
@@ -48,10 +52,21 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.y = move_toward(velocity.y, 0, speed)
 
+	velocity += -knockback_dir
+	knockback_dir = knockback_dir.lerp(Vector2.ZERO, delta * 5.0)
 	move_and_slide()
 
 func update_cadence(new_cadence: float):
 	shoot_rate = 60.0 / new_cadence
+
+func update_power(new_power: float):
+	projectile_data.power = new_power
+	
+func update_range(new_range: float):
+	projectile_data.splash_radius = new_range
+	
+func update_mask(new_mask: Texture):
+	$Body/Mask.texture = new_mask
 	
 	
 
@@ -116,5 +131,5 @@ func _on_cooldown_hit_timeout() -> void:
 
 
 func _on_repulse_area_entered(area: Area2D) -> void:
-	#get_damage(area.get_parent().attack)
+	get_damage(area.get_parent().attack, (area.get_parent().global_position-global_position).normalized())
 	pass

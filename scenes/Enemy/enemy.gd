@@ -3,18 +3,23 @@ class_name Enemy
 
 const SPEED := 200.0
 
+@export var mask: MaskData
 
 @onready var body: AnimatedSprite2D = $Body
 
 var colliding_areas: Array[Area2D] = []
 var collision_vector := Vector2.ZERO
 
+const base_health = 100.0
 var health := 100.0
-var attack := 8.0
+var attack := 16.0
 
 var _body_direction := 1.0
 var _prev_pos: Vector2
 
+func _ready():
+	if mask:
+		$Body/Mask.texture = mask.mask_texture
 
 func _physics_process(delta: float) -> void:
 	var closest_player: Player = Globals.get_closest_player(global_position)
@@ -38,12 +43,16 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	
-	#if (global_position - _prev_pos).length() > 0.001:
-		#_body_direction = sign(direction.x)
-		#body.scale.x = _body_direction
-	#
-	#_prev_pos = global_position
 
+	_body_direction = sign(direction.x)
+	body.scale.x = _body_direction
+	
+	_prev_pos = global_position
+	
+func _process(delta: float) -> void:
+	if health < base_health:
+		$healthbar.show()
+		$healthbar.value = health
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	colliding_areas.append(area)

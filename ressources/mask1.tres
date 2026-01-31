@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="MaskData" format=3 uid="uid://op4hhcbscbsh"]
+
+[ext_resource type="Texture2D" uid="uid://bgkgsg0coasj2" path="res://assets/Masks/Mask1.png" id="1_0mb61"]
+[ext_resource type="Script" uid="uid://b4j6vx2yiydvx" path="res://ressources/MaskData.gd" id="1_mjj5n"]
+[ext_resource type="Texture2D" uid="uid://71wiimovlygc" path="res://assets/player/masks/speed.png" id="2_f8u25"]
+
+[resource]
+script = ExtResource("1_mjj5n")
+mask_texture = ExtResource("1_0mb61")
+player_mask_texture = ExtResource("2_f8u25")
+cadence_bonus = 0.5
+metadata/_custom_type_script = "uid://b4j6vx2yiydvx"

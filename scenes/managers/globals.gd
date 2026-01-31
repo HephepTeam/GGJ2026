@@ -4,6 +4,10 @@ signal room_entered(room)
 
 var EnemyAround = []
 
+var current_cadence: float
+var current_power: float
+var current_range: float
+
 func get_enemy_around() -> Array[Enemy]:
 	var enemies: Array[Enemy] = []
 	enemies.append_array(get_tree().get_nodes_in_group("enemy"))
@@ -25,3 +29,12 @@ func get_closest_player(from_position: Vector2) -> Player:
 			min_distance = distance
 			closest = player
 	return closest
+	
+func on_mask_picked_up(data: MaskData):
+	current_cadence += data.cadence_bonus
+	current_power += data.power_bonus
+	var p = get_players()[0]
+	p.update_cadence(current_cadence)
+	p.update_power(current_power)
+	p.update_mask(data.player_mask_texture)
+	
