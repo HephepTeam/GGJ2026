@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://djgxjshhamwka"]
+
+[ext_resource type="Texture2D" uid="uid://bqxxov00n1wc1" path="res://assets/GameOver.png" id="1_ujjcl"]
+
+[node name="GameOver" type="Control" unique_id=1253640996]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1505196908]
+layout_mode = 0
+offset_left = -168.0
+offset_top = -5.0
+offset_right = 1205.3334
+offset_bottom = 1025.0
+texture = ExtResource("1_ujjcl")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="." unique_id=2083418522]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 641.0
+offset_right = 631.0
+offset_bottom = 708.0
+theme_override_font_sizes/font_size = 54
+text = "GAME OVER"
+
+[node name="Label2" type="Label" parent="." unique_id=654237192]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 908.0
+offset_right = 990.0
+offset_bottom = 1025.0
+theme_override_font_sizes/font_size = 34
+text = "Discover the beginner level in our DLC, available now! 
+With a full menu included!"
+horizontal_alignment = 1
