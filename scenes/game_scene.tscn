@@ -56,6 +56,76 @@ door_flags = 4
 [node name="Player" parent="Entities" unique_id=1534390266 instance=ExtResource("2_bw6k5")]
 position = Vector2(432, 488)
 
+[node name="Enemy" parent="Entities" unique_id=1704070987 instance=ExtResource("3_y3j0m")]
+position = Vector2(728, 792)
+
+[node name="Enemy2" parent="Entities" unique_id=1547969889 instance=ExtResource("3_y3j0m")]
+position = Vector2(280, 576)
+
+[node name="Enemy3" parent="Entities" unique_id=1885920185 instance=ExtResource("3_y3j0m")]
+position = Vector2(280, 576)
+
+[node name="Enemy4" parent="Entities" unique_id=906206208 instance=ExtResource("3_y3j0m")]
+position = Vector2(280, 576)
+
+[node name="Enemy5" parent="Entities" unique_id=26329145 instance=ExtResource("3_y3j0m")]
+position = Vector2(280, 576)
+
+[node name="Enemy6" parent="Entities" unique_id=1853667093 instance=ExtResource("3_y3j0m")]
+position = Vector2(280, 576)
+
+[node name="Enemy7" parent="Entities" unique_id=834397067 instance=ExtResource("3_y3j0m")]
+position = Vector2(280, 576)
+
+[node name="Enemy8" parent="Entities" unique_id=1052349908 instance=ExtResource("3_y3j0m")]
+position = Vector2(280, 576)
+
+[node name="Enemy9" parent="Entities" unique_id=459431058 instance=ExtResource("3_y3j0m")]
+position = Vector2(280, 576)
+
+[node name="Enemy10" parent="Entities" unique_id=1087220638 instance=ExtResource("3_y3j0m")]
+position = Vector2(1302, -231)
+
+[node name="Enemy11" parent="Entities" unique_id=1661876933 instance=ExtResource("3_y3j0m")]
+position = Vector2(1302, -231)
+
+[node name="Enemy12" parent="Entities" unique_id=610711925 instance=ExtResource("3_y3j0m")]
+position = Vector2(1302, -231)
+
+[node name="Enemy13" parent="Entities" unique_id=553999855 instance=ExtResource("3_y3j0m")]
+position = Vector2(1302, -231)
+
+[node name="Enemy14" parent="Entities" unique_id=244216235 instance=ExtResource("3_y3j0m")]
+position = Vector2(1302, -231)
+
+[node name="Enemy15" parent="Entities" unique_id=544191055 instance=ExtResource("3_y3j0m")]
+position = Vector2(1302, -231)
+
+[node name="Enemy16" parent="Entities" unique_id=630571204 instance=ExtResource("3_y3j0m")]
+position = Vector2(1302, -231)
+
+[node name="Enemy17" parent="Entities" unique_id=1037065343 instance=ExtResource("3_y3j0m")]
+position = Vector2(1302, -231)
+
+[node name="Enemy18" parent="Entities" unique_id=1804235713 instance=ExtResource("3_y3j0m")]
+position = Vector2(1302, -231)
+
+[node name="Enemy19" parent="Entities" unique_id=1198341940 instance=ExtResource("3_y3j0m")]
+position = Vector2(1302, -231)
+
+[node name="Enemy20" parent="Entities" unique_id=553585389 instance=ExtResource("3_y3j0m")]
+position = Vector2(1302, -231)
+
+[node name="Enemy21" parent="Entities" unique_id=1909587421 instance=ExtResource("3_y3j0m")]
+position = Vector2(1302, -231)
+
+[node name="Enemy22" parent="Entities" unique_id=1510295210 instance=ExtResource("3_y3j0m")]
+position = Vector2(1302, -231)
+
+[node name="PointsContainer" type="Node2D" parent="." unique_id=1527498713]
+unique_name_in_owner = true
+y_sort_enabled = true
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1897922151]
 
 [node name="Filters" parent="CanvasLayer" unique_id=268984273 instance=ExtResource("9_mw25s")]

@@ -5,6 +5,8 @@ signal dead
 
 const MAX_HEALTH = 100.0
 
+var points_scene: PackedScene = preload("res://scenes/points.tscn")
+
 @export var projectile_scene: PackedScene
 @export var damage_bomb_scene : PackedScene
 
@@ -34,11 +36,11 @@ func _physics_process(delta):
 		velocity = velocity.lerp(direction * speed, delta * 12.0)
 
 		$Body.play("run")
-		if abs(velocity.x) > 0.01: 
+		if abs(velocity.x) > 0.01:
 			body_direction = sign(velocity.x)
 			body.scale.x = body_direction
 			skew = lerp(skew, deg_to_rad(body_direction*12.0), delta*80)
-			
+
 	else:
 		$Body.play("idle")
 		skew = lerp(skew, 0.0, delta*80)
@@ -83,19 +85,27 @@ func shoot(target: Vector2):
 	inst.global_position = shoot_point.global_position
 	inst.touched.connect(_on_projectile_touched)
 
-	
+
+func add_damage_points(damage: float) -> void:
+	var points: Points = points_scene.instantiate()
+	points.text = '%d' % damage
+	points.modulate = Color(1.0, 0.0, 0.0, 1.0)
+	Globals.points_container.add_child.call_deferred(points)
+	points.set_deferred('global_position', global_position - Vector2(0.0, 64.0))
+
+
 func get_damage(val: int, dir: Vector2):
 	if !_cooldown_hit:
 		_cooldown_hit = true
 		knockback_dir = dir * knockback_force
-		health -= val
+		health = clamp(health - val, 0.0, MAX_HEALTH)
 		anim_hit()
-		val = clamp(val , 0, MAX_HEALTH)
+		add_damage_points(val)
 		cooldown_hit.start(cooldown_hit_duration)
-		if val <= 0:
+		if health <= 0:
 			dead.emit()
-			
-			
+
+
 func anim_hit():
 	$Body.modulate.v = 1500.0
 	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
@@ -106,8 +116,8 @@ func _on_timer_timeout() -> void:
 	var target = _check_for_nearest_enemy()
 	if target:
 		shoot(target.global_position)
-	
-	
+
+
 func _on_projectile_touched(pos: Vector2):
 	var inst = damage_bomb_scene.instantiate()
 	inst.data = projectile_data

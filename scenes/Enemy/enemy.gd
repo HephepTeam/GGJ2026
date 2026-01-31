@@ -11,6 +11,7 @@ const DROP_PROBABILITY := 0.1
 @onready var body: AnimatedSprite2D = $Body
 
 var mask_scene: PackedScene = preload("res://scenes/collectible/mask.tscn")
+var points_scene: PackedScene = preload("res://scenes/points.tscn")
 var colliding_areas: Array[Area2D] = []
 var collision_vector := Vector2.ZERO
 
@@ -85,6 +86,12 @@ func die() -> void:
 	queue_free()
 
 func get_damage(val: int):
+	var points: Points = points_scene.instantiate()
+	points.text = '%d' % val
+	points.modulate = Color(0.0, 1.0, 0.0, 1.0)
+	Globals.points_container.add_child.call_deferred(points)
+	points.set_deferred('global_position', global_position - Vector2(0.0, 64.0))
+
 	health = clamp(health - val, 0, health)
 	var tween := create_tween()
 	tween.tween_property(%Body, 'modulate:v', 15.0, 0.1)

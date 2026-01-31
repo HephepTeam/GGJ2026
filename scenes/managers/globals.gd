@@ -5,6 +5,7 @@ signal mask_picked_up(d: MaskData)
 signal camera_move_finished
 
 var entities_container: Node2D
+var points_container: Node2D
 var EnemyAround = []
 
 var speed_multiplier := 1.0
