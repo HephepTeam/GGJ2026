@@ -22,18 +22,9 @@ var player: Player
 var EnemyAround = []
 var maskTab = []
 
-var speed_multiplier := 1.0:
-	set(value):
-		speed_multiplier = value
-		filters_changed.emit()
-var strength_multiplier := 1.0:
-	set(value):
-		strength_multiplier = value
-		filters_changed.emit()
-var explosion_multiplier := 1.0:
-	set(value):
-		explosion_multiplier = value
-		filters_changed.emit()
+var speed_multiplier := 1.0
+var strength_multiplier := 1.0
+var explosion_multiplier := 1.0
 
 
 func _ready() -> void:
@@ -49,9 +40,10 @@ func game_over_effects():
 	var tween = create_tween()
 	tween.set_parallel()
 	tween.tween_property(Engine, "time_scale", 0.2, 0.5)
-	tween.tween_property(self, "speed_multiplier", 0.0, 0.3)
-	tween.tween_property(self, "strength_multiplier", 0.0, 0.3)
-	tween.tween_property(self, "explosion_multiplier", 0.0, 0.3)
+	speed_multiplier = 1.0
+	strength_multiplier = 1.0
+	explosion_multiplier = 1.0
+	filters_changed.emit()
 
 func get_elapsed_time() -> float:
 	return (Time.get_ticks_usec() - start_ticks) / 1_000_000.0
