@@ -3,10 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://bp8skeuengvau" path="res://assets/Masks/mask3.png" id="1_mp6y1"]
 [ext_resource type="Script" uid="uid://b4j6vx2yiydvx" path="res://ressources/MaskData.gd" id="1_ppqu2"]
 [ext_resource type="Texture2D" uid="uid://b2eyuksi0mnka" path="res://assets/player/masks/force.png" id="2_mp6y1"]
+[ext_resource type="AudioStream" uid="uid://cfror778at7r1" path="res://assets/sfx/Strength mask.ogg" id="2_qde15"]
 
 [resource]
 script = ExtResource("1_ppqu2")
 mask_texture = ExtResource("1_mp6y1")
 player_mask_texture = ExtResource("2_mp6y1")
+pickup_sound = ExtResource("2_qde15")
 strength_bonus = 0.5
 metadata/_custom_type_script = "uid://b4j6vx2yiydvx"

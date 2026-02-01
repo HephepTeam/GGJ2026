@@ -26,6 +26,7 @@ var _body_direction := 1.0
 var _prev_pos: Vector2
 
 func _ready():
+	dead.connect(Globals.on_boss_die)
 	$CanvasLayer/healthbar.max_value = base_health
 	$CanvasLayer/healthbar.value = base_health
 	pass

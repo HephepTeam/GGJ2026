@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://c4hqtgywxj3fv"]
+
+[ext_resource type="Script" uid="uid://de7rvoe5srpyq" path="res://scenes/menus/game_over.gd" id="1_15dr4"]
+[ext_resource type="Texture2D" uid="uid://darw2fmxas3j4" path="res://assets/victory.png" id="2_15dr4"]
+[ext_resource type="FontFile" uid="uid://rfwm06ihdyu2" path="res://assets/Font/Crossland.otf" id="3_fm4gb"]
+[ext_resource type="PackedScene" uid="uid://dg63fg6sx8t1u" path="res://scenes/filters.tscn" id="4_lo8b6"]
+
+[node name="Victory" type="Control" unique_id=1253640996]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_15dr4")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1505196908]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_15dr4")
+expand_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1971060989]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -383.0
+offset_top = 69.0
+offset_right = 377.0
+offset_bottom = 523.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 200
+alignment = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=2083418522]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_fm4gb")
+theme_override_font_sizes/font_size = 120
+text = "- VICTORY ACHIEVED -"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=129200162]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.8784314, 0.87058824, 1)
+
+[node name="Filters" parent="." unique_id=268984273 instance=ExtResource("4_lo8b6")]
+layout_mode = 1

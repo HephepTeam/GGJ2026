@@ -677,6 +677,15 @@ layout_mode = 1
 pivot_offset = Vector2(-137, 501)
 mouse_filter = 2
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1348397311]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.07058824, 0.07058824, 0.07058824, 1)
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/SelectMaskButton" to="." method="_on_select_mask_button_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/VBoxContainer/SelectMaskButton" to="." method="_on_select_mask_button_mouse_exited"]

@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://t8yg5swymda3"]
+[gd_scene format=3 uid="uid://djgxjshhamwka"]
 
-[ext_resource type="Script" path="res://scenes/menus/game_over.gd" id="1_gypcw"]
+[ext_resource type="Script" uid="uid://de7rvoe5srpyq" path="res://scenes/menus/game_over.gd" id="1_gypcw"]
 [ext_resource type="Texture2D" uid="uid://bqxxov00n1wc1" path="res://assets/GameOver.png" id="1_ujjcl"]
 [ext_resource type="FontFile" uid="uid://rfwm06ihdyu2" path="res://assets/Font/Crossland.otf" id="2_asori"]
 [ext_resource type="PackedScene" uid="uid://dg63fg6sx8t1u" path="res://scenes/filters.tscn" id="4_vg4au"]
@@ -58,6 +58,15 @@ horizontal_alignment = 1
 [node name="GameInfoScene" parent="." unique_id=612091750 instance=ExtResource("5_djsq2")]
 layout_mode = 1
 offset_left = -398.0
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=702099294]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.15294118, 0, 0, 1)
 
 [node name="Filters" parent="." unique_id=268984273 instance=ExtResource("4_vg4au")]
 layout_mode = 1

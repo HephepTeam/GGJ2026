@@ -112,6 +112,7 @@ func add_health_points(damage: float) -> void:
 
 func heal(val: int):
 	if !is_dead:
+		$HealSFX.play()
 		health = clamp(health + val, 0.0, MAX_HEALTH)
 		add_health_points(val)
 

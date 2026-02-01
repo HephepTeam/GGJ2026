@@ -3,10 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://bag011h7epnyq" path="res://assets/Masks/mask0.png" id="1_52nom"]
 [ext_resource type="Script" uid="uid://b4j6vx2yiydvx" path="res://ressources/MaskData.gd" id="1_ac05i"]
 [ext_resource type="Texture2D" uid="uid://5oqj3esbku4y" path="res://assets/player/masks/fov.png" id="2_75tet"]
+[ext_resource type="AudioStream" uid="uid://bu3f4s3aocdfw" path="res://assets/sfx/Mask.ogg" id="2_oatoj"]
 
 [resource]
 script = ExtResource("1_ac05i")
 mask_texture = ExtResource("1_52nom")
 player_mask_texture = ExtResource("2_75tet")
+pickup_sound = ExtResource("2_oatoj")
 explosion_bonus = 0.25
 metadata/_custom_type_script = "uid://b4j6vx2yiydvx"

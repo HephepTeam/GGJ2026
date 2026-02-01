@@ -80,6 +80,9 @@ func get_closest_player(from_position: Vector2) -> Player:
 	return closest
 	
 func on_mask_picked_up(data: MaskData):
+	$MaskPickup.stream = data.pickup_sound
+	$MaskPickup.pitch_scale = randf_range(0.9,1.1)
+	$MaskPickup.play()
 	speed_multiplier += data.speed_bonus
 	strength_multiplier += data.strength_bonus
 	explosion_multiplier += data.explosion_bonus
@@ -88,3 +91,7 @@ func on_mask_picked_up(data: MaskData):
 	p.update_mask(data.player_mask_texture)
 	maskTab.append(data.player_mask_texture)
 	filters_changed.emit()
+	
+func on_boss_die():
+	await get_tree().create_timer(1.0).timeout
+	get_tree().change_scene_to_file.call_deferred("res://scenes/menus/victory.tscn")
