@@ -178,12 +178,12 @@ value = 2000.0
 
 [node name="Label" type="Label" parent="CanvasLayer" unique_id=388041983]
 modulate = Color(1, 1, 1, 0)
-offset_left = 417.0
-offset_top = 938.0
-offset_right = 674.0
-offset_bottom = 984.0
+offset_left = 412.0
+offset_top = 900.0
+offset_right = 776.0
+offset_bottom = 991.0
 theme_override_fonts/font = ExtResource("6_dxuxr")
-theme_override_font_sizes/font_size = 45
+theme_override_font_sizes/font_size = 90
 text = "Shisu, Lord of Ikiar"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -18,7 +18,7 @@ var explosion := 0.0:
 
 
 func _ready() -> void:
-	Globals.mask_picked_up.connect(on_mask_picked_up)
+	Globals.filters_changed.connect(on_filters_changed)
 	var players := Globals.get_players()
 	if len(players) > 0:
 		player = players[0]
@@ -30,10 +30,19 @@ func _process(_delta: float) -> void:
 		)
 
 
-func on_mask_picked_up(_mask_data: MaskData) -> void:
-	var new_speed := clampf(Globals.speed_multiplier - 1.0, 0.0, 1.0)
-	var new_strength := clampf(Globals.strength_multiplier - 1.0, 0.0, 1.0)
-	var new_explosion := clampf(Globals.explosion_multiplier - 1.0, 0.0, 1.0)
+func on_filters_changed() -> void:
+	var new_speed := clampf(
+		(Globals.speed_multiplier - 1.0) * Globals.SPEED_INCREMENT,
+		0.0, 1.0
+	)
+	var new_strength := clampf(
+		(Globals.strength_multiplier - 1.0) * Globals.STRENGTH_INCREMENT,
+		0.0, 1.0
+	)
+	var new_explosion := clampf(
+		(Globals.explosion_multiplier - 1.0) * Globals.EXPLOSION_INCREMENT,
+		0.0, 1.0
+	)
 	if abs(new_speed - speed) > 0.0001:
 		var tween := create_tween()
 		tween.tween_property(self, "speed", 1.0, 0.2)

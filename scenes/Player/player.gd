@@ -123,18 +123,18 @@ func get_damage(val: int, dir: Vector2):
 		cooldown_hit.start(cooldown_hit_duration)
 		if health <= 0:
 			body.play("idle")
-			$%Mask.visible = false
+			%Mask.visible = false
 			is_dead = true
 			var inst = broken_mask_scene.instantiate()
 			inst.finished.connect(on_mask_broken_finished)
 			add_child(inst)
-			inst.position = shoot_point.position
-			Globals.launch_slowmo()
-			
-			
+			inst.global_position = shoot_point.global_position
+			Globals.game_over_effects()
+
+
 func on_mask_broken_finished():
 	dead.emit()
-	
+
 
 
 func anim_hit():

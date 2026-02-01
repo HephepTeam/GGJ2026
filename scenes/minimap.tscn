@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bo7wh0iw15ykh"]
+
+[ext_resource type="Texture2D" uid="uid://cxdjiooxswpkk" path="res://assets/map.png" id="1_lj7mc"]
+[ext_resource type="Script" uid="uid://d4krj5hbju63n" path="res://scenes/minimap.gd" id="1_o13pn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o13pn"]
+atlas = ExtResource("1_lj7mc")
+region = Rect2(0, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4v8nv"]
+atlas = ExtResource("1_lj7mc")
+region = Rect2(96, 0, 32, 32)
+
+[node name="Minimap" type="Control" unique_id=1378203115]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1628.0
+offset_bottom = -768.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o13pn")
+
+[node name="map" type="TextureRect" parent="." unique_id=2105894554]
+layout_mode = 0
+offset_top = -192.0
+offset_right = 96.0
+offset_bottom = -64.0
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_o13pn")
+
+[node name="pos" type="TextureRect" parent="." unique_id=456381776]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_4v8nv")

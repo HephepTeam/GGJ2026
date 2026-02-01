@@ -73,7 +73,7 @@ func _physics_process(delta: float) -> void:
 
 	_prev_pos = global_position
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if health < base_health:
 		$healthbar.show()
 		$healthbar.value = health
@@ -122,10 +122,13 @@ func get_damage(val: int):
 
 
 func change_modulate() -> void:
-	var non_red_attenuation := clampf(1.0 - (Globals.strength_multiplier - 1.0), 0.0, 1.0)
-	modulate.g = non_red_attenuation
-	modulate.b = non_red_attenuation
-	modulate.a = non_red_attenuation
+	var strength := clampf(
+		(Globals.strength_multiplier - 1.0) * Globals.STRENGTH_INCREMENT,
+		0.0, 1.0
+	)
+	modulate.g = 1.0 - strength
+	modulate.b = 1.0 - strength
+	material.set_shader_parameter("strength", strength)
 
 func on_mask_picked_up(_mask_data: MaskData) -> void:
 	change_modulate()

@@ -25,46 +25,51 @@ anchor_mode = 0
 script = ExtResource("4_bw6k5")
 
 [node name="TileMap" parent="." unique_id=103331890 instance=ExtResource("1_ycayy")]
-max_enemies = 3
+max_enemies = 5
 door_flags = 4
 
 [node name="TileMap2" parent="." unique_id=179751782 instance=ExtResource("1_ycayy")]
 position = Vector2(1024, 0)
-max_enemies = 8
+max_enemies = 10
 door_flags = 9
 
 [node name="TileMap3" parent="." unique_id=871066224 instance=ExtResource("1_ycayy")]
 position = Vector2(2048, 0)
-max_enemies = 8
 door_flags = 1
 
 [node name="TileMap4" parent="." unique_id=261601510 instance=ExtResource("1_ycayy")]
 position = Vector2(1024, -1024)
+max_enemies = 20
 door_flags = 14
 
 [node name="TileMap6" parent="." unique_id=1603576315 instance=ExtResource("1_ycayy")]
 position = Vector2(2048, -1024)
+max_enemies = 20
 door_flags = 9
 
 [node name="TileMap5" parent="." unique_id=196586902 instance=ExtResource("1_ycayy")]
 position = Vector2(0, -1024)
+max_enemies = 20
 door_flags = 5
 
 [node name="TileMap7" parent="." unique_id=433286325 instance=ExtResource("1_ycayy")]
 position = Vector2(0, -2048)
+max_enemies = 20
 door_flags = 6
 
 [node name="TileMap8" parent="." unique_id=1227077269 instance=ExtResource("1_ycayy")]
 position = Vector2(1024, -2048)
+max_enemies = 20
 door_flags = 13
 
 [node name="TileMap10" parent="." unique_id=1306396387 instance=ExtResource("1_ycayy")]
 position = Vector2(1024, -3072)
-max_enemies = 1
+max_enemies = 5
 door_flags = 2
 
 [node name="TileMap9" parent="." unique_id=2067688600 instance=ExtResource("1_ycayy")]
 position = Vector2(2048, -2048)
+max_enemies = 20
 door_flags = 10
 
 [node name="Entities" type="Node2D" parent="." unique_id=267500765]

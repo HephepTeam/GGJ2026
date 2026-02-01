@@ -9,8 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://buvaowlekgewx" path="res://assets/player/idle.png" id="5_uxo23"]
 [ext_resource type="Texture2D" uid="uid://bq0rqps4hawe4" path="res://assets/player/run0.png" id="6_n7rn1"]
 [ext_resource type="Texture2D" uid="uid://rwl1oqpwo326" path="res://assets/player/run1.png" id="7_7tfl1"]
+[ext_resource type="Texture2D" uid="uid://dnt1ji37vp2f1" path="res://assets/player/run2.png" id="9_jxtnq"]
 [ext_resource type="PackedScene" uid="uid://bc5uvvrbrsij1" path="res://scenes/healthbar.tscn" id="9_wwtew"]
 [ext_resource type="Texture2D" uid="uid://ck8nqcf75vs03" path="res://assets/point-light.png" id="10_uxo23"]
+[ext_resource type="Texture2D" uid="uid://1s8g73iqkxmg" path="res://assets/player/run3.png" id="11_t6q27"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a3d8c"]
 animations = [{
@@ -27,7 +29,13 @@ animations = [{
 "texture": ExtResource("6_n7rn1")
 }, {
 "duration": 1.0,
+"texture": ExtResource("9_jxtnq")
+}, {
+"duration": 1.0,
 "texture": ExtResource("7_7tfl1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_t6q27")
 }],
 "loop": true,
 "name": &"run",
@@ -115,7 +123,7 @@ z_index = 1
 position = Vector2(1, -16)
 sprite_frames = SubResource("SpriteFrames_a3d8c")
 animation = &"run"
-frame_progress = 0.1658449
+frame_progress = 0.9017104
 offset = Vector2(0, -25)
 
 [node name="Mask" type="Sprite2D" parent="Visuals/Body" unique_id=1625360917]
