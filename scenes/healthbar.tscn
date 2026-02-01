@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bc5uvvrbrsij1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qc6vu"]
-bg_color = Color(1, 0, 0, 0.49803922)
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wfr8x"]
 bg_color = Color(1, 0.1254902, 0, 1)

@@ -16,6 +16,8 @@ var kill_count := 0
 var start_ticks := 0
 var isDead = false
 
+var masks: Array[MaskData] = []
+
 var entities_container: Node2D
 var points_container: Node2D
 var camera: Camera2D
@@ -82,6 +84,7 @@ func on_mask_picked_up(data: MaskData):
 	var p = get_players()[0]
 	p.update_bonuses()
 	p.update_mask(data.player_mask_texture)
+	masks.append(data)
 	add_ui_mask.emit(data)
 	filters_changed.emit()
 	

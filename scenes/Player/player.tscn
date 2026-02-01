@@ -18,6 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://ca52i828v7k4a" path="res://assets/sfx/hit1.ogg" id="16_aciub"]
 [ext_resource type="AudioStream" uid="uid://kol8qof8gxkm" path="res://assets/sfx/hit2.ogg" id="17_hk2ix"]
 [ext_resource type="AudioStream" uid="uid://bwepk65pe51rg" path="res://assets/sfx/hit3.ogg" id="18_43ckd"]
+[ext_resource type="AudioStream" uid="uid://i37xds755x7" path="res://assets/sfx/heal.ogg" id="19_aciub"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a3d8c"]
 animations = [{
@@ -120,6 +121,8 @@ stream_3/stream = ExtResource("18_43ckd")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_aciub"]
 random_pitch = 1.3348398
+streams_count = 1
+stream_0/stream = ExtResource("19_aciub")
 
 [node name="Player" type="CharacterBody2D" unique_id=1534390266 groups=["player"]]
 y_sort_enabled = true

@@ -13,6 +13,17 @@ metadata/_custom_type_script = "uid://bsufjcw4lsn2a"
 
 [node name="TextureRect" type="TextureRect" unique_id=1731629494]
 custom_minimum_size = Vector2(90, 100)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -50.0
+offset_right = 45.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_c4mhf")
 stretch_mode = 5
 
