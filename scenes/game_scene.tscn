@@ -21,7 +21,7 @@ position = Vector2(398, 0)
 script = ExtResource("1_tcjrq")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1947949776]
-position = Vector2(1024, 0)
+position = Vector2(626, 0)
 anchor_mode = 0
 script = ExtResource("4_bw6k5")
 
@@ -45,7 +45,7 @@ door_flags = 14
 
 [node name="TileMap6" parent="." unique_id=1603576315 instance=ExtResource("1_ycayy")]
 position = Vector2(2048, -1024)
-door_flags = 10
+door_flags = 9
 
 [node name="TileMap5" parent="." unique_id=196586902 instance=ExtResource("1_ycayy")]
 position = Vector2(0, -1024)
@@ -101,7 +101,6 @@ unique_name_in_owner = true
 [node name="Filters" parent="CanvasLayer" unique_id=268984273 instance=ExtResource("9_mw25s")]
 
 [node name="PausedMenu" parent="CanvasLayer" unique_id=437947370 instance=ExtResource("7_kk2rg")]
-visible = false
 
 [node name="Time" parent="CanvasLayer" unique_id=535690649 instance=ExtResource("11_tcjrq")]
 

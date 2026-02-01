@@ -39,12 +39,13 @@ func _ready():
 	open_doors()
 
 func _on_enter_zone_body_entered(body: Node2D) -> void:
-	if body is Player and killed_enemies < max_enemies:
+	if body is Player:
 		Globals.room_entered.emit(self)
 		await Globals.camera_move_finished
-		spawn_timer.start()
-		close_doors()
-		player_entered.emit()
+		if killed_enemies < max_enemies:
+			spawn_timer.start()
+			close_doors()
+			player_entered.emit()
 		
 
 func close_doors():
