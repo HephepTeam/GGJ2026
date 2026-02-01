@@ -1,0 +1,190 @@
+[gd_scene format=3 uid="uid://de8lrobduafm7"]
+
+[ext_resource type="Script" uid="uid://wkptuhvd73kv" path="res://scenes/Enemy/boss.gd" id="1_f0tbp"]
+[ext_resource type="Texture2D" uid="uid://deqfjb1rqis7t" path="res://assets/shadow.png" id="3_0a75a"]
+[ext_resource type="Texture2D" uid="uid://bo5nwpfd32cxs" path="res://assets/Boss1.png" id="3_f0tbp"]
+[ext_resource type="Texture2D" uid="uid://71gwwws002js" path="res://assets/Boss2.png" id="4_dxuxr"]
+[ext_resource type="FontFile" uid="uid://rfwm06ihdyu2" path="res://assets/Font/Crossland.otf" id="6_dxuxr"]
+[ext_resource type="PackedScene" uid="uid://bc5uvvrbrsij1" path="res://scenes/healthbar.tscn" id="6_p5p5g"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q0kbr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_f0tbp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_dxuxr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_84vye"]
+radius = 16.0
+height = 64.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vamnb"]
+radius = 16.0
+height = 64.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eacat"]
+radius = 23.0
+height = 72.0
+
+[sub_resource type="Animation" id="Animation_eacat"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ixhtt"]
+resource_name = "walking"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.08726646, -0.08726646, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.9)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wfr8x"]
+_data = {
+&"RESET": SubResource("Animation_eacat"),
+&"walking": SubResource("Animation_ixhtt")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oo7yl"]
+bg_color = Color(1, 0, 0, 0.49803922)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.8, 0.63013333, 0.07199998, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0a75a"]
+bg_color = Color(1, 0.1254902, 0, 1)
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+
+[sub_resource type="Theme" id="Theme_ot2u2"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_oo7yl")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_0a75a")
+
+[node name="Boss" type="CharacterBody2D" unique_id=1661876933 groups=["enemy"]]
+collision_layer = 2
+collision_mask = 8
+script = ExtResource("1_f0tbp")
+
+[node name="Visuals" type="Node2D" parent="." unique_id=1956700674]
+
+[node name="Shadow" type="Sprite2D" parent="Visuals" unique_id=2114353493]
+modulate = Color(0.54901963, 0.54901963, 0.54901963, 1)
+texture = ExtResource("3_0a75a")
+
+[node name="Body" type="AnimatedSprite2D" parent="Visuals" unique_id=1419797350]
+unique_name_in_owner = true
+z_index = 1
+position = Vector2(0, -1)
+sprite_frames = SubResource("SpriteFrames_q0kbr")
+frame_progress = 0.49386713
+offset = Vector2(9, -112)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1831575622]
+collision_layer = 2
+collision_mask = 66
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=19966739]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_84vye")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=352403461]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_vamnb")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1528606836]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=73037118]
+position = Vector2(0, -36)
+shape = SubResource("CapsuleShape2D_eacat")
+debug_color = Color(0.91857046, 0.17176548, 0.56811786, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=137225749]
+libraries/ = SubResource("AnimationLibrary_wfr8x")
+autoplay = &"walking"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2142699581]
+
+[node name="healthbar" parent="CanvasLayer" unique_id=1008328001 instance=ExtResource("6_p5p5g")]
+visible = true
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -497.0
+offset_top = -40.0
+offset_right = 498.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_ot2u2")
+max_value = 1000.0
+value = 1000.0
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=388041983]
+modulate = Color(1, 1, 1, 0)
+offset_left = 417.0
+offset_top = 938.0
+offset_right = 674.0
+offset_bottom = 984.0
+theme_override_fonts/font = ExtResource("6_dxuxr")
+theme_override_font_sizes/font_size = 45
+text = "Shisu, Lord of Ikiar"
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

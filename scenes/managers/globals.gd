@@ -43,8 +43,8 @@ func get_elapsed_time() -> float:
 	return (Time.get_ticks_usec() - start_ticks) / 1_000_000.0
 
 
-func get_enemy_around() -> Array[Enemy]:
-	var enemies: Array[Enemy] = []
+func get_enemy_around():
+	var enemies:  = []
 	enemies.append_array(get_tree().get_nodes_in_group("enemy"))
 	return enemies
 
