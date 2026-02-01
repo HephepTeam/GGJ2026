@@ -162,9 +162,9 @@ debug_color = Color(0.91857046, 0.17176548, 0.56811786, 0.41960785)
 libraries/ = SubResource("AnimationLibrary_wfr8x")
 autoplay = &"walking"
 
-[node name="ScreamSFX" type="AudioStreamPlayer" parent="." unique_id=1179404399]
+[node name="ScreamSFX" type="AudioStreamPlayer2D" parent="." unique_id=1591032671]
 stream = SubResource("AudioStreamRandomizer_eacat")
-volume_db = -5.0
+attenuation = 0.5
 bus = &"SoundEffect"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

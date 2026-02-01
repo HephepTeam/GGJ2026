@@ -9,8 +9,7 @@ resource_local_to_scene = true
 radius = 1.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_sr5v4"]
-random_pitch = 1.3348398
-random_volume_offset_db = 5.0
+random_pitch = 1.9999999
 streams_count = 1
 stream_0/stream = ExtResource("3_l5872")
 
@@ -26,8 +25,8 @@ shape = SubResource("CircleShape2D_tyl1k")
 scale = Vector2(0.00390625, 0.0039062547)
 texture = ExtResource("2_g00pm")
 
-[node name="BoumSFX" type="AudioStreamPlayer" parent="." unique_id=872878936]
+[node name="BoumSFX" type="AudioStreamPlayer2D" parent="." unique_id=388847198]
 stream = SubResource("AudioStreamRandomizer_sr5v4")
-volume_db = -5.0
+attenuation = 0.5
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

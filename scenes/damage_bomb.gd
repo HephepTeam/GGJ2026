@@ -3,7 +3,7 @@ extends Area2D
 const BASE_RADIUS := Vector2.ONE * 75.0
 const BASE_DAMAGE := 25.0
 
-@onready var boum_sfx: AudioStreamPlayer = $BoumSFX
+@onready var boum_sfx: AudioStreamPlayer2D = $BoumSFX
 
 var data: ProjectileData:
 	set(value):

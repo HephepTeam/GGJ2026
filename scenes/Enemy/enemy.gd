@@ -12,7 +12,7 @@ var is_spawning = true
 @export var mask: MaskData
 
 @onready var body: AnimatedSprite2D = %Body
-@onready var scream_sfx: AudioStreamPlayer = $ScreamSFX
+@onready var scream_sfx: AudioStreamPlayer2D = $ScreamSFX
 
 var mask_scene: PackedScene = preload("res://scenes/collectible/mask.tscn")
 var heal_scene: PackedScene = preload("res://scenes/collectible/health_bonus.tscn")
