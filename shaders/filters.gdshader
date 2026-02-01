@@ -87,7 +87,7 @@ vec4 speedLines(vec4 input_color, vec2 fragcoord, vec2 resolution) {
 	uv += rand(vec2(floor(uv.y * 487.0), fract(uv.y * 487.0)), TIME + 69.420) * (black_offset_multiplier * 0.025);
 	
 	vec2 p = vec2(0.5) + normalize(uv) * min(length(uv), 0.05);
-	vec3 p3 = 13.0 * vec3(p.xy, 0) + vec3(0, 0, TIME * mix(0.05, 0.2, speed));
+	vec3 p3 = 13.0 * vec3(p.xy, 0) + vec3(0, 0, TIME * mix(0.0, 0.2, speed));
 	float noise = simplex3d(p3 * 32.0) * 0.5 + 0.5;
 	float dist = abs(clamp(length(uv) / (12.0 - speed * 5.0), 0.0, 1.0) * noise * 2.0 - 1.0);
 	const float e = 0.3;
