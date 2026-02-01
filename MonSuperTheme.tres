@@ -7,17 +7,17 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j2p4m"]
 texture = ExtResource("1_ba34o")
-region_rect = Rect2(251.65637, 253.84662, 2320.69, 1036.3081)
+region_rect = Rect2(31, 31, 290, 130)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yqtnt"]
 content_margin_top = 10.0
 content_margin_bottom = 14.0
 texture = ExtResource("2_nincc")
-region_rect = Rect2(247.65515, 241.84308, 2320.69, 1048.3118)
+region_rect = Rect2(31, 31, 290, 130)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kbgwp"]
 texture = ExtResource("3_j2p4m")
-region_rect = Rect2(243.65405, 241.84308, 2324.6912, 1060.3154)
+region_rect = Rect2(31, 31, 290, 130)
 
 [resource]
 default_font = ExtResource("4_j2p4m")
