@@ -12,6 +12,7 @@ var isDead = false
 var entities_container: Node2D
 var points_container: Node2D
 var camera: Camera2D
+var player: Player
 var EnemyAround = []
 
 var speed_multiplier := 1.0
@@ -27,6 +28,15 @@ func restart() -> void:
 	kill_count = 0
 	start_ticks = Time.get_ticks_usec()
 
+func launch_slowmo():
+	camera.anchor_mode = Camera2D.ANCHOR_MODE_DRAG_CENTER
+	camera.position += Vector2(512,512)
+	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+	tween.set_parallel(true)
+	tween.tween_property(Engine, "time_scale", 0.2, 1.0)
+	tween.tween_property(camera, "zoom", Vector2(2.0,2.0), 1.0)
+	tween.tween_property(camera, "position", player.position, 1.0)
+	await tween.finished
 
 func get_elapsed_time() -> float:
 	return (Time.get_ticks_usec() - start_ticks) / 1_000_000.0
