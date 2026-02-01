@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dsf0qlkmmrwr6"]
 
-[ext_resource type="Script" path="res://scenes/time.gd" id="1_hxfg6"]
+[ext_resource type="Script" uid="uid://bpdijlnfdjhtc" path="res://scenes/time.gd" id="1_hxfg6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gt3cs"]
 font_size = 30

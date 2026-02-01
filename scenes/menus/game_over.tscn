@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bqxxov00n1wc1" path="res://assets/GameOver.png" id="1_ujjcl"]
 [ext_resource type="FontFile" uid="uid://rfwm06ihdyu2" path="res://assets/Font/Crossland.otf" id="2_asori"]
 [ext_resource type="PackedScene" uid="uid://dg63fg6sx8t1u" path="res://scenes/filters.tscn" id="4_vg4au"]
+[ext_resource type="PackedScene" uid="uid://rk0q2tmshre7" path="res://scenes/game_info_scene.tscn" id="5_djsq2"]
 
 [node name="GameOver" type="Control" unique_id=1253640996]
 layout_mode = 3
@@ -53,6 +54,10 @@ theme_override_font_sizes/font_size = 64
 text = "Discover the beginner level in our DLC, available now! 
 With a full menu included!"
 horizontal_alignment = 1
+
+[node name="GameInfoScene" parent="." unique_id=612091750 instance=ExtResource("5_djsq2")]
+layout_mode = 1
+offset_left = -398.0
 
 [node name="Filters" parent="." unique_id=268984273 instance=ExtResource("4_vg4au")]
 layout_mode = 1

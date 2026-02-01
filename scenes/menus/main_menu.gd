@@ -90,7 +90,7 @@ func _on_select_mask_button_mouse_exited() -> void:
 
 func _on_start_game_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/MasterGameScene.tscn")
-	
+	Globals.restart()
 
 
 func _on_return_scoring_button_pressed() -> void:

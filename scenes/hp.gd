@@ -8,4 +8,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	text = "HP : %d" % Globals.player.health
+	if Globals.player == null:
+		text = 'HP : DEAD'
+	else:
+		text = "HP : %d" % Globals.player.health
