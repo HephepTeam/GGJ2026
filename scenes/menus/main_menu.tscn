@@ -129,24 +129,29 @@ grow_vertical = 2
 texture = ExtResource("8_1hnlc")
 expand_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=983524404]
-visible = false
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=14227891]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_top = -478.0
-offset_right = 249.0
+offset_right = 218.0
 grow_vertical = 0
+theme_override_constants/margin_left = 45
+theme_override_constants/margin_bottom = 45
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=983524404]
+visible = false
+layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="StartGameButton" type="Button" parent="VBoxContainer" unique_id=2009834341]
+[node name="StartGameButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=2009834341]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 text = "Let's Gong  !"
 
-[node name="SlideR" type="Node" parent="VBoxContainer/StartGameButton" unique_id=17939483 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
+[node name="SlideR" type="Node" parent="MarginContainer/VBoxContainer/StartGameButton" unique_id=17939483 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
 script = ExtResource("2_mae5d")
 target = NodePath("..")
 animation = SubResource("Resource_l48gv")
@@ -155,7 +160,7 @@ start_on_hover_start = true
 stop_trigger_source = NodePath("..")
 metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
 
-[node name="SlideL" type="Node" parent="VBoxContainer/StartGameButton" unique_id=1925723995 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
+[node name="SlideL" type="Node" parent="MarginContainer/VBoxContainer/StartGameButton" unique_id=1925723995 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
 script = ExtResource("2_mae5d")
 target = NodePath("..")
 animation = SubResource("Resource_4hy44")
@@ -164,21 +169,21 @@ start_on_hover_stop = true
 stop_trigger_source = NodePath("..")
 metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
 
-[node name="SelectMaskButton" type="Button" parent="VBoxContainer" unique_id=894337239]
+[node name="SelectMaskButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=894337239]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Select Mask"
 
-[node name="SlideR" type="Node" parent="VBoxContainer/SelectMaskButton" unique_id=878288813 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
+[node name="SlideR" type="Node" parent="MarginContainer/VBoxContainer/SelectMaskButton" unique_id=878288813 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
 script = ExtResource("2_mae5d")
 target = NodePath("..")
 animation = SubResource("Resource_4ndjb")
-start_trigger_source = NodePath("../../..")
+start_trigger_source = NodePath("../../../..")
 start_custom_signal = "maskButton_hover"
 stop_trigger_source = NodePath("..")
 metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
 
-[node name="Panel" type="Panel" parent="VBoxContainer/SelectMaskButton" unique_id=701178314]
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/SelectMaskButton" unique_id=701178314]
 visible = false
 layout_mode = 0
 offset_left = 278.0
@@ -187,7 +192,7 @@ offset_right = 637.0
 offset_bottom = 211.0
 theme = SubResource("Theme_4hy44")
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/SelectMaskButton/Panel" unique_id=822485991]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/SelectMaskButton/Panel" unique_id=822485991]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -196,17 +201,17 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/SelectMaskButton/Panel/MarginContainer" unique_id=1179499492]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/SelectMaskButton/Panel/MarginContainer" unique_id=1179499492]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/SelectMaskButton/Panel/MarginContainer/VBoxContainer" unique_id=2054717753]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/SelectMaskButton/Panel/MarginContainer/VBoxContainer" unique_id=2054717753]
 layout_mode = 2
 text = "Choose Your Mask"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/SelectMaskButton/Panel/MarginContainer/VBoxContainer" unique_id=1855684532]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/SelectMaskButton/Panel/MarginContainer/VBoxContainer" unique_id=1855684532]
 layout_mode = 2
 
-[node name="Mask1Button" type="Button" parent="VBoxContainer/SelectMaskButton/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=485706488]
+[node name="Mask1Button" type="Button" parent="MarginContainer/VBoxContainer/SelectMaskButton/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=485706488]
 layout_mode = 2
 text = "Mask 1"
 icon = ExtResource("4_ng0o5")
@@ -214,7 +219,7 @@ alignment = 0
 icon_alignment = 1
 vertical_icon_alignment = 0
 
-[node name="LabelMask1" type="Label" parent="VBoxContainer/SelectMaskButton/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1120027042]
+[node name="LabelMask1" type="Label" parent="MarginContainer/VBoxContainer/SelectMaskButton/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1120027042]
 layout_mode = 2
 text = "Malus : 
 	- Freeze
@@ -222,14 +227,14 @@ Bonus :
 	- More speed
 	- Shoot"
 
-[node name="Mask2Button" type="Button" parent="VBoxContainer/SelectMaskButton/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=44729658]
+[node name="Mask2Button" type="Button" parent="MarginContainer/VBoxContainer/SelectMaskButton/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=44729658]
 layout_mode = 2
 text = "Mask2"
 icon = ExtResource("5_8r73w")
 icon_alignment = 1
 vertical_icon_alignment = 0
 
-[node name="LabelMask2" type="Label" parent="VBoxContainer/SelectMaskButton/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1626518267]
+[node name="LabelMask2" type="Label" parent="MarginContainer/VBoxContainer/SelectMaskButton/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1626518267]
 visible = false
 layout_mode = 2
 text = "Malus : 
@@ -238,14 +243,14 @@ Bonus :
 	- More speed
 	- Shoot"
 
-[node name="Mask3Button" type="Button" parent="VBoxContainer/SelectMaskButton/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1869506908]
+[node name="Mask3Button" type="Button" parent="MarginContainer/VBoxContainer/SelectMaskButton/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1869506908]
 layout_mode = 2
 text = "Mask3"
 icon = ExtResource("6_1hnlc")
 icon_alignment = 1
 vertical_icon_alignment = 0
 
-[node name="LabelMask3" type="Label" parent="VBoxContainer/SelectMaskButton/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=554592841]
+[node name="LabelMask3" type="Label" parent="MarginContainer/VBoxContainer/SelectMaskButton/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=554592841]
 visible = false
 layout_mode = 2
 text = "Malus : 
@@ -254,11 +259,11 @@ Bonus :
 	- More speed
 	- Shoot"
 
-[node name="ReturnButton" type="Button" parent="VBoxContainer/SelectMaskButton/Panel/MarginContainer/VBoxContainer" unique_id=513650208]
+[node name="ReturnButton" type="Button" parent="MarginContainer/VBoxContainer/SelectMaskButton/Panel/MarginContainer/VBoxContainer" unique_id=513650208]
 layout_mode = 2
 text = "Return"
 
-[node name="SlideL" type="Node" parent="VBoxContainer/SelectMaskButton/Panel/MarginContainer/VBoxContainer/ReturnButton" unique_id=1698749842 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
+[node name="SlideL" type="Node" parent="MarginContainer/VBoxContainer/SelectMaskButton/Panel/MarginContainer/VBoxContainer/ReturnButton" unique_id=1698749842 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
 script = ExtResource("2_mae5d")
 target = NodePath("../../../../..")
 animation = SubResource("Resource_3ls4m")
@@ -267,12 +272,13 @@ start_on_pressed = true
 stop_trigger_source = NodePath("../../../../..")
 metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
 
-[node name="Scoring" type="Button" parent="VBoxContainer" unique_id=112687071]
+[node name="Scoring" type="Button" parent="MarginContainer/VBoxContainer" unique_id=112687071]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 text = "Scoring"
 
-[node name="SlideR" type="Node" parent="VBoxContainer/Scoring" unique_id=2134425237 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
+[node name="SlideR" type="Node" parent="MarginContainer/VBoxContainer/Scoring" unique_id=2134425237 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
 script = ExtResource("2_mae5d")
 target = NodePath("..")
 animation = SubResource("Resource_ecwwl")
@@ -281,7 +287,7 @@ start_on_hover_start = true
 stop_trigger_source = NodePath("..")
 metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
 
-[node name="SlideL" type="Node" parent="VBoxContainer/Scoring" unique_id=321788546 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
+[node name="SlideL" type="Node" parent="MarginContainer/VBoxContainer/Scoring" unique_id=321788546 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
 script = ExtResource("2_mae5d")
 target = NodePath("..")
 animation = SubResource("Resource_kk3ma")
@@ -290,15 +296,14 @@ start_on_hover_stop = true
 stop_trigger_source = NodePath("..")
 metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
 
-[node name="PanelScoring" type="Panel" parent="VBoxContainer/Scoring" unique_id=1238822747]
-visible = false
+[node name="PanelScoring" type="Panel" parent="MarginContainer/VBoxContainer/Scoring" unique_id=1238822747]
 layout_mode = 0
 offset_left = 301.0
 offset_top = -29.0
 offset_right = 540.0
 offset_bottom = 211.0
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Scoring/PanelScoring" unique_id=1636689961]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Scoring/PanelScoring" unique_id=1636689961]
 layout_mode = 0
 offset_right = 238.0
 offset_bottom = 240.0
@@ -307,31 +312,31 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Scoring/PanelScoring/MarginContainer" unique_id=49525140]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Scoring/PanelScoring/MarginContainer" unique_id=49525140]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/Scoring/PanelScoring/MarginContainer/VBoxContainer" unique_id=1273366791]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Scoring/PanelScoring/MarginContainer/VBoxContainer" unique_id=1273366791]
 layout_mode = 2
 text = "Best Score"
 horizontal_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/Scoring/PanelScoring/MarginContainer/VBoxContainer" unique_id=1841541404]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/Scoring/PanelScoring/MarginContainer/VBoxContainer" unique_id=1841541404]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Scoring/PanelScoring/MarginContainer/VBoxContainer/ScrollContainer" unique_id=348233147]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Scoring/PanelScoring/MarginContainer/VBoxContainer/ScrollContainer" unique_id=348233147]
 layout_mode = 2
 
-[node name="ReturnScoringButton" type="Button" parent="VBoxContainer/Scoring/PanelScoring/MarginContainer/VBoxContainer" unique_id=1409892892]
+[node name="ReturnScoringButton" type="Button" parent="MarginContainer/VBoxContainer/Scoring/PanelScoring/MarginContainer/VBoxContainer" unique_id=1409892892]
 layout_mode = 2
 text = "Return"
 
-[node name="ConfigButton" type="Button" parent="VBoxContainer" unique_id=1193173948]
+[node name="ConfigButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1193173948]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
 text = "Config"
 
-[node name="SlideR" type="Node" parent="VBoxContainer/ConfigButton" unique_id=69385909 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
+[node name="SlideR" type="Node" parent="MarginContainer/VBoxContainer/ConfigButton" unique_id=69385909 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
 script = ExtResource("2_mae5d")
 target = NodePath("..")
 animation = SubResource("Resource_nrnbx")
@@ -340,7 +345,7 @@ start_on_hover_start = true
 stop_trigger_source = NodePath("..")
 metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
 
-[node name="SlideL" type="Node" parent="VBoxContainer/ConfigButton" unique_id=1534581870 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
+[node name="SlideL" type="Node" parent="MarginContainer/VBoxContainer/ConfigButton" unique_id=1534581870 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
 script = ExtResource("2_mae5d")
 target = NodePath("..")
 animation = SubResource("Resource_iqepy")
@@ -349,14 +354,14 @@ start_on_hover_stop = true
 stop_trigger_source = NodePath("..")
 metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
 
-[node name="PanelConfig" type="Panel" parent="VBoxContainer/ConfigButton" unique_id=1891780491]
+[node name="PanelConfig" type="Panel" parent="MarginContainer/VBoxContainer/ConfigButton" unique_id=1891780491]
 layout_mode = 0
 offset_left = 280.0
 offset_top = -28.0
 offset_right = 472.0
 offset_bottom = 137.0
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ConfigButton/PanelConfig" unique_id=398486456]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ConfigButton/PanelConfig" unique_id=398486456]
 layout_mode = 0
 offset_right = 191.0
 offset_bottom = 152.0
@@ -365,43 +370,43 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ConfigButton/PanelConfig/MarginContainer" unique_id=231449162]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ConfigButton/PanelConfig/MarginContainer" unique_id=231449162]
 layout_mode = 2
 
-[node name="VolPrincLBL" type="Label" parent="VBoxContainer/ConfigButton/PanelConfig/MarginContainer/VBoxContainer" unique_id=1846412302]
+[node name="VolPrincLBL" type="Label" parent="MarginContainer/VBoxContainer/ConfigButton/PanelConfig/MarginContainer/VBoxContainer" unique_id=1846412302]
 layout_mode = 2
 text = "Volume Principal"
 
-[node name="VolPrincHSlider" type="HSlider" parent="VBoxContainer/ConfigButton/PanelConfig/MarginContainer/VBoxContainer" unique_id=1822808186]
+[node name="VolPrincHSlider" type="HSlider" parent="MarginContainer/VBoxContainer/ConfigButton/PanelConfig/MarginContainer/VBoxContainer" unique_id=1822808186]
 layout_mode = 2
 max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="VolBruitLBL" type="Label" parent="VBoxContainer/ConfigButton/PanelConfig/MarginContainer/VBoxContainer" unique_id=1638376300]
+[node name="VolBruitLBL" type="Label" parent="MarginContainer/VBoxContainer/ConfigButton/PanelConfig/MarginContainer/VBoxContainer" unique_id=1638376300]
 layout_mode = 2
 text = "Volume Bruitages"
 
-[node name="VolBruitHSlider" type="HScrollBar" parent="VBoxContainer/ConfigButton/PanelConfig/MarginContainer/VBoxContainer" unique_id=266831558]
+[node name="VolBruitHSlider" type="HScrollBar" parent="MarginContainer/VBoxContainer/ConfigButton/PanelConfig/MarginContainer/VBoxContainer" unique_id=266831558]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ConfigButton/PanelConfig/MarginContainer/VBoxContainer" unique_id=314923047]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ConfigButton/PanelConfig/MarginContainer/VBoxContainer" unique_id=314923047]
 layout_mode = 2
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 0
 
-[node name="ReturnConfigButton" type="Button" parent="VBoxContainer/ConfigButton/PanelConfig/MarginContainer/VBoxContainer/MarginContainer" unique_id=2010087556]
+[node name="ReturnConfigButton" type="Button" parent="MarginContainer/VBoxContainer/ConfigButton/PanelConfig/MarginContainer/VBoxContainer/MarginContainer" unique_id=2010087556]
 layout_mode = 2
 text = "Return"
 
-[node name="CreditsButton" type="Button" parent="VBoxContainer" unique_id=1077002628]
+[node name="CreditsButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1077002628]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Credits"
 
-[node name="SlideR" type="Node" parent="VBoxContainer/CreditsButton" unique_id=1606947960 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
+[node name="SlideR" type="Node" parent="MarginContainer/VBoxContainer/CreditsButton" unique_id=1606947960 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
 script = ExtResource("2_mae5d")
 target = NodePath("..")
 animation = SubResource("Resource_h1wq0")
@@ -410,7 +415,7 @@ start_on_hover_start = true
 stop_trigger_source = NodePath("..")
 metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
 
-[node name="SlideL" type="Node" parent="VBoxContainer/CreditsButton" unique_id=581001307 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
+[node name="SlideL" type="Node" parent="MarginContainer/VBoxContainer/CreditsButton" unique_id=581001307 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
 script = ExtResource("2_mae5d")
 target = NodePath("..")
 animation = SubResource("Resource_dwrpx")
@@ -419,12 +424,12 @@ start_on_hover_stop = true
 stop_trigger_source = NodePath("..")
 metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
 
-[node name="DLC" type="Button" parent="VBoxContainer" unique_id=348484555]
+[node name="DLC" type="Button" parent="MarginContainer/VBoxContainer" unique_id=348484555]
 layout_mode = 2
 size_flags_vertical = 3
 text = "DLC"
 
-[node name="SlideR" type="Node" parent="VBoxContainer/DLC" unique_id=160459624 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
+[node name="SlideR" type="Node" parent="MarginContainer/VBoxContainer/DLC" unique_id=160459624 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
 script = ExtResource("2_mae5d")
 target = NodePath("..")
 animation = SubResource("Resource_g7jxm")
@@ -433,7 +438,7 @@ start_on_hover_start = true
 stop_trigger_source = NodePath("..")
 metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
 
-[node name="SlideL" type="Node" parent="VBoxContainer/DLC" unique_id=892600092 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
+[node name="SlideL" type="Node" parent="MarginContainer/VBoxContainer/DLC" unique_id=892600092 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
 script = ExtResource("2_mae5d")
 target = NodePath("..")
 animation = SubResource("Resource_jspdm")
@@ -442,12 +447,12 @@ start_on_hover_stop = true
 stop_trigger_source = NodePath("..")
 metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
 
-[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=498669572]
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=498669572]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Leave"
 
-[node name="SlideR" type="Node" parent="VBoxContainer/QuitButton" unique_id=609324977 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
+[node name="SlideR" type="Node" parent="MarginContainer/VBoxContainer/QuitButton" unique_id=609324977 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
 script = ExtResource("2_mae5d")
 target = NodePath("..")
 animation = SubResource("Resource_oxnod")
@@ -456,7 +461,7 @@ start_on_hover_start = true
 stop_trigger_source = NodePath("..")
 metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
 
-[node name="SlideL" type="Node" parent="VBoxContainer/QuitButton" unique_id=1266730501 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
+[node name="SlideL" type="Node" parent="MarginContainer/VBoxContainer/QuitButton" unique_id=1266730501 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
 script = ExtResource("2_mae5d")
 target = NodePath("..")
 animation = SubResource("Resource_gd0jp")
@@ -501,23 +506,18 @@ layout_mode = 1
 pivot_offset = Vector2(-137, 501)
 mouse_filter = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=14227891]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[connection signal="pressed" from="VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
-[connection signal="mouse_entered" from="VBoxContainer/SelectMaskButton" to="." method="_on_select_mask_button_mouse_entered"]
-[connection signal="mouse_exited" from="VBoxContainer/SelectMaskButton" to="." method="_on_select_mask_button_mouse_exited"]
-[connection signal="pressed" from="VBoxContainer/SelectMaskButton" to="." method="_on_select_mask_button_pressed"]
-[connection signal="mouse_entered" from="VBoxContainer/SelectMaskButton/Panel/MarginContainer/VBoxContainer/HBoxContainer/Mask1Button" to="." method="_on_mask_1_button_mouse_entered"]
-[connection signal="mouse_entered" from="VBoxContainer/SelectMaskButton/Panel/MarginContainer/VBoxContainer/HBoxContainer/Mask2Button" to="." method="_on_mask_2_button_mouse_entered"]
-[connection signal="mouse_entered" from="VBoxContainer/SelectMaskButton/Panel/MarginContainer/VBoxContainer/HBoxContainer/Mask3Button" to="." method="_on_mask_3_button_mouse_entered"]
-[connection signal="pressed" from="VBoxContainer/SelectMaskButton/Panel/MarginContainer/VBoxContainer/ReturnButton" to="." method="_on_return_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Scoring" to="." method="_on_scoring_pressed"]
-[connection signal="mouse_entered" from="VBoxContainer/Scoring/PanelScoring" to="." method="_on_panel_scoring_mouse_entered"]
-[connection signal="pressed" from="VBoxContainer/Scoring/PanelScoring/MarginContainer/VBoxContainer/ReturnScoringButton" to="." method="_on_return_scoring_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/ConfigButton" to="." method="_on_config_button_pressed"]
-[connection signal="value_changed" from="VBoxContainer/ConfigButton/PanelConfig/MarginContainer/VBoxContainer/VolPrincHSlider" to="." method="_on_vol_princ_h_slider_value_changed"]
-[connection signal="pressed" from="VBoxContainer/ConfigButton/PanelConfig/MarginContainer/VBoxContainer/MarginContainer/ReturnConfigButton" to="." method="_on_return_config_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/SelectMaskButton" to="." method="_on_select_mask_button_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/SelectMaskButton" to="." method="_on_select_mask_button_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SelectMaskButton" to="." method="_on_select_mask_button_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/SelectMaskButton/Panel/MarginContainer/VBoxContainer/HBoxContainer/Mask1Button" to="." method="_on_mask_1_button_mouse_entered"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/SelectMaskButton/Panel/MarginContainer/VBoxContainer/HBoxContainer/Mask2Button" to="." method="_on_mask_2_button_mouse_entered"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/SelectMaskButton/Panel/MarginContainer/VBoxContainer/HBoxContainer/Mask3Button" to="." method="_on_mask_3_button_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SelectMaskButton/Panel/MarginContainer/VBoxContainer/ReturnButton" to="." method="_on_return_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Scoring" to="." method="_on_scoring_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/Scoring/PanelScoring" to="." method="_on_panel_scoring_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Scoring/PanelScoring/MarginContainer/VBoxContainer/ReturnScoringButton" to="." method="_on_return_scoring_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ConfigButton" to="." method="_on_config_button_pressed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/ConfigButton/PanelConfig/MarginContainer/VBoxContainer/VolPrincHSlider" to="." method="_on_vol_princ_h_slider_value_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ConfigButton/PanelConfig/MarginContainer/VBoxContainer/MarginContainer/ReturnConfigButton" to="." method="_on_return_config_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
