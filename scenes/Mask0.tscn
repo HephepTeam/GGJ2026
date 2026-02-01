@@ -1,8 +1,29 @@
 [gd_scene format=3 uid="uid://duafuswx32das"]
 
 [ext_resource type="Texture2D" uid="uid://bag011h7epnyq" path="res://assets/Masks/mask0.png" id="1_c4mhf"]
+[ext_resource type="Script" uid="uid://b4hvmk8t0qkgu" path="res://addons/proton_control_animation/src/proton_control_animation.gd" id="2_o2bb6"]
+[ext_resource type="Script" uid="uid://bsufjcw4lsn2a" path="res://addons/proton_control_animation/src/animations/slide.gd" id="3_gs0py"]
+
+[sub_resource type="Resource" id="Resource_x6a06"]
+script = ExtResource("3_gs0py")
+to = 3
+to_local_offset = Vector2(20, 0)
+transition = 10
+metadata/_custom_type_script = "uid://bsufjcw4lsn2a"
 
 [node name="TextureRect" type="TextureRect" unique_id=1731629494]
 custom_minimum_size = Vector2(90, 100)
 texture = ExtResource("1_c4mhf")
 stretch_mode = 5
+
+[node name="ProtonControlAnimation" type="Node" parent="." unique_id=135471594 node_paths=PackedStringArray("target", "start_trigger_source", "stop_trigger_source")]
+script = ExtResource("2_o2bb6")
+target = NodePath("..")
+animation = SubResource("Resource_x6a06")
+loop_type = 2
+infinite_loop = true
+start_trigger_source = NodePath("..")
+start_on_show = true
+start_custom_signal = "child_entered_tree"
+stop_trigger_source = NodePath("..")
+metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"

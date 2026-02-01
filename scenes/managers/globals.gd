@@ -6,6 +6,7 @@ signal camera_move_finished
 signal crowbar_picked_up
 signal healthbonus_picked_up
 signal filters_changed
+signal add_ui_mask(data: MaskData)
 
 const SPEED_INCREMENT := 0.1
 const STRENGTH_INCREMENT := 0.1
@@ -81,7 +82,7 @@ func on_mask_picked_up(data: MaskData):
 	var p = get_players()[0]
 	p.update_bonuses()
 	p.update_mask(data.player_mask_texture)
-	maskTab.append(data.player_mask_texture)
+	add_ui_mask.emit(data)
 	filters_changed.emit()
 	
 func on_boss_die():

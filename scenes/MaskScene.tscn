@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://becvnw400k37t" path="res://scenes/loadMask.gd" id="1_o58tb"]
 [ext_resource type="Script" uid="uid://7l6wbr2px1tf" path="res://scenes/force.gd" id="1_u322a"]
-[ext_resource type="PackedScene" uid="uid://duafuswx32das" path="res://scenes/Mask0.tscn" id="2_3a5f6"]
 [ext_resource type="Script" uid="uid://bsmbx4yk7ivww" path="res://scenes/speed.gd" id="2_o58tb"]
 [ext_resource type="Script" uid="uid://u40ctwrljmdg" path="res://scenes/explose.gd" id="3_3a5f6"]
 
@@ -46,24 +45,6 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 script = ExtResource("1_o58tb")
-
-[node name="TextureRect" parent="Panel/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1731629494 instance=ExtResource("2_3a5f6")]
-layout_mode = 2
-
-[node name="TextureRect2" parent="Panel/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1765282531 instance=ExtResource("2_3a5f6")]
-layout_mode = 2
-
-[node name="TextureRect3" parent="Panel/MarginContainer/VBoxContainer/VBoxContainer" unique_id=89012170 instance=ExtResource("2_3a5f6")]
-layout_mode = 2
-
-[node name="TextureRect4" parent="Panel/MarginContainer/VBoxContainer/VBoxContainer" unique_id=733559253 instance=ExtResource("2_3a5f6")]
-layout_mode = 2
-
-[node name="TextureRect5" parent="Panel/MarginContainer/VBoxContainer/VBoxContainer" unique_id=252005326 instance=ExtResource("2_3a5f6")]
-layout_mode = 2
-
-[node name="TextureRect6" parent="Panel/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1718969928 instance=ExtResource("2_3a5f6")]
-layout_mode = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1078013877]
 custom_minimum_size = Vector2(0, 256)

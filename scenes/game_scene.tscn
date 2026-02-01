@@ -45,7 +45,12 @@ door_flags = 14
 [node name="TileMap6" parent="." unique_id=1603576315 instance=ExtResource("1_ycayy")]
 position = Vector2(2048, -1024)
 max_enemies = 20
-door_flags = 9
+door_flags = 13
+
+[node name="TileMap11" parent="." unique_id=161688377 instance=ExtResource("1_ycayy")]
+position = Vector2(3072, -1024)
+max_enemies = 100
+door_flags = 8
 
 [node name="TileMap5" parent="." unique_id=196586902 instance=ExtResource("1_ycayy")]
 position = Vector2(0, -1024)
