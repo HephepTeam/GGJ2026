@@ -18,8 +18,8 @@ var points_scene: PackedScene = preload("res://scenes/points.tscn")
 var colliding_areas: Array[Area2D] = []
 var collision_vector := Vector2.ZERO
 
-const base_health = 2000.0
-var health := 2000.0
+const base_health = 10000.0
+var health := 10000.0
 var attack := 32.0
 
 var _body_direction := 1.0
@@ -29,7 +29,7 @@ func _ready():
 	$CanvasLayer/healthbar.max_value = base_health
 	$CanvasLayer/healthbar.value = base_health
 	pass
-	
+
 
 func is_dead() -> bool:
 	return health <= 0
@@ -38,7 +38,7 @@ func fade_bar():
 	var tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(healthbar, "modulate:a", 0.63, 0.7)
 	tween.tween_property($CanvasLayer/Label, "modulate:a", 1.0, 0.7)
-	
+
 
 
 func _physics_process(delta: float) -> void:
