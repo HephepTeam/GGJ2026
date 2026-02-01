@@ -79,7 +79,14 @@ func _on_spawn_timer_timeout() -> void:
 	enemy.dead.connect(_on_enemy_killed)
 	Globals.entities_container.add_child.call_deferred(enemy)
 	enemy.mask = enemy_mask_resource.pick_random()
-	%PathFollow2D.progress_ratio = randf()
+	var players = Globals.get_players()
+	if len(players) == 0:
+		return
+	var player: Player = players[0]
+	while true:
+		%PathFollow2D.progress_ratio = randf()
+		if player.global_position.distance_to(%PathFollow2D.global_position) > 300.0:
+			break
 	enemy.set_deferred('global_position', %PathFollow2D.global_position)
 	count_enemies += 1
 	
