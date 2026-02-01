@@ -5,6 +5,7 @@ extends Node
 func _ready() -> void:
 	var tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 	tween.tween_property($ColorRect, "modulate:a", 0.0, 1.3)
+	Globals.reset_filters()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -43,6 +43,9 @@ func game_over_effects():
 	var tween = create_tween()
 	tween.set_parallel()
 	tween.tween_property(Engine, "time_scale", 0.2, 0.5)
+	reset_filters()
+
+func reset_filters():
 	speed_multiplier = 1.0
 	strength_multiplier = 1.0
 	explosion_multiplier = 1.0

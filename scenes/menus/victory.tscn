@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c4hqtgywxj3fv"]
+[gd_scene format=3 uid="uid://o1qe0p78vm0p"]
 
 [ext_resource type="Script" uid="uid://de7rvoe5srpyq" path="res://scenes/menus/game_over.gd" id="1_15dr4"]
 [ext_resource type="Texture2D" uid="uid://darw2fmxas3j4" path="res://assets/victory.png" id="2_15dr4"]
