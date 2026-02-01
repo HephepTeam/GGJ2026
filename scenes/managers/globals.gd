@@ -5,6 +5,7 @@ signal mask_picked_up(d: MaskData)
 signal camera_move_finished
 signal crowbar_picked_up
 signal healthbonus_picked_up
+signal filters_changed
 
 const SPEED_INCREMENT := 0.1
 const STRENGTH_INCREMENT := 0.1
@@ -20,9 +21,18 @@ var camera: Camera2D
 var player: Player
 var EnemyAround = []
 
-var speed_multiplier := 1.0
-var strength_multiplier := 1.0
-var explosion_multiplier := 1.0
+var speed_multiplier := 1.0:
+	set(value):
+		speed_multiplier = value
+		filters_changed.emit()
+var strength_multiplier := 1.0:
+	set(value):
+		strength_multiplier = value
+		filters_changed.emit()
+var explosion_multiplier := 1.0:
+	set(value):
+		explosion_multiplier = value
+		filters_changed.emit()
 
 
 func _ready() -> void:
@@ -34,15 +44,13 @@ func restart() -> void:
 	kill_count = 0
 	start_ticks = Time.get_ticks_usec()
 
-func launch_slowmo():
-	camera.anchor_mode = Camera2D.ANCHOR_MODE_DRAG_CENTER
-	camera.position += Vector2(512,512)
-	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
-	tween.set_parallel(true)
-	tween.tween_property(Engine, "time_scale", 0.2, 1.0)
-	tween.tween_property(camera, "zoom", Vector2(2.0,2.0), 1.0)
-	tween.tween_property(camera, "position", player.position, 1.0)
-	await tween.finished
+func game_over_effects():
+	var tween = create_tween()
+	tween.set_parallel()
+	tween.tween_property(Engine, "time_scale", 0.2, 0.5)
+	tween.tween_property(self, "speed_multiplier", 0.0, 0.3)
+	tween.tween_property(self, "strength_multiplier", 0.0, 0.3)
+	tween.tween_property(self, "explosion_multiplier", 0.0, 0.3)
 
 func get_elapsed_time() -> float:
 	return (Time.get_ticks_usec() - start_ticks) / 1_000_000.0
@@ -77,3 +85,4 @@ func on_mask_picked_up(data: MaskData):
 	var p = get_players()[0]
 	p.update_bonuses()
 	p.update_mask(data.player_mask_texture)
+	filters_changed.emit()

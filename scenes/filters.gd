@@ -18,7 +18,7 @@ var explosion := 0.0:
 
 
 func _ready() -> void:
-	Globals.mask_picked_up.connect(on_mask_picked_up)
+	Globals.filters_changed.connect(on_filters_changed)
 	var players := Globals.get_players()
 	if len(players) > 0:
 		player = players[0]
@@ -30,7 +30,7 @@ func _process(_delta: float) -> void:
 		)
 
 
-func on_mask_picked_up(_mask_data: MaskData) -> void:
+func on_filters_changed() -> void:
 	var new_speed := clampf(
 		(Globals.speed_multiplier - 1.0) * Globals.SPEED_INCREMENT,
 		0.0, 1.0

@@ -16,8 +16,8 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
+"update": 1,
+"values": [Vector2(9, -1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -28,7 +28,7 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [Vector2(0, 0)]
 }
 tracks/2/type = "value"
@@ -40,8 +40,8 @@ tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
+"update": 1,
+"values": [Vector2(6, 12)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -52,8 +52,8 @@ tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-0.099483766]
+"update": 1,
+"values": [0.0]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -70,7 +70,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("ColorRect:modulate")
+tracks/5/path = NodePath(".:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -135,11 +135,11 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("ColorRect:modulate")
+tracks/4/path = NodePath(".:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.20000005),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -196,6 +196,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [0.0, -0.2617994]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t40a3"]
 _data = {
@@ -205,12 +217,12 @@ _data = {
 }
 
 [node name="BrokenMask" type="Node2D" unique_id=1285900262]
+modulate = Color(1, 1, 1, 0)
 z_index = 4
-position = Vector2(-6, 5)
+position = Vector2(-10, 6)
 script = ExtResource("1_0nvyx")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=509033141]
-modulate = Color(1, 1, 1, 0)
 offset_left = -1102.0
 offset_top = -610.0
 offset_right = 1150.0
@@ -218,6 +230,7 @@ offset_bottom = 825.0
 color = Color(0, 0, 0, 1)
 
 [node name="Sprite2D3" type="Sprite2D" parent="." unique_id=977285412]
+position = Vector2(6, 12)
 rotation = -0.2617994
 texture = ExtResource("1_5b0km")
 
@@ -225,11 +238,11 @@ texture = ExtResource("1_5b0km")
 texture = ExtResource("2_0nvyx")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=722011143]
-rotation = -0.099483766
+position = Vector2(9, -1)
 texture = ExtResource("3_2fs4n")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1190295787]
 libraries/ = SubResource("AnimationLibrary_t40a3")
-speed_scale = 5.0
+speed_scale = 4.0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
