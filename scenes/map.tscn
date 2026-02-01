@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://cel4wpflqmuuf" path="res://ressources/mask2.tres" id="10_wslke"]
 [ext_resource type="Texture2D" uid="uid://vmlc8ytiy6q0" path="res://assets/door0.png" id="11_wslke"]
 [ext_resource type="Texture2D" uid="uid://bwhcc7sg0wyp6" path="res://assets/door1.png" id="12_gw3fx"]
+[ext_resource type="AudioStream" uid="uid://b4v7p6m3aqaob" path="res://assets/sfx/door.ogg" id="13_gw3fx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nakos"]
 texture = ExtResource("1_0cso3")
@@ -200,6 +201,11 @@ rotation = -3.1415927
 scale = Vector2(1.9998624, 1)
 sprite_frames = SubResource("SpriteFrames_jh32y")
 animation = &"closed"
+
+[node name="DoorSFX" type="AudioStreamPlayer" parent="." unique_id=1853026636]
+stream = ExtResource("13_gw3fx")
+volume_db = -12.0
+bus = &"SoundEffect"
 
 [connection signal="body_entered" from="EnterZone" to="." method="_on_enter_zone_body_entered"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

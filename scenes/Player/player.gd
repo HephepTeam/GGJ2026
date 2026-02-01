@@ -85,6 +85,8 @@ func _check_for_nearest_enemy():
 
 func shoot(target: Vector2):
 	if !is_dead:
+		$BulletSFX.pitch_scale = randf_range(0.9,1.1)
+		$BulletSFX.play()
 		var inst = projectile_scene.instantiate()
 		var dir = (target - global_position).normalized()
 		inst.direction = dir
@@ -118,6 +120,7 @@ func get_damage(val: int, dir: Vector2):
 		_cooldown_hit = true
 		knockback_dir = dir * knockback_force
 		health = clamp(health - val, 0.0, MAX_HEALTH)
+		$HitSFX.play()
 		anim_hit()
 		add_damage_points(val)
 		cooldown_hit.start(cooldown_hit_duration)

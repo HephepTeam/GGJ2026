@@ -12,6 +12,7 @@ var is_spawning = true
 @export var mask: MaskData
 
 @onready var body: AnimatedSprite2D = %Body
+@onready var scream_sfx: AudioStreamPlayer = $ScreamSFX
 
 var mask_scene: PackedScene = preload("res://scenes/collectible/mask.tscn")
 var heal_scene: PackedScene = preload("res://scenes/collectible/health_bonus.tscn")
@@ -27,6 +28,7 @@ var _body_direction := 1.0
 var _prev_pos: Vector2
 
 func _ready():
+	scream_sfx.play()
 	Globals.mask_picked_up.connect(on_mask_picked_up)
 	if mask:
 		%Mask.texture = mask.mask_texture
@@ -101,8 +103,15 @@ func die() -> void:
 		dropped_mask.set_deferred('global_position', global_position)
 	
 	dead.emit()
-	queue_free()
+	scream_sfx.play()
+	$CollisionShape2D.disabled = true
+	$Area2D/CollisionShape2D.disabled = true
+	$Hurtbox/CollisionShape2D.disabled = true
+	visible = false
 	Globals.kill_count += 1
+	await scream_sfx.finished
+	queue_free()
+	
 
 func get_damage(val: int):
 	var points: Points = points_scene.instantiate()

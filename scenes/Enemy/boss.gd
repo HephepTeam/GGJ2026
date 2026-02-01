@@ -114,3 +114,9 @@ func change_modulate() -> void:
 func _on_tile_map_10_player_entered() -> void:
 	fade_bar()
 	is_spawning = false
+
+
+func _on_timer_timeout() -> void:
+	if !is_spawning:
+		$ScreamSFX.play()
+		$Timer.play(randf_range(1.0,2.0))

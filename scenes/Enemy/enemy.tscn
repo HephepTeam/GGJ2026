@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://deqfjb1rqis7t" path="res://assets/shadow.png" id="2_ixhtt"]
 [ext_resource type="Texture2D" uid="uid://bag011h7epnyq" path="res://assets/Masks/mask0.png" id="5_eacat"]
 [ext_resource type="PackedScene" uid="uid://bc5uvvrbrsij1" path="res://scenes/healthbar.tscn" id="6_eacat"]
+[ext_resource type="AudioStream" uid="uid://cwvtkyk3piqi" path="res://assets/sfx/grogne1.ogg" id="7_q0kbr"]
+[ext_resource type="AudioStream" uid="uid://ll5piyae31jt" path="res://assets/sfx/grogne2.ogg" id="8_fx0l5"]
+[ext_resource type="AudioStream" uid="uid://cyxkhi8i5tf6e" path="res://assets/sfx/grogne3.ogg" id="9_pg6jp"]
+[ext_resource type="AudioStream" uid="uid://b5jxongjbq2d3" path="res://assets/sfx/grogne4.ogg" id="10_lkp36"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wfr8x"]
 shader = ExtResource("1_ixhtt")
@@ -97,6 +101,13 @@ _data = {
 &"walking": SubResource("Animation_ixhtt")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_eacat"]
+streams_count = 4
+stream_0/stream = ExtResource("7_q0kbr")
+stream_1/stream = ExtResource("8_fx0l5")
+stream_2/stream = ExtResource("9_pg6jp")
+stream_3/stream = ExtResource("10_lkp36")
+
 [node name="Enemy" type="CharacterBody2D" unique_id=1661876933 groups=["enemy"]]
 material = SubResource("ShaderMaterial_wfr8x")
 collision_layer = 2
@@ -148,6 +159,10 @@ debug_color = Color(0.91857046, 0.17176548, 0.56811786, 0.41960785)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=137225749]
 libraries/ = SubResource("AnimationLibrary_wfr8x")
 autoplay = &"walking"
+
+[node name="ScreamSFX" type="AudioStreamPlayer" parent="." unique_id=1179404399]
+stream = SubResource("AudioStreamRandomizer_eacat")
+bus = &"SoundEffect"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

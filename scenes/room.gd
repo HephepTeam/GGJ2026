@@ -6,11 +6,13 @@ signal player_entered
 @export var enemy_mask_resource: Array[MaskData]
 @export var max_enemies := 15
 
+
 var count_enemies := 0
 
 @onready var doors_collision: StaticBody2D = $DoorsCollision
 @onready var spawn_timer: Timer = %SpawnTimer
 @onready var doors: Node2D = $Doors
+@onready var door_sfx: AudioStreamPlayer = $DoorSFX
 
 @export_flags("North","South","East","West",)
 var door_flags = 0
@@ -49,6 +51,7 @@ func _on_enter_zone_body_entered(body: Node2D) -> void:
 		
 
 func close_doors():
+	door_sfx.play()
 	doors_collision.set_collision_layer_value(4, true)
 
 	if door_flags & 1 == 1:
@@ -61,6 +64,7 @@ func close_doors():
 			$Doors/doorW.play("closed")
 			
 func open_doors():
+	door_sfx.play()
 	doors_collision.set_collision_layer_value(4, false)
 
 	if door_flags & 1 == 1:
