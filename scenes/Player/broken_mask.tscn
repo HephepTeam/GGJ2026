@@ -43,10 +43,47 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.099483766]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D3:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.2617994]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ColorRect:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_1x6b0"]
 resource_name = "broken"
 length = 1.5
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -54,10 +91,10 @@ tracks/0/path = NodePath("Sprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.4, 1.5),
+"times": PackedFloat32Array(0, 0.2, 0.4, 1.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(9, -1), Vector2(0, 0), Vector2(0, 0), Vector2(-21, 7)]
+"update": 1,
+"values": [Vector2(9, -1), Vector2(7, -1), Vector2(1, 1), Vector2(-11, 2)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -66,10 +103,10 @@ tracks/1/path = NodePath("Sprite2D2:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.4, 1.5),
+"times": PackedFloat32Array(0, 0.2, 0.4, 1.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(11, -3), Vector2(11, -3), Vector2(22, -10)]
+"update": 1,
+"values": [Vector2(0, 0), Vector2(4, -2), Vector2(9, -4), Vector2(25, -14)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -78,31 +115,121 @@ tracks/2/path = NodePath("Sprite2D3:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.4, 1.5),
+"times": PackedFloat32Array(0, 0.2, 0.4, 1.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(6, 12), Vector2(5, 8), Vector2(3, 0), Vector2(1, -16)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0.0, -0.099483766]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColorRect:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.20000005),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(6, 12), Vector2(4, -2), Vector2(4, -2), Vector2(-3, -19)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0nvyx"]
+resource_name = "drift"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, -16), Vector2(-10.000001, -37)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(25, -14), Vector2(46, -26)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-11, 2), Vector2(-46.000004, 13.000001)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D3:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.2617994]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t40a3"]
 _data = {
 &"RESET": SubResource("Animation_dq7kv"),
-&"broken": SubResource("Animation_1x6b0")
+&"broken": SubResource("Animation_1x6b0"),
+&"drift": SubResource("Animation_0nvyx")
 }
 
 [node name="BrokenMask" type="Node2D" unique_id=1285900262]
-z_index = 3
-position = Vector2(-8, -16)
+z_index = 4
+position = Vector2(-6, 5)
 script = ExtResource("1_0nvyx")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=509033141]
+modulate = Color(1, 1, 1, 0)
+offset_left = -1102.0
+offset_top = -610.0
+offset_right = 1150.0
+offset_bottom = 825.0
+color = Color(0, 0, 0, 1)
+
 [node name="Sprite2D3" type="Sprite2D" parent="." unique_id=977285412]
+rotation = -0.2617994
 texture = ExtResource("1_5b0km")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=236883768]
 texture = ExtResource("2_0nvyx")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=722011143]
+rotation = -0.099483766
 texture = ExtResource("3_2fs4n")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1190295787]
 libraries/ = SubResource("AnimationLibrary_t40a3")
+speed_scale = 5.0
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

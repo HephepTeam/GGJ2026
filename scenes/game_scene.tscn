@@ -3,15 +3,16 @@
 [ext_resource type="Script" uid="uid://bii03mfn1fptr" path="res://scenes/game_scene.gd" id="1_tcjrq"]
 [ext_resource type="PackedScene" uid="uid://7h053ghxefjb" path="res://scenes/map.tscn" id="1_ycayy"]
 [ext_resource type="PackedScene" uid="uid://cp0bf0rdxvw1s" path="res://scenes/Player/player.tscn" id="2_bw6k5"]
-[ext_resource type="Resource" path="res://ressources/mask0.tres" id="3_utbpp"]
+[ext_resource type="Resource" uid="uid://cow18rshugplg" path="res://ressources/mask0.tres" id="3_utbpp"]
 [ext_resource type="Script" uid="uid://cqdugo8vm245l" path="res://scenes/camera_2d.gd" id="4_bw6k5"]
-[ext_resource type="Resource" uid="uid://op4hhcbscbsh" path="res://ressources/mask1.tres" id="4_mw25s"]
-[ext_resource type="Resource" uid="uid://cqldh5igkrkqk" path="res://ressources/mask2.tres" id="5_tcjrq"]
+[ext_resource type="Resource" uid="uid://dk5ep68cm2eah" path="res://ressources/mask1.tres" id="4_mw25s"]
+[ext_resource type="Resource" uid="uid://cel4wpflqmuuf" path="res://ressources/mask2.tres" id="5_tcjrq"]
 [ext_resource type="PackedScene" uid="uid://ddegyt03bek3q" path="res://scenes/collectible/mask.tscn" id="5_y3j0m"]
 [ext_resource type="PackedScene" uid="uid://8b7lnpmvdgip" path="res://scenes/menus/paused_menu.tscn" id="7_kk2rg"]
 [ext_resource type="PackedScene" uid="uid://cpcfn3hiocs72" path="res://scenes/collectible/crowbar.tscn" id="8_mw25s"]
 [ext_resource type="PackedScene" uid="uid://dg63fg6sx8t1u" path="res://scenes/filters.tscn" id="9_mw25s"]
 [ext_resource type="PackedScene" uid="uid://dsf0qlkmmrwr6" path="res://scenes/time.tscn" id="11_tcjrq"]
+[ext_resource type="PackedScene" uid="uid://btq3re7wl8xxm" path="res://scenes/collectible/health_bonus.tscn" id="13_tqxxy"]
 
 [node name="GameScene" type="Node2D" unique_id=729300741]
 modulate = Color(0.039215688, 0.039215688, 0.039215688, 1)
@@ -97,5 +98,8 @@ unique_name_in_owner = true
 [node name="PausedMenu" parent="CanvasLayer" unique_id=437947370 instance=ExtResource("7_kk2rg")]
 
 [node name="Time" parent="CanvasLayer" unique_id=535690649 instance=ExtResource("11_tcjrq")]
+
+[node name="HealthBonus" parent="." unique_id=664900222 instance=ExtResource("13_tqxxy")]
+position = Vector2(1342, 447)
 
 [connection signal="dead" from="Entities/Player" to="." method="_on_player_dead"]

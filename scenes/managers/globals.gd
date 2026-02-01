@@ -4,6 +4,7 @@ signal room_entered(room)
 signal mask_picked_up(d: MaskData)
 signal camera_move_finished
 signal crowbar_picked_up
+signal healthbonus_picked_up
 
 var kill_count := 0
 var start_ticks := 0

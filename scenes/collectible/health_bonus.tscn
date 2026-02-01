@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://c1q1teqp7617b" path="res://scenes/collectible/HealthBonus.tscn.gd" id="1_b763x"]
 [ext_resource type="Texture2D" uid="uid://deqfjb1rqis7t" path="res://assets/shadow.png" id="2_33wud"]
-[ext_resource type="Texture2D" uid="uid://v8iyxpcsln5b" path="res://assets/crowbar.png" id="3_gefwf"]
+[ext_resource type="Texture2D" uid="uid://chct8r30l7sn2" path="res://assets/heal.png" id="3_b763x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r261n"]
-radius = 24.0
+radius = 28.01785
 
 [node name="HealthBonus" type="Area2D" unique_id=294908437]
 position = Vector2(0, -1)
@@ -15,12 +15,13 @@ script = ExtResource("1_b763x")
 [node name="shadow" type="Sprite2D" parent="." unique_id=573349222]
 modulate = Color(0.54901963, 0.54901963, 0.54901963, 1)
 position = Vector2(0, 1)
+scale = Vector2(0.4, 1)
 texture = ExtResource("2_33wud")
 
 [node name="HealthBonusSprite" type="Sprite2D" parent="." unique_id=1127084640]
-position = Vector2(0, -27)
+position = Vector2(0, -19)
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("3_gefwf")
+texture = ExtResource("3_b763x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1684417136]
 position = Vector2(0, -13)
