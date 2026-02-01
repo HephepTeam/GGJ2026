@@ -6,6 +6,10 @@ signal camera_move_finished
 signal crowbar_picked_up
 signal healthbonus_picked_up
 
+const SPEED_INCREMENT := 0.1
+const STRENGTH_INCREMENT := 0.1
+const EXPLOSION_INCREMENT := 0.1
+
 var kill_count := 0
 var start_ticks := 0
 var isDead = false
@@ -19,6 +23,7 @@ var EnemyAround = []
 var speed_multiplier := 1.0
 var strength_multiplier := 1.0
 var explosion_multiplier := 1.0
+
 
 func _ready() -> void:
 	mask_picked_up.connect(on_mask_picked_up)
