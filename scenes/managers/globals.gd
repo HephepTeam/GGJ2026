@@ -15,6 +15,7 @@ var points_container: Node2D
 var camera: Camera2D
 var player: Player
 var EnemyAround = []
+var maskTab = []
 
 var speed_multiplier := 1.0
 var strength_multiplier := 1.0
@@ -72,3 +73,4 @@ func on_mask_picked_up(data: MaskData):
 	var p = get_players()[0]
 	p.update_bonuses()
 	p.update_mask(data.player_mask_texture)
+	maskTab.append(data.player_mask_texture)

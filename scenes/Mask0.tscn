@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://duafuswx32das"]
+
+[ext_resource type="Texture2D" uid="uid://bag011h7epnyq" path="res://assets/Masks/mask0.png" id="1_c4mhf"]
+
+[node name="TextureRect" type="TextureRect" unique_id=1731629494]
+custom_minimum_size = Vector2(90, 100)
+texture = ExtResource("1_c4mhf")
+stretch_mode = 5
