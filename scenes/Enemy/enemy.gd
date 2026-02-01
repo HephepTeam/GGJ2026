@@ -4,8 +4,8 @@ class_name Enemy
 signal dead
 
 const SPEED := 200.0
-const DROP_PROBABILITY := 0.1
-const DROP_HEAL_PROBA := 0.2
+const DROP_PROBABILITY := 0.2
+const DROP_HEAL_PROBA := 0.3
 
 var is_spawning = true
 
