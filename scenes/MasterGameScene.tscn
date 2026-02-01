@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ygoh4ljijj6n" path="res://scenes/game_scene.tscn" id="1_st086"]
 [ext_resource type="PackedScene" uid="uid://ccl0vjajetmik" path="res://scenes/MaskScene.tscn" id="2_674mi"]
 [ext_resource type="PackedScene" uid="uid://rk0q2tmshre7" path="res://scenes/game_info_scene.tscn" id="3_j3tou"]
+[ext_resource type="PackedScene" path="res://scenes/time.tscn" id="4_674mi"]
 
 [node name="Node2D" type="Node2D" unique_id=88273593]
 
@@ -13,3 +14,10 @@
 [node name="MaskScene" parent="GameSceneCanvasLayer" unique_id=1232245659 instance=ExtResource("2_674mi")]
 
 [node name="GameInfoScene" parent="GameSceneCanvasLayer" unique_id=612091750 instance=ExtResource("3_j3tou")]
+
+[node name="Time" parent="GameSceneCanvasLayer" unique_id=535690649 instance=ExtResource("4_674mi")]
+z_index = 1
+offset_left = 576.0
+offset_top = 400.0
+offset_right = 645.0
+offset_bottom = 442.0

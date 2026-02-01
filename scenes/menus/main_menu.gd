@@ -24,7 +24,10 @@ func _on_select_mask_button_pressed() -> void:
 		$MarginContainer/VBoxContainer/Scoring/PanelScoring.visible = false;
 	if $MarginContainer/VBoxContainer/ConfigButton/PanelConfig.visible == true:
 		$MarginContainer/VBoxContainer/ConfigButton/PanelConfig.visible = false;
-
+	if $MarginContainer/VBoxContainer/CreditsButton/PanelCredits.visible == true:
+		$MarginContainer/VBoxContainer/CreditsButton/PanelCredits.visible = false;
+	if $MarginContainer/VBoxContainer/DLC/PanelDLC.visible == true:
+		$MarginContainer/VBoxContainer/DLC/PanelDLC.visible = false;
 
 func _on_select_mask_button_mouse_entered() -> void:
 	if $MarginContainer/VBoxContainer/SelectMaskButton/Panel.visible == false : 
@@ -101,12 +104,20 @@ func _on_scoring_pressed() -> void:
 		$MarginContainer/VBoxContainer/ConfigButton/PanelConfig.visible = false;
 	if $MarginContainer/VBoxContainer/SelectMaskButton/Panel.visible == true:
 		$MarginContainer/VBoxContainer/SelectMaskButton/Panel.visible = false;
+	if $MarginContainer/VBoxContainer/CreditsButton/PanelCredits.visible == true:
+		$MarginContainer/VBoxContainer/CreditsButton/PanelCredits.visible = false;
+	if $MarginContainer/VBoxContainer/DLC/PanelDLC.visible == true:
+		$MarginContainer/VBoxContainer/DLC/PanelDLC.visible = false;
 func _on_config_button_pressed() -> void:
 	$MarginContainer/VBoxContainer/ConfigButton/PanelConfig.visible = true;
 	if $MarginContainer/VBoxContainer/Scoring/PanelScoring.visible == true:
 		$MarginContainer/VBoxContainer/Scoring/PanelScoring.visible = false;
 	if $MarginContainer/VBoxContainer/SelectMaskButton/Panel.visible == true:
 		$MarginContainer/VBoxContainer/SelectMaskButton/Panel.visible = false;
+	if $MarginContainer/VBoxContainer/CreditsButton/PanelCredits.visible == true:
+		$MarginContainer/VBoxContainer/CreditsButton/PanelCredits.visible = false;
+	if $MarginContainer/VBoxContainer/DLC/PanelDLC.visible == true:
+		$MarginContainer/VBoxContainer/DLC/PanelDLC.visible = false;
 
 
 func _on_vol_princ_h_slider_value_changed(value: float) -> void:
@@ -129,3 +140,31 @@ func _input(event):
 		%StartGameButton.grab_focus()
 		$Title2LBL.visible = true
 			
+
+
+func _on_return_btn_pressed() -> void:
+	$MarginContainer/VBoxContainer/CreditsButton/PanelCredits.visible = false
+
+
+func _on_credits_button_pressed() -> void:
+	$MarginContainer/VBoxContainer/CreditsButton/PanelCredits.visible = true;
+	if $MarginContainer/VBoxContainer/Scoring/PanelScoring.visible == true:
+		$MarginContainer/VBoxContainer/Scoring/PanelScoring.visible = false;
+	if $MarginContainer/VBoxContainer/SelectMaskButton/Panel.visible == true:
+		$MarginContainer/VBoxContainer/SelectMaskButton/Panel.visible = false;
+	if $MarginContainer/VBoxContainer/ConfigButton/PanelConfig.visible == true:
+		$MarginContainer/VBoxContainer/ConfigButton/PanelConfig.visible = false;
+	if $MarginContainer/VBoxContainer/DLC/PanelDLC.visible == true:
+		$MarginContainer/VBoxContainer/DLC/PanelDLC.visible = false;
+
+
+func _on_dlc_pressed() -> void:
+	$MarginContainer/VBoxContainer/DLC/PanelDLC.visible = true;
+	if $MarginContainer/VBoxContainer/Scoring/PanelScoring.visible == true:
+		$MarginContainer/VBoxContainer/Scoring/PanelScoring.visible = false;
+	if $MarginContainer/VBoxContainer/SelectMaskButton/Panel.visible == true:
+		$MarginContainer/VBoxContainer/SelectMaskButton/Panel.visible = false;
+	if $MarginContainer/VBoxContainer/ConfigButton/PanelConfig.visible == true:
+		$MarginContainer/VBoxContainer/ConfigButton/PanelConfig.visible = false;
+	if $MarginContainer/VBoxContainer/CreditsButton/PanelCredits.visible == true:
+		$MarginContainer/VBoxContainer/CreditsButton/PanelCredits.visible = false;

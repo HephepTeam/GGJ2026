@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://djgxjshhamwka"]
 
+[ext_resource type="Script" uid="uid://de7rvoe5srpyq" path="res://scenes/menus/game_over.gd" id="1_gypcw"]
 [ext_resource type="Texture2D" uid="uid://bqxxov00n1wc1" path="res://assets/GameOver.png" id="1_ujjcl"]
 [ext_resource type="FontFile" uid="uid://rfwm06ihdyu2" path="res://assets/Font/Crossland.otf" id="2_asori"]
 
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_gypcw")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1505196908]
 layout_mode = 1

@@ -134,8 +134,8 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -478.0
-offset_right = 218.0
+offset_top = -606.0
+offset_right = 289.0
 grow_vertical = 0
 theme_override_constants/margin_left = 45
 theme_override_constants/margin_bottom = 45
@@ -188,14 +188,17 @@ visible = false
 layout_mode = 0
 offset_left = 278.0
 offset_top = -23.0
-offset_right = 637.0
-offset_bottom = 211.0
+offset_right = 860.0
+offset_bottom = 355.0
 theme = SubResource("Theme_4hy44")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/SelectMaskButton/Panel" unique_id=822485991]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
@@ -203,13 +206,17 @@ theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/SelectMaskButton/Panel/MarginContainer" unique_id=1179499492]
 layout_mode = 2
+theme_override_constants/separation = 22
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/SelectMaskButton/Panel/MarginContainer/VBoxContainer" unique_id=2054717753]
 layout_mode = 2
 text = "Choose Your Mask"
+horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/SelectMaskButton/Panel/MarginContainer/VBoxContainer" unique_id=1855684532]
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 25
 
 [node name="Mask1Button" type="Button" parent="MarginContainer/VBoxContainer/SelectMaskButton/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=485706488]
 layout_mode = 2
@@ -273,7 +280,6 @@ stop_trigger_source = NodePath("../../../../..")
 metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
 
 [node name="Scoring" type="Button" parent="MarginContainer/VBoxContainer" unique_id=112687071]
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 text = "Scoring"
@@ -297,16 +303,20 @@ stop_trigger_source = NodePath("..")
 metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
 
 [node name="PanelScoring" type="Panel" parent="MarginContainer/VBoxContainer/Scoring" unique_id=1238822747]
+visible = false
 layout_mode = 0
-offset_left = 301.0
-offset_top = -29.0
-offset_right = 540.0
-offset_bottom = 211.0
+offset_left = 278.0
+offset_top = -103.0
+offset_right = 856.0
+offset_bottom = 277.0
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Scoring/PanelScoring" unique_id=1636689961]
-layout_mode = 0
-offset_right = 238.0
-offset_bottom = 240.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
@@ -321,6 +331,7 @@ text = "Best Score"
 horizontal_alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/Scoring/PanelScoring/MarginContainer/VBoxContainer" unique_id=1841541404]
+custom_minimum_size = Vector2(0, 225)
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Scoring/PanelScoring/MarginContainer/VBoxContainer/ScrollContainer" unique_id=348233147]
@@ -328,10 +339,10 @@ layout_mode = 2
 
 [node name="ReturnScoringButton" type="Button" parent="MarginContainer/VBoxContainer/Scoring/PanelScoring/MarginContainer/VBoxContainer" unique_id=1409892892]
 layout_mode = 2
+size_flags_vertical = 8
 text = "Return"
 
 [node name="ConfigButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1193173948]
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 text = "Config"
@@ -355,16 +366,20 @@ stop_trigger_source = NodePath("..")
 metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
 
 [node name="PanelConfig" type="Panel" parent="MarginContainer/VBoxContainer/ConfigButton" unique_id=1891780491]
+visible = false
 layout_mode = 0
 offset_left = 280.0
-offset_top = -28.0
-offset_right = 472.0
-offset_bottom = 137.0
+offset_top = -185.0
+offset_right = 857.0
+offset_bottom = 197.0
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ConfigButton/PanelConfig" unique_id=398486456]
-layout_mode = 0
-offset_right = 191.0
-offset_bottom = 152.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
@@ -372,6 +387,7 @@ theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ConfigButton/PanelConfig/MarginContainer" unique_id=231449162]
 layout_mode = 2
+theme_override_constants/separation = 35
 
 [node name="VolPrincLBL" type="Label" parent="MarginContainer/VBoxContainer/ConfigButton/PanelConfig/MarginContainer/VBoxContainer" unique_id=1846412302]
 layout_mode = 2
@@ -389,6 +405,9 @@ text = "Volume Bruitages"
 
 [node name="VolBruitHSlider" type="HScrollBar" parent="MarginContainer/VBoxContainer/ConfigButton/PanelConfig/MarginContainer/VBoxContainer" unique_id=266831558]
 layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ConfigButton/PanelConfig/MarginContainer/VBoxContainer" unique_id=314923047]
 layout_mode = 2
@@ -424,6 +443,64 @@ start_on_hover_stop = true
 stop_trigger_source = NodePath("..")
 metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
 
+[node name="PanelCredits" type="Panel" parent="MarginContainer/VBoxContainer/CreditsButton" unique_id=1416322382]
+visible = false
+layout_mode = 0
+offset_left = 283.0
+offset_top = -269.0
+offset_right = 856.0
+offset_bottom = 108.0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/CreditsButton/PanelCredits" unique_id=2111294778]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/CreditsButton/PanelCredits/MarginContainer" unique_id=18550977]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="GgjCergyLBL" type="Label" parent="MarginContainer/VBoxContainer/CreditsButton/PanelCredits/MarginContainer/VBoxContainer" unique_id=430477291]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "GGJ CERGY - 2026"
+
+[node name="TeamsMemberLBL" type="Label" parent="MarginContainer/VBoxContainer/CreditsButton/PanelCredits/MarginContainer/VBoxContainer" unique_id=826230353]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "The game is made by"
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/CreditsButton/PanelCredits/MarginContainer/VBoxContainer" unique_id=1546378060]
+layout_mode = 2
+
+[node name="LorineLBL" type="Label" parent="MarginContainer/VBoxContainer/CreditsButton/PanelCredits/MarginContainer/VBoxContainer" unique_id=591727666]
+layout_mode = 2
+text = "Laurine Boyer - Art Design"
+
+[node name="MickaëlLBL" type="Label" parent="MarginContainer/VBoxContainer/CreditsButton/PanelCredits/MarginContainer/VBoxContainer" unique_id=1101357856]
+layout_mode = 2
+text = "Mickaël Boyer - Game Design"
+
+[node name="BertrandLBL" type="Label" parent="MarginContainer/VBoxContainer/CreditsButton/PanelCredits/MarginContainer/VBoxContainer" unique_id=685576365]
+layout_mode = 2
+text = "Bertrand BORDAGE - Game Design"
+
+[node name="FrancLBL" type="Label" parent="MarginContainer/VBoxContainer/CreditsButton/PanelCredits/MarginContainer/VBoxContainer" unique_id=1286466462]
+layout_mode = 2
+text = "François CORNET - Menu Design"
+
+[node name="ReturnBTN" type="Button" parent="MarginContainer/VBoxContainer/CreditsButton/PanelCredits/MarginContainer" unique_id=1994924266]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Return"
+
 [node name="DLC" type="Button" parent="MarginContainer/VBoxContainer" unique_id=348484555]
 layout_mode = 2
 size_flags_vertical = 3
@@ -446,6 +523,43 @@ start_trigger_source = NodePath("..")
 start_on_hover_stop = true
 stop_trigger_source = NodePath("..")
 metadata/_custom_type_script = "uid://b4hvmk8t0qkgu"
+
+[node name="PanelDLC" type="Panel" parent="MarginContainer/VBoxContainer/DLC" unique_id=1271510996]
+layout_mode = 0
+offset_left = 285.0
+offset_top = -348.0
+offset_right = 971.0
+offset_bottom = 75.0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/DLC/PanelDLC" unique_id=343514120]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/DLC/PanelDLC/MarginContainer" unique_id=1420069206]
+layout_mode = 2
+
+[node name="DLCLBL" type="Label" parent="MarginContainer/VBoxContainer/DLC/PanelDLC/MarginContainer/VBoxContainer" unique_id=1829562314]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Discover our DLCs to refresh your adventure!
+
+DLC 1 : Crossover with Beru! 
+Join his sheep on a crazy masked adventure!
+
+DLC 2 : Crossover with Romu ! 
+One scanner to rule them all!
+
+DLC 3 : Crossover with François ! 
+Finally, a menu for the game ! Or not !"
+horizontal_alignment = 1
 
 [node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=498669572]
 layout_mode = 2
@@ -520,4 +634,7 @@ mouse_filter = 2
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ConfigButton" to="." method="_on_config_button_pressed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/ConfigButton/PanelConfig/MarginContainer/VBoxContainer/VolPrincHSlider" to="." method="_on_vol_princ_h_slider_value_changed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ConfigButton/PanelConfig/MarginContainer/VBoxContainer/MarginContainer/ReturnConfigButton" to="." method="_on_return_config_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CreditsButton/PanelCredits/MarginContainer/ReturnBTN" to="." method="_on_return_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/DLC" to="." method="_on_dlc_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

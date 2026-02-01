@@ -7,6 +7,7 @@
 script = ExtResource("1_p2ls8")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1749320566]
+process_mode = 3
 stream = ExtResource("2_q2l35")
 autoplay = true
 bus = &"MusicMenu"

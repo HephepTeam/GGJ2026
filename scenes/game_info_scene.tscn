@@ -1,5 +1,9 @@
 [gd_scene format=3 uid="uid://rk0q2tmshre7"]
 
+[ext_resource type="PackedScene" path="res://scenes/time.tscn" id="1_oaq5t"]
+[ext_resource type="Script" uid="uid://wvav615ujy7n" path="res://scenes/kills.gd" id="2_brleo"]
+[ext_resource type="Script" uid="uid://dbq5s8fuee14h" path="res://scenes/hp.gd" id="3_v5pp6"]
+
 [node name="GameInfoScene" type="Control" unique_id=612091750]
 custom_minimum_size = Vector2(398, 1024)
 layout_mode = 3
@@ -28,10 +32,44 @@ grow_vertical = 2
 theme_override_constants/margin_top = 341
 theme_override_constants/margin_bottom = 341
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=494268101]
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer" unique_id=906097598]
 layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 0
 
-[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=2025743776]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/MarginContainer" unique_id=494268101]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/MarginContainer/VBoxContainer" unique_id=2025743776]
 layout_mode = 2
 text = "Performance"
 horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/MarginContainer/VBoxContainer" unique_id=1376296492]
+layout_mode = 2
+
+[node name="TimeLBL" type="Label" parent="Panel/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=999748097]
+layout_mode = 2
+text = "Time :"
+
+[node name="Time" parent="Panel/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=535690649 instance=ExtResource("1_oaq5t")]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/MarginContainer/MarginContainer/VBoxContainer" unique_id=1972236634]
+layout_mode = 2
+
+[node name="KillsLBL" type="Label" parent="Panel/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=348380501]
+layout_mode = 2
+text = "Kills :"
+script = ExtResource("2_brleo")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/MarginContainer/MarginContainer/VBoxContainer" unique_id=89782632]
+layout_mode = 2
+
+[node name="HPLBL" type="Label" parent="Panel/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=336735059]
+layout_mode = 2
+text = "HP : "
+script = ExtResource("3_v5pp6")

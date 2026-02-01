@@ -1,5 +1,9 @@
 [gd_scene format=3 uid="uid://ccl0vjajetmik"]
 
+[ext_resource type="Script" uid="uid://7l6wbr2px1tf" path="res://scenes/force.gd" id="1_u322a"]
+[ext_resource type="Script" uid="uid://bsmbx4yk7ivww" path="res://scenes/speed.gd" id="2_o58tb"]
+[ext_resource type="Script" uid="uid://u40ctwrljmdg" path="res://scenes/explose.gd" id="3_3a5f6"]
+
 [node name="MaskScene" type="Control" unique_id=1232245659]
 custom_minimum_size = Vector2(398, 1024)
 layout_mode = 3
@@ -66,3 +70,18 @@ layout_mode = 2
 layout_mode = 2
 text = "Advantage"
 horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer2/VBoxContainer2" unique_id=1374254501]
+layout_mode = 2
+
+[node name="ForceLBL" type="Label" parent="Panel/MarginContainer/VBoxContainer2/VBoxContainer2/VBoxContainer" unique_id=1658727041]
+layout_mode = 2
+script = ExtResource("1_u322a")
+
+[node name="SpeedLBL" type="Label" parent="Panel/MarginContainer/VBoxContainer2/VBoxContainer2/VBoxContainer" unique_id=1317219128]
+layout_mode = 2
+script = ExtResource("2_o58tb")
+
+[node name="ExploseLBL" type="Label" parent="Panel/MarginContainer/VBoxContainer2/VBoxContainer2/VBoxContainer" unique_id=1300479043]
+layout_mode = 2
+script = ExtResource("3_3a5f6")
