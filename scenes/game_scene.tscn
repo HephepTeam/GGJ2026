@@ -11,8 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://8b7lnpmvdgip" path="res://scenes/menus/paused_menu.tscn" id="7_kk2rg"]
 [ext_resource type="PackedScene" uid="uid://dg63fg6sx8t1u" path="res://scenes/filters.tscn" id="9_mw25s"]
 [ext_resource type="PackedScene" uid="uid://de8lrobduafm7" path="res://scenes/Enemy/boss.tscn" id="10_5ay1a"]
-[ext_resource type="PackedScene" uid="uid://dsf0qlkmmrwr6" path="res://scenes/time.tscn" id="11_tcjrq"]
-[ext_resource type="PackedScene" uid="uid://btq3re7wl8xxm" path="res://scenes/collectible/health_bonus.tscn" id="13_tqxxy"]
+[ext_resource type="FontFile" uid="uid://rfwm06ihdyu2" path="res://assets/Font/Crossland.otf" id="11_rvs2r"]
 
 [node name="GameScene" type="Node2D" unique_id=729300741]
 modulate = Color(0.039215688, 0.039215688, 0.039215688, 1)
@@ -104,15 +103,18 @@ unique_name_in_owner = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1897922151]
 
-[node name="Filters" parent="CanvasLayer" unique_id=268984273 instance=ExtResource("9_mw25s")]
-
 [node name="PausedMenu" parent="CanvasLayer" unique_id=437947370 instance=ExtResource("7_kk2rg")]
 
-[node name="Time" parent="CanvasLayer" unique_id=535690649 instance=ExtResource("11_tcjrq")]
-visible = false
+[node name="GreedRoomLabel" type="Label" parent="CanvasLayer" unique_id=2111216364]
+offset_left = 3406.0
+offset_top = -6.0
+offset_right = 3883.0
+offset_bottom = 105.0
+theme_override_fonts/font = ExtResource("11_rvs2r")
+theme_override_font_sizes/font_size = 90
+text = "Greed Room"
 
-[node name="HealthBonus" parent="." unique_id=664900222 instance=ExtResource("13_tqxxy")]
-position = Vector2(1342, 447)
+[node name="Filters" parent="CanvasLayer" unique_id=268984273 instance=ExtResource("9_mw25s")]
 
 [connection signal="player_entered" from="TileMap10" to="Entities/Boss" method="_on_tile_map_10_player_entered"]
 [connection signal="dead" from="Entities/Player" to="." method="_on_player_dead"]
