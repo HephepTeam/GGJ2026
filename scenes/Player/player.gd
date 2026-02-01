@@ -85,7 +85,6 @@ func _check_for_nearest_enemy():
 
 func shoot(target: Vector2):
 	if !is_dead:
-		$BulletSFX.pitch_scale = randf_range(0.9,1.1)
 		$BulletSFX.play()
 		var inst = projectile_scene.instantiate()
 		var dir = (target - global_position).normalized()
@@ -102,7 +101,7 @@ func add_damage_points(damage: float) -> void:
 	points.modulate = Color(1.0, 0.0, 0.0, 1.0)
 	Globals.points_container.add_child.call_deferred(points)
 	points.set_deferred('global_position', global_position - Vector2(0.0, 64.0))
-	
+
 func add_health_points(damage: float) -> void:
 	var points: Points = points_scene.instantiate()
 	points.text = '%d' % damage

@@ -104,7 +104,15 @@ gradient = SubResource("Gradient_uxo23")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_x8khf"]
+random_pitch = 1.3348398
+random_volume_offset_db = 5.0
+streams_count = 1
+stream_0/stream = ExtResource("14_x8khf")
+
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wyey8"]
+random_pitch = 1.3348398
+random_volume_offset_db = 5.0
 streams_count = 4
 stream_0/stream = ExtResource("15_x8khf")
 stream_1/stream = ExtResource("16_aciub")
@@ -192,13 +200,11 @@ texture = SubResource("GradientTexture2D_n7rn1")
 texture_scale = 20.0
 
 [node name="BulletSFX" type="AudioStreamPlayer" parent="." unique_id=337732284]
-stream = ExtResource("14_x8khf")
-volume_db = 3.0
+stream = SubResource("AudioStreamRandomizer_x8khf")
 bus = &"SoundEffect"
 
 [node name="HitSFX" type="AudioStreamPlayer" parent="." unique_id=524358619]
 stream = SubResource("AudioStreamRandomizer_wyey8")
-volume_db = 3.0
 bus = &"SoundEffect"
 
 [node name="HealSFX" type="AudioStreamPlayer" parent="." unique_id=1866371899]

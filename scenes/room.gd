@@ -38,7 +38,7 @@ func _ready():
 		set_cell(Vector2i(0,7), 3, Vector2.ZERO)
 		set_cell(Vector2i(0,8), 3, Vector2.ZERO)
 			
-	open_doors()
+	open_doors(true)
 
 func _on_enter_zone_body_entered(body: Node2D) -> void:
 	if body is Player:
@@ -63,8 +63,9 @@ func close_doors():
 	if door_flags & 8 == 8:
 			$Doors/doorW.play("closed")
 			
-func open_doors():
-	door_sfx.play()
+func open_doors(initial: bool = false):
+	if not initial:
+		door_sfx.play()
 	doors_collision.set_collision_layer_value(4, false)
 
 	if door_flags & 1 == 1:

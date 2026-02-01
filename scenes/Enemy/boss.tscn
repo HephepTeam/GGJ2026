@@ -117,6 +117,8 @@ ProgressBar/styles/background = SubResource("StyleBoxFlat_oo7yl")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_0a75a")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ivv2h"]
+random_pitch = 1.3348398
+random_volume_offset_db = 5.0
 streams_count = 4
 stream_0/stream = ExtResource("7_quyuj")
 stream_1/stream = ExtResource("8_p5p5g")

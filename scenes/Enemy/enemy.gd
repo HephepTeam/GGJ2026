@@ -28,7 +28,6 @@ var _body_direction := 1.0
 var _prev_pos: Vector2
 
 func _ready():
-	scream_sfx.play()
 	Globals.mask_picked_up.connect(on_mask_picked_up)
 	if mask:
 		%Mask.texture = mask.mask_texture
@@ -37,9 +36,7 @@ func _ready():
 	tween.tween_property(body, 'scale:y', 1.0, 0.3)
 	await tween.finished
 	is_spawning = false
-	
-	
-	
+
 
 func is_dead() -> bool:
 	return health <= 0
@@ -111,7 +108,7 @@ func die() -> void:
 	Globals.kill_count += 1
 	await scream_sfx.finished
 	queue_free()
-	
+
 
 func get_damage(val: int):
 	var points: Points = points_scene.instantiate()

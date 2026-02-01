@@ -102,6 +102,8 @@ _data = {
 }
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_eacat"]
+random_pitch = 1.3348398
+random_volume_offset_db = 5.0
 streams_count = 4
 stream_0/stream = ExtResource("7_q0kbr")
 stream_1/stream = ExtResource("8_fx0l5")
@@ -162,6 +164,7 @@ autoplay = &"walking"
 
 [node name="ScreamSFX" type="AudioStreamPlayer" parent="." unique_id=1179404399]
 stream = SubResource("AudioStreamRandomizer_eacat")
+volume_db = -5.0
 bus = &"SoundEffect"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

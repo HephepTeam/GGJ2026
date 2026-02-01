@@ -25,4 +25,3 @@ func _process(delta: float) -> void:
 		var mask0 = mymask.instantiate() as TextureRect
 		mask0.texture = mask
 		add_child(mask0)
-		print(get_children())
