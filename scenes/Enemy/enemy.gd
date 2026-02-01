@@ -5,6 +5,7 @@ signal dead
 
 const SPEED := 200.0
 const DROP_PROBABILITY := 0.1
+const DROP_HEAL_PROBA := 0.2
 
 var is_spawning = true
 
@@ -13,6 +14,7 @@ var is_spawning = true
 @onready var body: AnimatedSprite2D = %Body
 
 var mask_scene: PackedScene = preload("res://scenes/collectible/mask.tscn")
+var heal_scene: PackedScene = preload("res://scenes/collectible/health_bonus.tscn")
 var points_scene: PackedScene = preload("res://scenes/points.tscn")
 var colliding_areas: Array[Area2D] = []
 var collision_vector := Vector2.ZERO
@@ -87,6 +89,11 @@ func die() -> void:
 	if randf() < DROP_PROBABILITY:
 		var dropped_mask: Mask = mask_scene.instantiate()
 		dropped_mask.data = mask
+		Globals.entities_container.add_child.call_deferred(
+			dropped_mask
+		)
+	if randf() < DROP_HEAL_PROBA:
+		var dropped_mask: HealthBonus = heal_scene.instantiate()
 		Globals.entities_container.add_child.call_deferred(
 			dropped_mask
 		)

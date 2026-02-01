@@ -100,7 +100,18 @@ func add_damage_points(damage: float) -> void:
 	points.modulate = Color(1.0, 0.0, 0.0, 1.0)
 	Globals.points_container.add_child.call_deferred(points)
 	points.set_deferred('global_position', global_position - Vector2(0.0, 64.0))
+	
+func add_health_points(damage: float) -> void:
+	var points: Points = points_scene.instantiate()
+	points.text = '%d' % damage
+	points.modulate = Color(0.287, 0.82, 0.0, 1.0)
+	Globals.points_container.add_child.call_deferred(points)
+	points.set_deferred('global_position', global_position - Vector2(0.0, 64.0))
 
+func heal(val: int):
+	if !is_dead:
+		health = clamp(health + val, 0.0, MAX_HEALTH)
+		add_health_points(val)
 
 func get_damage(val: int, dir: Vector2):
 	if !_cooldown_hit and !is_dead:
@@ -115,10 +126,15 @@ func get_damage(val: int, dir: Vector2):
 			$%Mask.visible = false
 			is_dead = true
 			var inst = broken_mask_scene.instantiate()
+			inst.finished.connect(on_mask_broken_finished)
 			add_child(inst)
 			inst.position = shoot_point.position
 			Globals.launch_slowmo()
-			dead.emit()
+			
+			
+func on_mask_broken_finished():
+	dead.emit()
+	
 
 
 func anim_hit():

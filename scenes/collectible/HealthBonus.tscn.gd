@@ -3,7 +3,7 @@ class_name HealthBonus
 
 
 var tween: Tween
-@onready var healthbonus_sprite: Sprite2D = $healthbonusSprite
+@onready var healthbonus_sprite: Sprite2D = $HealthBonusSprite
 
 @onready var init_pos_y = healthbonus_sprite.position.y
 
@@ -15,7 +15,7 @@ func _ready():
 
 
 func _on_body_entered(body: Node2D) -> void:
-	Globals.healthbonus_picked_up.emit()
+	body.heal(5)
 	if tween: tween.kill()
 	tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 	tween.set_parallel(true)

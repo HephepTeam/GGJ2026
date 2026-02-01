@@ -8,4 +8,4 @@ func _ready() -> void:
 	
 
 func _on_player_dead() -> void:
-	get_tree().change_scene_to_file("res://scenes/menus/game_over.tscn")
+	get_tree().change_scene_to_file.call_deferred("res://scenes/menus/game_over.tscn")
