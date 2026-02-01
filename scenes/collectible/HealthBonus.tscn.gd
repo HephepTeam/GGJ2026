@@ -15,6 +15,8 @@ func _ready():
 
 
 func _on_body_entered(body: Node2D) -> void:
+	if body.health >= 100:
+		return
 	body.heal(5)
 	if tween: tween.kill()
 	tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)

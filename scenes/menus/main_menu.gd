@@ -79,7 +79,6 @@ func _on_mask_1_button_mouse_entered() -> void:
 
 
 func _on_quit_button_pressed() -> void:
-	print("JePasse")
 	get_tree().quit()
 
 
@@ -122,7 +121,6 @@ func _on_config_button_pressed() -> void:
 
 func _on_vol_princ_h_slider_value_changed(value: float) -> void:
 	var db_value = linear_to_db(value)
-	print(db_value)
 	AudioServer.set_bus_volume_db(1, db_value)
 	
 
