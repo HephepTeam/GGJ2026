@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://8b7lnpmvdgip" path="res://scenes/menus/paused_menu.tscn" id="7_kk2rg"]
 [ext_resource type="PackedScene" path="res://scenes/collectible/crowbar.tscn" id="8_mw25s"]
 [ext_resource type="PackedScene" uid="uid://dg63fg6sx8t1u" path="res://scenes/filters.tscn" id="9_mw25s"]
+[ext_resource type="PackedScene" uid="uid://de8lrobduafm7" path="res://scenes/Enemy/boss.tscn" id="10_5ay1a"]
 [ext_resource type="PackedScene" uid="uid://dsf0qlkmmrwr6" path="res://scenes/time.tscn" id="11_tcjrq"]
 [ext_resource type="PackedScene" uid="uid://btq3re7wl8xxm" path="res://scenes/collectible/health_bonus.tscn" id="13_tqxxy"]
 
@@ -60,7 +61,7 @@ door_flags = 13
 
 [node name="TileMap10" parent="." unique_id=1306396387 instance=ExtResource("1_ycayy")]
 position = Vector2(1024, -3072)
-max_enemies = 0
+max_enemies = 1
 door_flags = 2
 
 [node name="TileMap9" parent="." unique_id=2067688600 instance=ExtResource("1_ycayy")]
@@ -84,10 +85,13 @@ position = Vector2(461, -488)
 data = ExtResource("5_tcjrq")
 
 [node name="Player" parent="Entities" unique_id=1534390266 instance=ExtResource("2_bw6k5")]
-position = Vector2(1537, 846)
+position = Vector2(1562, -1510)
 
 [node name="Crowbar" parent="Entities" unique_id=482738927 instance=ExtResource("8_mw25s")]
 position = Vector2(238, 343)
+
+[node name="Boss" parent="Entities" unique_id=1661876933 instance=ExtResource("10_5ay1a")]
+position = Vector2(1539, -2697)
 
 [node name="PointsContainer" type="Node2D" parent="." unique_id=1340237641]
 unique_name_in_owner = true
@@ -97,10 +101,12 @@ unique_name_in_owner = true
 [node name="Filters" parent="CanvasLayer" unique_id=268984273 instance=ExtResource("9_mw25s")]
 
 [node name="PausedMenu" parent="CanvasLayer" unique_id=437947370 instance=ExtResource("7_kk2rg")]
+visible = false
 
 [node name="Time" parent="CanvasLayer" unique_id=535690649 instance=ExtResource("11_tcjrq")]
 
 [node name="HealthBonus" parent="." unique_id=664900222 instance=ExtResource("13_tqxxy")]
 position = Vector2(1342, 447)
 
+[connection signal="player_entered" from="TileMap10" to="Entities/Boss" method="_on_tile_map_10_player_entered"]
 [connection signal="dead" from="Entities/Player" to="." method="_on_player_dead"]

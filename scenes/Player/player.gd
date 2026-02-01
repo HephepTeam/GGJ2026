@@ -72,7 +72,7 @@ func update_mask(new_mask: Texture):
 	%Mask.texture = new_mask
 
 
-func _check_for_nearest_enemy() -> Enemy:
+func _check_for_nearest_enemy():
 	var enemies = Globals.get_enemy_around()
 	var min_distance := INF
 	var nearest = null

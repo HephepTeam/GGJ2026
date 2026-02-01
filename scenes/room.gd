@@ -1,5 +1,7 @@
 extends TileMapLayer
 
+signal player_entered
+
 @export var enemy_scene: PackedScene
 @export var enemy_mask_resource: Array[MaskData]
 @export var max_enemies := 15
@@ -42,6 +44,7 @@ func _on_enter_zone_body_entered(body: Node2D) -> void:
 		await Globals.camera_move_finished
 		spawn_timer.start()
 		close_doors()
+		player_entered.emit()
 		
 
 func close_doors():
