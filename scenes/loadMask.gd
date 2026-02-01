@@ -17,9 +17,11 @@ func _process(delta: float) -> void:
 		if Globals.maskTab.size()<=7:
 			add_theme_constant_override("separation", -50)
 		elif Globals.maskTab.size()<=14:
-			add_theme_constant_override("separation", -70)
+			add_theme_constant_override("separation", -60)
 		elif Globals.maskTab.size()<=21:
-			add_theme_constant_override("separation", -90)
+			add_theme_constant_override("separation", -70)
+		elif Globals.maskTab.size()<=30:
+			add_theme_constant_override("separation", -80)
 		var mask0 = mymask.instantiate() as TextureRect
 		mask0.texture = mask
 		add_child(mask0)
