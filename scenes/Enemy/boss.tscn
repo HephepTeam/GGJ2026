@@ -173,8 +173,8 @@ offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = SubResource("Theme_ot2u2")
-max_value = 1000.0
-value = 1000.0
+max_value = 2000.0
+value = 2000.0
 
 [node name="Label" type="Label" parent="CanvasLayer" unique_id=388041983]
 modulate = Color(1, 1, 1, 0)

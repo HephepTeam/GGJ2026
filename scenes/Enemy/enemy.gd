@@ -5,7 +5,7 @@ signal dead
 
 const SPEED := 200.0
 const DROP_PROBABILITY := 0.2
-const DROP_HEAL_PROBA := 0.3
+const DROP_HEAL_PROBA := 0.2
 
 var is_spawning = true
 
@@ -92,12 +92,14 @@ func die() -> void:
 		Globals.entities_container.add_child.call_deferred(
 			dropped_mask
 		)
-	if randf() < DROP_HEAL_PROBA:
+		dropped_mask.set_deferred('global_position', global_position)
+	elif randf() < DROP_HEAL_PROBA:
 		var dropped_mask: HealthBonus = heal_scene.instantiate()
 		Globals.entities_container.add_child.call_deferred(
 			dropped_mask
 		)
 		dropped_mask.set_deferred('global_position', global_position)
+	
 	dead.emit()
 	queue_free()
 	Globals.kill_count += 1
