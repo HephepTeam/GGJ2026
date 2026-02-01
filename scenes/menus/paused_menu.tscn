@@ -16,6 +16,7 @@ grow_vertical = 2
 script = ExtResource("1_p5bqu")
 
 [node name="PanelPausedMenu" type="Panel" parent="." unique_id=1791336069]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -44,6 +45,7 @@ theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelPausedMenu/MarginContainer" unique_id=1800859648]
 layout_mode = 2
+theme_override_constants/separation = 20
 
 [node name="Label" type="Label" parent="PanelPausedMenu/MarginContainer/VBoxContainer" unique_id=1697687492]
 layout_mode = 2

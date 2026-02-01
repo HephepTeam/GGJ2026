@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dols6ucr8nf3y"]
 
 [ext_resource type="Script" uid="uid://d2tayuxw026k2" path="res://scenes/managers/globals.gd" id="1_p2ls8"]
-[ext_resource type="AudioStream" uid="uid://c2cete0kvg6gr" path="res://assets/music/loop_2026.mp3" id="2_q2l35"]
+[ext_resource type="AudioStream" uid="uid://b8j7cev32br37" path="res://assets/music/ggj 2026 final.mp3" id="2_q2l35"]
 
 [node name="Globals" type="Node" unique_id=1208484909]
 script = ExtResource("1_p2ls8")
