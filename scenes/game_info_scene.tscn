@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://rk0q2tmshre7"]
 
-[ext_resource type="PackedScene" path="res://scenes/time.tscn" id="1_oaq5t"]
+[ext_resource type="PackedScene" uid="uid://dsf0qlkmmrwr6" path="res://scenes/time.tscn" id="1_oaq5t"]
 [ext_resource type="Script" uid="uid://wvav615ujy7n" path="res://scenes/kills.gd" id="2_brleo"]
 [ext_resource type="Script" uid="uid://dbq5s8fuee14h" path="res://scenes/hp.gd" id="3_v5pp6"]
 
@@ -57,6 +57,7 @@ text = "Time :"
 
 [node name="Time" parent="Panel/MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=535690649 instance=ExtResource("1_oaq5t")]
 layout_mode = 2
+horizontal_alignment = 3
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Panel/MarginContainer/MarginContainer/VBoxContainer" unique_id=1972236634]
 layout_mode = 2
