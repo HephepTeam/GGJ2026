@@ -2,10 +2,16 @@
 
 [ext_resource type="Script" uid="uid://bfou0n3kqla31" path="res://scenes/damage_bomb.gd" id="1_dhflc"]
 [ext_resource type="Texture2D" uid="uid://q0px0uha5c5b" path="res://assets/explosion.png" id="2_g00pm"]
+[ext_resource type="AudioStream" uid="uid://ymbd817feyk" path="res://assets/sfx/Boum.ogg" id="3_l5872"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tyl1k"]
 resource_local_to_scene = true
 radius = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_sr5v4"]
+random_pitch = 1.3348398
+streams_count = 1
+stream_0/stream = ExtResource("3_l5872")
 
 [node name="DamageBomb" type="Area2D" unique_id=893008260]
 collision_layer = 64
@@ -18,5 +24,8 @@ shape = SubResource("CircleShape2D_tyl1k")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1486496823]
 scale = Vector2(0.00390625, 0.0039062547)
 texture = ExtResource("2_g00pm")
+
+[node name="BoumSFX" type="AudioStreamPlayer" parent="." unique_id=872878936]
+stream = SubResource("AudioStreamRandomizer_sr5v4")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

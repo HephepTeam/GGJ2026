@@ -3,6 +3,8 @@ extends Area2D
 const BASE_RADIUS := Vector2.ONE * 75.0
 const BASE_DAMAGE := 25.0
 
+@onready var boum_sfx: AudioStreamPlayer = $BoumSFX
+
 var data: ProjectileData:
 	set(value):
 		data = value
@@ -13,6 +15,9 @@ var grow_speed = 500.0
 
 var _max_radius := Vector2.ONE * BASE_RADIUS
 var _damage : float = 10.0
+
+func _ready() -> void:
+	boum_sfx.play()
 
 
 func _physics_process(delta: float) -> void:
