@@ -146,7 +146,11 @@ func anim_hit():
 func _on_timer_timeout() -> void:
 	var target = _check_for_nearest_enemy()
 	if target:
-		shoot(target.global_position)
+		if target is Boss:
+			if !target.is_spawning:
+				shoot(target.global_position)
+		else:
+			shoot(target.global_position)
 
 
 func _on_projectile_touched(pos: Vector2):

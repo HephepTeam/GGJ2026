@@ -10,7 +10,7 @@ func _ready():
 func update_camera(room):
 	if tween: tween.kill()
 	tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
-	tween.tween_property(self, "global_position", room.global_position, 0.7)
+	tween.tween_property(self, "global_position", room.global_position-Vector2(398,0), 0.7)
 	
 	tween.tween_callback(_on_anim_finished)
 	

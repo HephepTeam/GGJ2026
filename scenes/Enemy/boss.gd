@@ -18,8 +18,8 @@ var points_scene: PackedScene = preload("res://scenes/points.tscn")
 var colliding_areas: Array[Area2D] = []
 var collision_vector := Vector2.ZERO
 
-const base_health = 1000.0
-var health := 1000.0
+const base_health = 2000.0
+var health := 2000.0
 var attack := 32.0
 
 var _body_direction := 1.0
