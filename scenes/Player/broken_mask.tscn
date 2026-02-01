@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://np1mx06i7xd4" path="res://assets/player/masks/broken/maskKC2.png" id="1_5b0km"]
 [ext_resource type="Texture2D" uid="uid://da0w2a4nfxf2y" path="res://assets/player/masks/broken/maskKC1.png" id="2_0nvyx"]
 [ext_resource type="Texture2D" uid="uid://bqnanog1cwdu3" path="res://assets/player/masks/broken/maskKC0.png" id="3_2fs4n"]
+[ext_resource type="AudioStream" uid="uid://b6g65q77b261j" path="res://assets/sfx/Noooo fort.ogg" id="5_2fs4n"]
 
 [sub_resource type="Animation" id="Animation_dq7kv"]
 length = 0.001
@@ -243,6 +244,10 @@ texture = ExtResource("3_2fs4n")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1190295787]
 libraries/ = SubResource("AnimationLibrary_t40a3")
-speed_scale = 4.0
+speed_scale = 2.0
+
+[node name="NoSound" type="AudioStreamPlayer" parent="." unique_id=1414377354]
+stream = ExtResource("5_2fs4n")
+autoplay = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -10,6 +10,7 @@ radius = 1.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_sr5v4"]
 random_pitch = 1.3348398
+random_volume_offset_db = 5.0
 streams_count = 1
 stream_0/stream = ExtResource("3_l5872")
 
@@ -27,5 +28,6 @@ texture = ExtResource("2_g00pm")
 
 [node name="BoumSFX" type="AudioStreamPlayer" parent="." unique_id=872878936]
 stream = SubResource("AudioStreamRandomizer_sr5v4")
+volume_db = -5.0
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
