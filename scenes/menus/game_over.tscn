@@ -1,36 +1,52 @@
 [gd_scene format=3 uid="uid://djgxjshhamwka"]
 
 [ext_resource type="Texture2D" uid="uid://bqxxov00n1wc1" path="res://assets/GameOver.png" id="1_ujjcl"]
+[ext_resource type="FontFile" uid="uid://rfwm06ihdyu2" path="res://assets/Font/Crossland.otf" id="2_asori"]
 
 [node name="GameOver" type="Control" unique_id=1253640996]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1505196908]
-layout_mode = 0
-offset_left = -168.0
-offset_top = -5.0
-offset_right = 1205.3334
-offset_bottom = 1025.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_ujjcl")
-expand_mode = 3
+expand_mode = 2
 
-[node name="Label" type="Label" parent="." unique_id=2083418522]
-layout_mode = 0
-offset_left = 376.0
-offset_top = 641.0
-offset_right = 631.0
-offset_bottom = 708.0
-theme_override_font_sizes/font_size = 54
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1971060989]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -383.0
+offset_top = 69.0
+offset_right = 377.0
+offset_bottom = 523.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 200
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=2083418522]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_asori")
+theme_override_font_sizes/font_size = 120
 text = "GAME OVER"
+horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="." unique_id=654237192]
-layout_mode = 0
-offset_left = 62.0
-offset_top = 908.0
-offset_right = 990.0
-offset_bottom = 1025.0
-theme_override_font_sizes/font_size = 34
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=654237192]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_asori")
+theme_override_font_sizes/font_size = 64
 text = "Discover the beginner level in our DLC, available now! 
 With a full menu included!"
 horizontal_alignment = 1
